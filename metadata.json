@@ -1,0 +1,6 @@
+{
+  "name": "HeliumSol Homepage",
+  "description": "Premium, scroll-driven interactive homepage for HeliumSol with Apple-level storytelling and a soft-pastel minimalist aesthetic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

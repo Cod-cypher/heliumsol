@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400..700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+/* Enable class-based dark mode (toggle), with system default handled in index.html */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Brand — refined corporate navy */
+  --color-navy-50: #f3f6fb;
+  --color-navy-100: #e4ebf5;
+  --color-navy-200: #c5d4e8;
+  --color-navy-300: #9db4d6;
+  --color-navy-400: #5e7ca8;
+  --color-navy-500: #34547f;
+  --color-navy-600: #243f63;
+  --color-navy-700: #1b3252;
+  --color-navy-800: #142540;
+  --color-navy-900: #0d1a2e;
+
+  /* Dark-mode surfaces — navy-tinted ink */
+  --color-ink-700: #1c2c47;
+  --color-ink-800: #131f33;
+  --color-ink-900: #0d1626;
+  --color-ink-950: #070e1a;
+
+  --color-brand-50: #f3f6fb;
+  --color-brand-500: #34547f;
+  --color-brand-600: #243f63;
+  --color-brand-700: #1b3252;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  background-color: #FFFFFF;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: #070e1a;
+  color: #e2e8f0;
+}
+
+/* Tighten display headings for an editorial, premium feel */
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+  font-style: normal;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Decorative grid overlays — theme-aware line color so prominence is
+   consistent in both light and dark modes. Pair with a Tailwind
+   bg-[size:...] utility to control spacing. */
+:root {
+  --grid-line: rgba(15, 23, 42, 0.10);
+}
+.dark {
+  --grid-line: rgba(226, 232, 240, 0.09);
+}
+.grid-lines {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+}
+.grid-lines-x {
+  background-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px);
+}
+.grid-lines-y {
+  background-image: linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+}
+
+/* Refined elevation — soft, layered, never harsh */
+.shadow-soft {
+  box-shadow: 0 1px 2px rgba(13, 26, 46, 0.04),
+              0 8px 24px -8px rgba(13, 26, 46, 0.10);
+}
+.shadow-card {
+  box-shadow: 0 1px 3px rgba(13, 26, 46, 0.05),
+              0 18px 40px -20px rgba(13, 26, 46, 0.18);
+}
+.dark .shadow-soft {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3),
+              0 8px 24px -8px rgba(0, 0, 0, 0.5);
+}
+.dark .shadow-card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4),
+              0 18px 40px -20px rgba(0, 0, 0, 0.7);
+}
+
+/* Selection styled to the brand */
+::selection {
+  background: #243f63;
+  color: #ffffff;
+}
+.dark ::selection {
+  background: #9db4d6;
+  color: #070e1a;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+  border: 2px solid #ffffff;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #070e1a;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+  border: 2px solid #070e1a;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
