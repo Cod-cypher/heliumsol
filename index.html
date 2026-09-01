@@ -8,14 +8,26 @@
     <title>HeliumSol — Websites, Apps, Chatbots & Automation for Growing Businesses</title>
     <meta
       name="description"
-      content="HeliumSol is a full-service digital agency. We design and build high-performance websites, web & mobile apps, AI chatbots, and n8n automation — plus SEO and Google Business Profile growth. Book a free discovery call."
+      content="HeliumSol is a full-service digital agency building high-performance websites, web &amp; mobile apps, AI chatbots, and n8n workflow automation. Book a free discovery call."
     />
     <meta name="theme-color" content="#142540" />
 
-    <!-- Favicon (brand mark) -->
+    <!--
+      Favicon: an H lettermark on the brand navy.
+
+      This replaces a white square rotated 45 degrees inside the same rounded
+      navy tile. At favicon size that shape read as the Angular framework's
+      logo — a dark rounded shield with a white geometric mark in the middle —
+      which is not an association this site wants in a tab strip. A letterform
+      cannot be mistaken for another product's logo.
+
+      Inline as a data URI rather than a file so it survives `vite build`
+      emptying dist/ and needs no entry in a public/ directory that does not
+      exist yet.
+    -->
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23142540'/%3E%3Cg transform='rotate(45 16 16)'%3E%3Crect x='10.5' y='10.5' width='11' height='11' rx='2' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23142540'/%3E%3Cpath d='M10 8h3.5v6.25h5V8H22v16h-3.5v-6.25h-5V24H10Z' fill='%23ffffff'/%3E%3C/svg%3E"
     />
 
     <!-- Open Graph -->
@@ -23,7 +35,7 @@
     <meta property="og:title" content="HeliumSol — Full-Service Digital Agency" />
     <meta
       property="og:description"
-      content="Websites, apps, AI chatbots, automation, SEO & Google Business Profile — built to grow your business."
+      content="Websites, apps, AI chatbots and workflow automation — built to grow your business."
     />
     <!-- TODO: add a 1200x630 share image at /og-image.png and set the absolute URL once the domain is live -->
     <meta property="og:image" content="/og-image.png" />
@@ -33,7 +45,7 @@
     <meta name="twitter:title" content="HeliumSol — Full-Service Digital Agency" />
     <meta
       name="twitter:description"
-      content="Websites, apps, AI chatbots, automation, SEO & Google Business Profile — built to grow your business."
+      content="Websites, apps, AI chatbots and workflow automation — built to grow your business."
     />
     <meta name="twitter:image" content="/og-image.png" />
 

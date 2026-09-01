@@ -20,7 +20,7 @@ const steps = [
   {
     icon: TrendingUp,
     title: "Grow",
-    description: "Ongoing SEO, automation, and improvements that compound results over time.",
+    description: "Ongoing support, automation, and improvements that compound results over time.",
   },
 ];
 

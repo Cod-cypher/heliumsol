@@ -16,10 +16,10 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
     {
       id: "brightpath",
       title: "BrightPath Clinic",
-      subtitle: "Healthcare · Website + Local SEO",
-      description: "New website plus Google Business Profile optimisation that doubled new patient enquiries from local search.",
-      category: "Website + GMB",
-      tech: ["WordPress", "SEO", "GMB"],
+      subtitle: "Healthcare · Website + Booking",
+      description: "A new website with online appointment booking that doubled new patient enquiries.",
+      category: "Website",
+      tech: ["React", "Node", "Booking"],
       color: {
         bg: "bg-amber-50/70",
         text: "text-amber-700",

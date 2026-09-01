@@ -45,8 +45,8 @@ export default function Hero() {
           className="mt-8 text-base sm:text-lg text-slate-500 dark:text-slate-400 max-w-2xl font-normal leading-relaxed"
         >
           HeliumSol partners with ambitious businesses to design and build full-stack websites,
-          web & mobile apps, AI chatbots, and automated workflows — plus the SEO and Google
-          Business Profile work to get you found.
+          web & mobile apps, AI chatbots, and the automated workflows that run quietly behind
+          them.
         </motion.p>
 
         {/* Call to Actions - Curated Editorial buttons */}
@@ -79,10 +79,10 @@ export default function Hero() {
           className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl"
         >
           {[
+            { label: "Websites", text: "Built to convert" },
             { label: "Web & Apps", text: "Full-stack builds" },
             { label: "AI Chatbots", text: "24/7 lead capture" },
             { label: "Automation", text: "n8n workflows" },
-            { label: "SEO & GMB", text: "Get found online" },
           ].map((item, index) => (
             <div
               key={index}

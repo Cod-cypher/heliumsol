@@ -8,10 +8,10 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: "Services", href: "#services" },
-    { label: "Work", href: "#work" },
-    { label: "Process", href: "#process" },
-    { label: "Testimonials", href: "#testimonials" },
+    { label: "Services", href: "/#services" },
+    { label: "Work", href: "/#work" },
+    { label: "Process", href: "/#process" },
+    { label: "Testimonials", href: "/#testimonials" },
   ];
 
   return (
@@ -24,7 +24,7 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl">
         <nav className="flex items-center justify-between rounded-xl border border-slate-200/80 dark:border-white/10 bg-white/85 dark:bg-ink-900/80 px-6 py-3.5 shadow-soft backdrop-blur-xl">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5 group">
+          <a href="/" className="flex items-center gap-2.5 group">
             <div className="relative flex h-8.5 w-8.5 items-center justify-center rounded-lg bg-navy-800 dark:bg-navy-600 shadow-inner group-hover:scale-105 transition-transform duration-300">
               <div className="w-4 h-4 bg-white rounded-xs rotate-45" />
             </div>
@@ -93,7 +93,7 @@ export default function Navbar() {
             <div className="mt-2 h-px bg-slate-100 dark:bg-white/10" />
             <div className="flex flex-col gap-2 pt-2">
               <a
-                href="#work"
+                href="/#work"
                 onClick={() => setMobileMenuOpen(false)}
                 className="rounded-lg border border-slate-200 dark:border-white/10 text-center py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-white/5"
               >

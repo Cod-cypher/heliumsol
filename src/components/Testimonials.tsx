@@ -20,10 +20,10 @@ const testimonials = [
   },
   {
     quote:
-      "Within a quarter we were ranking on the first page for our main local searches. Clear communication, on time, and genuinely good to work with.",
+      "Our new storefront is quick, the checkout finally makes sense, and online orders climbed within the first quarter. Clear communication, on time, and genuinely good to work with.",
     name: "Elena Rossi",
     business: "Owner, Summit Gear Co.",
-    result: "Page 1 on Google",
+    result: "+38% online orders",
   },
 ];
 

@@ -1,19 +1,29 @@
 import { Twitter, Github, Linkedin, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { BOOKING_URL, CONTACT } from "../constants";
+import { navigate } from "../routes";
 
 export default function Footer() {
+  /*
+    Real hrefs, intercepted for client-side navigation. Keeping the href means
+    the links are still middle-clickable, still open in a new tab, and are
+    still followed by anything that reads the markup rather than clicking.
+  */
+  const legalLinks = [
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms of Service", href: "/terms-of-service" },
+  ];
+
   const serviceLinks = [
-    { label: "Full-Stack Websites", href: "#services" },
-    { label: "Web & Mobile Apps", href: "#services" },
-    { label: "AI Chatbots", href: "#services" },
-    { label: "Workflow Automation", href: "#services" },
-    { label: "SEO & Google Business", href: "#services" },
+    { label: "Full-Stack Websites", href: "/#services" },
+    { label: "Web & Mobile Apps", href: "/#services" },
+    { label: "AI Chatbots", href: "/#services" },
+    { label: "Workflow Automation", href: "/#services" },
   ];
 
   const companyLinks = [
-    { label: "Our Work", href: "#work" },
-    { label: "How We Work", href: "#process" },
-    { label: "Testimonials", href: "#testimonials" },
+    { label: "Our Work", href: "/#work" },
+    { label: "How We Work", href: "/#process" },
+    { label: "Testimonials", href: "/#testimonials" },
     { label: "Book a Call", href: BOOKING_URL },
   ];
 
@@ -24,7 +34,7 @@ export default function Footer() {
 
           {/* Logo column (4 cols) */}
           <div className="md:col-span-4 flex flex-col gap-4 text-left">
-            <a href="#" className="flex items-center gap-2.5">
+            <a href="/" className="flex items-center gap-2.5">
               <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-navy-800 dark:bg-navy-600 shadow-inner">
                 <div className="w-3.5 h-3.5 bg-white rounded-xs rotate-45" />
               </div>
@@ -34,7 +44,7 @@ export default function Footer() {
             </a>
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-sm font-normal leading-relaxed">
               A full-service digital agency building websites, apps, chatbots, and automation —
-              plus the SEO to help growing businesses get found and get results.
+              built to help growing businesses ship faster and get results.
             </p>
             <div className="flex items-center gap-3 mt-2">
               <a href="#" aria-label="Twitter" className="rounded-lg p-1.5 text-slate-400 dark:text-slate-500 hover:text-navy-700 dark:hover:text-white hover:bg-slate-150 dark:hover:bg-white/10 transition-colors">
@@ -119,8 +129,19 @@ export default function Footer() {
         <div className="mt-16 pt-8 border-t border-slate-200/60 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 dark:text-slate-500 font-medium">
           <span>© {new Date().getFullYear()} HeliumSol. All rights reserved.</span>
           <div className="flex items-center gap-5">
-            <a href="#" className="hover:text-navy-700 dark:hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-navy-700 dark:hover:text-white transition-colors">Terms of Service</a>
+            {legalLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(link.href);
+                }}
+                className="hover:text-navy-700 dark:hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         </div>
       </div>

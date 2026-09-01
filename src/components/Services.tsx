@@ -1,12 +1,12 @@
 import { motion } from "motion/react";
-import { Globe, Smartphone, Bot, Workflow, Search, MapPin, ArrowRight } from "lucide-react";
+import { Globe, Smartphone, Bot, Workflow, ArrowRight } from "lucide-react";
 import { BOOKING_URL } from "../constants";
 
 const services = [
   {
     icon: Globe,
     name: "Full-Stack Websites",
-    outcome: "Fast, conversion-focused sites built to rank and sell.",
+    outcome: "Fast, conversion-focused sites that turn visitors into customers.",
     tag: "Web",
   },
   {
@@ -27,18 +27,6 @@ const services = [
     outcome: "Connect your tools with n8n and automate the busywork.",
     tag: "n8n",
   },
-  {
-    icon: Search,
-    name: "SEO",
-    outcome: "Rank higher and turn searches into paying customers.",
-    tag: "Growth",
-  },
-  {
-    icon: MapPin,
-    name: "Google Business Profile",
-    outcome: "Win the local map pack and bring in nearby customers.",
-    tag: "Local",
-  },
 ];
 
 export default function Services() {
@@ -54,13 +42,15 @@ export default function Services() {
             Services built to move your business forward
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-500 dark:text-slate-400 leading-relaxed">
-            From the first line of code to ranking on Google, we cover the full stack of growing
-            online — design, build, automate, and get found.
+            From the first line of code to the automations running quietly behind it, we cover the
+            full stack of building online — design, build, ship, and automate.
           </p>
         </div>
 
-        {/* Services grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Services grid.
+            Four across on desktop rather than three: with four services a
+            three-column grid leaves a single orphaned card on the second row. */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
