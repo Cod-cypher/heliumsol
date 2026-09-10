@@ -7,15 +7,34 @@
  * src/content/legal.tsx and a route, not another copy of this file.
  */
 
-import type { MouseEvent } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { navigate, LEGAL_UPDATED } from "../routes";
 import { BOOKING_URL } from "../constants";
 import type { LegalDoc } from "../content/legal";
 
+/*
+  Whether the page should start fully visible rather than fade in.
+
+  True during the build-time prerender (no document), so the static HTML that
+  scripts/prerender.tsx writes does not ship the whole policy at opacity 0 —
+  which, to anything that does not run JS, is a page of invisible text. True
+  again for the first client render over that prerendered HTML, where replaying
+  the entrance would blank text the reader is already looking at. Cleared after
+  the first mount so in-app navigation still animates.
+*/
+let startsVisible =
+  typeof document === "undefined" ||
+  !!document.getElementById("root")?.hasAttribute("data-prerendered");
+
 export default function LegalPage({ doc }: { doc: LegalDoc }) {
   const Icon = doc.icon;
+  const [skipIntro] = useState(() => startsVisible);
+
+  useEffect(() => {
+    startsVisible = false;
+  }, []);
 
   const goHome = (e: MouseEvent) => {
     e.preventDefault();
@@ -36,7 +55,7 @@ export default function LegalPage({ doc }: { doc: LegalDoc }) {
       />
 
       <motion.div
-        initial={{ opacity: 0, y: 12 }}
+        initial={skipIntro ? false : { opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className="relative mx-auto max-w-3xl"
@@ -74,18 +93,21 @@ export default function LegalPage({ doc }: { doc: LegalDoc }) {
             {doc.sections.map((section, i) => (
               <section
                 key={section.heading}
+                id={section.id}
                 /* Rule between sections rather than under each one, so the last
-                   section does not end with a stray line above the footer. */
-                className={
+                   section does not end with a stray line above the footer.
+                   scroll-mt keeps an #anchor jump clear of the fixed Navbar. */
+                className={`scroll-mt-28 ${
                   i === 0 ? "" : "border-t border-slate-200/70 dark:border-white/10 pt-9"
-                }
+                }`}
               >
                 <h2 className="font-display text-base md:text-lg font-bold text-slate-900 dark:text-white">
                   {section.heading}
                 </h2>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                {/* A div, not a p: some bodies contain paragraphs and lists. */}
+                <div className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                   {section.body}
-                </p>
+                </div>
               </section>
             ))}
           </div>

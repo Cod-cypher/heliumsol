@@ -20,6 +20,13 @@
  *   2. If a planned feature is dropped rather than shipped, delete its section
  *      here. Describing a chatbot you never built is its own kind of wrong.
  *
+ * The two SMS sections (privacy #sms, terms #sms-terms) are what US carriers
+ * read when reviewing the HeliumSol text messaging registration. Reviewers
+ * look for specific statements — consent, message types, "Message frequency
+ * may vary", "Message and data rates may apply", STOP and HELP, no sharing of
+ * opt-in data, and a support contact — so keep each of those intact when
+ * editing the wording around them.
+ *
  * Bump LEGAL_UPDATED in src/routes.ts whenever the words below change.
  */
 
@@ -29,6 +36,8 @@ import { CONTACT } from "../constants";
 
 export interface LegalSection {
   heading: string;
+  /** Anchor for linking straight to the section, e.g. /privacy-policy#sms. */
+  id?: string;
   body: ReactNode;
 }
 
@@ -53,6 +62,20 @@ function A({ href, children }: { href: string; children: ReactNode }) {
   );
 }
 
+/** Lead-in label for a list item or paragraph, e.g. "Frequency." */
+function B({ children }: { children: ReactNode }) {
+  return <strong className="font-semibold text-slate-800 dark:text-slate-200">{children}</strong>;
+}
+
+/** Bulleted list, for sections that are a checklist of terms rather than prose. */
+function List({ children }: { children: ReactNode }) {
+  return (
+    <ul className="mt-3 flex list-disc flex-col gap-2 pl-5 marker:text-slate-400 dark:marker:text-slate-500">
+      {children}
+    </ul>
+  );
+}
+
 const MailLink = () => <A href={`mailto:${CONTACT.email}`}>{CONTACT.email}</A>;
 
 export const PRIVACY: LegalDoc = {
@@ -60,17 +83,17 @@ export const PRIVACY: LegalDoc = {
   icon: Shield,
   title: "Privacy Policy",
   intro:
-    "This policy explains what we collect when you use heliumsol.com, why we collect it, who else touches it, and how to get it removed. It is written to be read, not to be survived.",
+    "This policy explains what HeliumSol collects when you use heliumsol.com, contact us, or receive our text messages, why we collect it, who else touches it, and how to get it removed. It is written to be read, not to be survived.",
   sections: [
     {
       heading: "1. Who we are",
       body: (
         <>
           HeliumSol is a digital agency that designs and builds websites, web and mobile
-          applications, AI assistants, and workflow automation. This policy covers this website and
-          the enquiries that come through it. Work we carry out for a client is additionally
-          governed by the agreement for that project, which takes precedence where the two overlap.
-          Questions go to <MailLink /> or {CONTACT.phone}.
+          applications, AI assistants, and workflow automation. This policy covers this website, the
+          enquiries that come through it, and the HeliumSol text messaging program. Work we carry
+          out for a client is additionally governed by the agreement for that project, which takes
+          precedence where the two overlap. Questions go to <MailLink /> or {CONTACT.phone}.
         </>
       ),
     },
@@ -81,7 +104,9 @@ export const PRIVACY: LegalDoc = {
           When you submit an enquiry, book a call, or email us, we receive what you choose to send:
           your name, email address, phone number, company, website, a description of your project,
           and anything else you include. If you engage us, we also hold the commercial and
-          operational details needed to run the project. Please do not send passwords, payment card
+          operational details needed to run the project. Giving us a phone number does not sign you
+          up for text messages — that only happens with your consent, as described in{" "}
+          <A href="#sms">Text messaging (SMS)</A> below. Please do not send passwords, payment card
           numbers, or other sensitive material by email or through a web form — ask us and we will
           set up a secure channel instead.
         </>
@@ -136,34 +161,91 @@ export const PRIVACY: LegalDoc = {
       ),
     },
     {
-      heading: "6. How we use your information",
+      heading: "6. Text messaging (SMS)",
+      id: "sms",
       body: (
         <>
-          We use it to reply to you, to scope and deliver work you have asked us to do, to keep
-          records of enquiries and engagements, to operate and secure the site, to understand in
-          aggregate how the site performs, and to meet our legal and accounting obligations. We rely
-          on your consent for analytics and marketing cookies, on our legitimate interest in running
-          and securing our business for logs and enquiry handling, and on the performance of a
-          contract for client work. We do not sell, rent, or trade your information, and we do not
-          use it to train AI models of our own.
+          <p>
+            HeliumSol collects mobile phone numbers for text messaging only when customers
+            voluntarily provide them and consent to receive text messages from HeliumSol. Giving us
+            a number so that we can call you, or including one in an email, does not sign you up for
+            texts.
+          </p>
+          <List>
+            <li>
+              <B>What you agree to receive.</B> By opting in, you agree to receive text messages from
+              HeliumSol about your inquiries, quotes, service information, scheduling, appointment
+              updates, and customer support. HeliumSol will not use your number to send other kinds
+              of messages unless you separately agree to them.
+            </li>
+            <li>
+              <B>Frequency.</B> Message frequency may vary, depending on your inquiry or project.
+            </li>
+            <li>
+              <B>Cost.</B> Message and data rates may apply, according to your mobile plan.
+            </li>
+            <li>
+              <B>Opting out and getting help.</B> Reply STOP to any HeliumSol text message to opt
+              out; you will receive one message confirming it and no further texts after that. Reply
+              HELP for assistance.
+            </li>
+            <li>
+              <B>No sharing for marketing.</B> HeliumSol does not sell, rent, or share mobile
+              information or SMS consent data with third parties or affiliates for their own
+              marketing or promotional purposes. Text messaging opt-in data and consent are not
+              shared with any third party, other than the messaging provider that delivers
+              HeliumSol&rsquo;s texts on our behalf, which may use them for that purpose only.
+            </li>
+            <li>
+              <B>Consent records.</B> HeliumSol keeps a record of your consent — the number, when and
+              how you opted in, and what you agreed to — and of any opt-out. These records may be
+              retained, including after you opt out, to verify that you authorized our messages and
+              to make sure we do not text you again.
+            </li>
+          </List>
+          <p className="mt-3">
+            <B>Help with your information.</B> To ask what SMS information HeliumSol holds about
+            you, change the number we text, withdraw your consent, or request deletion, contact
+            HeliumSol support at <MailLink /> or {CONTACT.phone} and include the mobile number
+            concerned so we can find the right record. Where we need to keep a minimal consent or
+            opt-out record to prove authorization or to honor your opt-out, we will tell you what we
+            are keeping and why.
+          </p>
         </>
       ),
     },
     {
-      heading: "7. Who we share it with",
+      heading: "7. How we use your information",
+      body: (
+        <>
+          We use it to reply to you, to scope and deliver work you have asked us to do, to send the
+          text messages you have agreed to receive, to keep records of enquiries and engagements, to
+          operate and secure the site, to understand in aggregate how the site performs, and to meet
+          our legal and accounting obligations. We rely on your consent for analytics and marketing
+          cookies and for text messages, on our legitimate interest in running and securing our
+          business for logs and enquiry handling, and on the performance of a contract for client
+          work. We do not sell, rent, or trade your information, and we do not use it to train AI
+          models of our own.
+        </>
+      ),
+    },
+    {
+      heading: "8. Who we share it with",
       body: (
         <>
           Only the service providers needed to run the business: our hosting provider, an email
-          delivery service, an analytics provider, and the AI provider behind the assistant. Each
-          receives only what their function requires and is bound to handle it accordingly. We also
-          disclose information where the law compels us to. Links that take you to a third-party
-          site — a scheduling page, a client&rsquo;s website — hand you over to that provider, and
-          from that point their privacy policy governs rather than ours.
+          delivery service, an SMS messaging provider, an analytics provider, and the AI provider
+          behind the assistant. Each receives only what their function requires and is bound to
+          handle it accordingly. Mobile numbers and SMS consent data are never shared for anyone
+          else&rsquo;s marketing — see <A href="#sms">Text messaging (SMS)</A>. We also disclose
+          information where the law compels us to. Links that take you to a third-party site — a
+          scheduling page, a client&rsquo;s website — hand you over to that provider, and from that
+          point their privacy policy governs rather than ours.
         </>
       ),
     },
     {
-      heading: "8. International transfers",
+      heading: "9. International transfers",
       body: (
         <>
           Some of those providers are based in the United States or otherwise outside your country,
@@ -174,7 +256,7 @@ export const PRIVACY: LegalDoc = {
       ),
     },
     {
-      heading: "9. How long we keep it",
+      heading: "10. How long we keep it",
       body: (
         <>
           Server logs are rotated and deleted as part of normal maintenance. Analytics data is kept
@@ -182,12 +264,14 @@ export const PRIVACY: LegalDoc = {
           is a realistic prospect of working together and for a reasonable period afterwards. Client
           records are kept for the duration of the engagement and then for as long as tax, legal,
           and professional-record obligations require. Chat conversations are kept while they remain
-          useful for improving the assistant. When a retention period ends, we delete or anonymise.
+          useful for improving the assistant. SMS consent and opt-out records are kept as described
+          in <A href="#sms">Text messaging (SMS)</A>. When a retention period ends, we delete or
+          anonymise.
         </>
       ),
     },
     {
-      heading: "10. Security",
+      heading: "11. Security",
       body: (
         <>
           The site is served over HTTPS, access to our systems is restricted to the people who need
@@ -198,7 +282,7 @@ export const PRIVACY: LegalDoc = {
       ),
     },
     {
-      heading: "11. Client confidentiality",
+      heading: "12. Client confidentiality",
       body: (
         <>
           For clients: anything we are given access to during a project — credentials, analytics,
@@ -211,21 +295,21 @@ export const PRIVACY: LegalDoc = {
       ),
     },
     {
-      heading: "12. Your rights",
+      heading: "13. Your rights",
       body: (
         <>
           You can ask us for a copy of the information we hold about you, ask us to correct it, ask
           us to delete it, ask us to restrict or stop a particular use, object to processing based
-          on legitimate interests, or withdraw consent you previously gave. Email <MailLink /> and
-          we will act on it promptly and without charge. Depending on where you live you may have
-          further statutory rights, including the right to complain to your local data protection
-          authority — tell us what you need and we will meet it rather than argue about which
-          regime applies.
+          on legitimate interests, or withdraw consent you previously gave — for text messages,
+          replying STOP does that immediately. Email <MailLink /> and we will act on it promptly and
+          without charge. Depending on where you live you may have further statutory rights,
+          including the right to complain to your local data protection authority — tell us what
+          you need and we will meet it rather than argue about which regime applies.
         </>
       ),
     },
     {
-      heading: "13. Children",
+      heading: "14. Children",
       body: (
         <>
           This site and our services are aimed at businesses and are not directed at children. We do
@@ -235,7 +319,7 @@ export const PRIVACY: LegalDoc = {
       ),
     },
     {
-      heading: "14. Changes to this policy",
+      heading: "15. Changes to this policy",
       body: (
         <>
           When what we collect changes, this page changes with it and the date below is updated at
@@ -252,7 +336,7 @@ export const TERMS: LegalDoc = {
   icon: Scale,
   title: "Terms of Service",
   intro:
-    "These terms cover your use of this website and the AI assistant on it. Work we deliver for clients is governed by the written agreement for that project, not by this page.",
+    "These terms cover your use of this website, the AI assistant on it, and the HeliumSol text messaging (SMS) program. Work we deliver for clients is governed by the written agreement for that project, not by this page.",
   sections: [
     {
       heading: "1. Using this site",
@@ -294,7 +378,56 @@ export const TERMS: LegalDoc = {
       ),
     },
     {
-      heading: "4. Demonstrations are illustrative",
+      heading: "4. SMS terms",
+      id: "sms-terms",
+      body: (
+        <>
+          <p>
+            The HeliumSol text messaging program sends text messages to customers and prospective
+            customers who have asked to hear from HeliumSol by text. These SMS terms apply to that
+            program.
+          </p>
+          <List>
+            <li>
+              <B>Messages you may receive.</B> Texts about your inquiries, quotes, service
+              information, scheduling, appointment updates, and customer support.
+            </li>
+            <li>
+              <B>Consent.</B> HeliumSol sends text messages only after you have provided consent to
+              receive them. Consent to receive text messages is not a condition of purchasing any
+              HeliumSol services.
+            </li>
+            <li>
+              <B>Frequency.</B> Message frequency may vary.
+            </li>
+            <li>
+              <B>Cost.</B> Message and data rates may apply.
+            </li>
+            <li>
+              <B>Opting out.</B> Reply STOP to any message to opt out. You will receive one message
+              confirming that you have been unsubscribed, and HeliumSol will send no further text
+              messages unless you opt in again. Opting out stops SMS messages only — it does not
+              cancel any HeliumSol services, projects, or agreements, and HeliumSol may still contact
+              you by email or phone about them.
+            </li>
+            <li>
+              <B>Help.</B> Reply HELP for assistance, or contact HeliumSol support at <MailLink /> or{" "}
+              {CONTACT.phone}.
+            </li>
+            <li>
+              <B>Delivery.</B> Mobile carriers are not liable for delayed or undelivered messages.
+            </li>
+            <li>
+              <B>Privacy.</B> How HeliumSol handles your mobile number and consent is explained in
+              the <A href="/privacy-policy#sms">Text messaging (SMS) section of the Privacy Policy</A>
+              .
+            </li>
+          </List>
+        </>
+      ),
+    },
+    {
+      heading: "5. Demonstrations are illustrative",
       body: (
         <>
           The interactive panels on the homepage — the automation graph, the code sequence, the
@@ -306,7 +439,7 @@ export const TERMS: LegalDoc = {
       ),
     },
     {
-      heading: "5. Acceptable use",
+      heading: "6. Acceptable use",
       body: (
         <>
           Please do not attempt to break into, disrupt, overload, or probe this site or the
@@ -322,7 +455,7 @@ export const TERMS: LegalDoc = {
       ),
     },
     {
-      heading: "6. Intellectual property",
+      heading: "7. Intellectual property",
       body: (
         <>
           The design, code, copy, and graphics on this site belong to HeliumSol, apart from
@@ -336,19 +469,19 @@ export const TERMS: LegalDoc = {
       ),
     },
     {
-      heading: "7. Links and third-party services",
+      heading: "8. Links and third-party services",
       body: (
         <>
           Where we link out — to a booking tool, a client&rsquo;s website, a third-party service —
           we do not control what is on the other end and are not responsible for it. Parts of this
-          site rely on third-party providers for analytics, scheduling, and AI functionality; their
-          own terms apply to those components, and an outage on their side may affect what works
-          here.
+          site rely on third-party providers for analytics, scheduling, messaging, and AI
+          functionality; their own terms apply to those components, and an outage on their side may
+          affect what works here.
         </>
       ),
     },
     {
-      heading: "8. Privacy",
+      heading: "9. Privacy",
       body: (
         <>
           What we collect and why is set out in the <A href="/privacy-policy">privacy policy</A>,
@@ -357,7 +490,7 @@ export const TERMS: LegalDoc = {
       ),
     },
     {
-      heading: "9. The site is provided as it is",
+      heading: "10. The site is provided as it is",
       body: (
         <>
           We work to keep this site accurate, current, and available, but we do not warrant that it
@@ -372,7 +505,7 @@ export const TERMS: LegalDoc = {
       ),
     },
     {
-      heading: "10. Governing law",
+      heading: "11. Governing law",
       body: (
         <>
           Each client engagement states the law that governs it and where disputes are resolved, and
@@ -383,11 +516,11 @@ export const TERMS: LegalDoc = {
       ),
     },
     {
-      heading: "11. Contact",
+      heading: "12. Contact",
       body: (
         <>
-          Questions about these terms are welcome. Email <MailLink /> or call {CONTACT.phone} and a
-          human will answer.
+          Questions about these terms, or help with the HeliumSol text messaging program, are
+          welcome. Email <MailLink /> or call {CONTACT.phone} and a human will answer.
         </>
       ),
     },
