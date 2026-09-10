@@ -16,7 +16,10 @@
  * replay its entrance animation over text that is already on screen.
  *
  * Serving it needs the web server to prefer a directory's index.html over the
- * SPA fallback — in nginx, `try_files $uri $uri/ /index.html;`.
+ * SPA fallback — server.cjs does that in production.
+ *
+ * Usage: tsx scripts/prerender.tsx [outDir]. outDir is relative to the project
+ * root and defaults to dist; deploy.sh builds into dist-new and passes that.
  */
 
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -27,7 +30,8 @@ import { ROUTES, SITE_ORIGIN, type View } from "../src/routes";
 
 const DOCS: Partial<Record<View, LegalDoc>> = { privacy: PRIVACY, terms: TERMS };
 
-const dist = new URL("../dist/", import.meta.url);
+const outDirName = process.argv[2] ?? "dist";
+const dist = new URL(`../${outDirName}/`, import.meta.url);
 const shell = readFileSync(new URL("index.html", dist), "utf8");
 
 const escapeHtml = (s: string) =>
@@ -40,7 +44,7 @@ const escapeHtml = (s: string) =>
  */
 function replaceOnce(html: string, pattern: RegExp, replacement: string, what: string) {
   if (!pattern.test(html)) {
-    throw new Error(`prerender: could not find ${what} in dist/index.html`);
+    throw new Error(`prerender: could not find ${what} in ${outDirName}/index.html`);
   }
   return html.replace(pattern, () => replacement);
 }
@@ -81,5 +85,5 @@ for (const route of ROUTES) {
   const outDir = new URL(`.${route.path}/`, dist);
   mkdirSync(outDir, { recursive: true });
   writeFileSync(new URL("index.html", outDir), html);
-  console.log(`prerendered ${route.path} -> dist${route.path}/index.html`);
+  console.log(`prerendered ${route.path} -> ${outDirName}${route.path}/index.html`);
 }
