@@ -25,10 +25,14 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
 import LegalPage from "../src/pages/LegalPage";
-import { PRIVACY, TERMS, type LegalDoc } from "../src/content/legal";
+import { PRIVACY, TERMS, SMS_PROGRAM, type LegalDoc } from "../src/content/legal";
 import { ROUTES, SITE_ORIGIN, type View } from "../src/routes";
 
-const DOCS: Partial<Record<View, LegalDoc>> = { privacy: PRIVACY, terms: TERMS };
+const DOCS: Partial<Record<View, LegalDoc>> = {
+  privacy: PRIVACY,
+  terms: TERMS,
+  sms: SMS_PROGRAM,
+};
 
 const outDirName = process.argv[2] ?? "dist";
 const dist = new URL(`../${outDirName}/`, import.meta.url);

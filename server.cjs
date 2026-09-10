@@ -60,8 +60,8 @@ app.use(
   })
 );
 
-// Routes prerendered at build time (scripts/prerender.tsx — currently the two
-// legal pages) have their own dist/<route>/index.html carrying that page's
+// Routes prerendered at build time (scripts/prerender.tsx — currently the legal
+// and SMS program pages) have their own dist/<route>/index.html carrying that page's
 // title, meta and full text, so anything that does not run JavaScript — SMS
 // carrier reviewers, crawlers — sees the page rather than the homepage. Every
 // other path is a client-side route of the SPA, not a 404, and gets the shell.

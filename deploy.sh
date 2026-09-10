@@ -36,6 +36,7 @@ npx tsx scripts/prerender.tsx dist-new
 test -s dist-new/index.html
 test -s dist-new/privacy-policy/index.html
 test -s dist-new/terms-of-service/index.html
+test -s dist-new/sms-program/index.html
 
 rm -rf dist-old
 if [ -d dist ]; then mv dist dist-old; fi

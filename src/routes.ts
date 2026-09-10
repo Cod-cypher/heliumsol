@@ -20,7 +20,7 @@ export const SITE_NAME = 'HeliumSol';
  */
 export const LEGAL_UPDATED = 'September 11, 2026';
 
-export type View = 'home' | 'privacy' | 'terms';
+export type View = 'home' | 'privacy' | 'terms' | 'sms';
 
 export interface RouteMeta {
   path: string;
@@ -50,6 +50,13 @@ export const ROUTES: RouteMeta[] = [
     title: 'Terms of Service | HeliumSol',
     description:
       'The terms for using the HeliumSol website and AI assistant, and the SMS terms for the HeliumSol text messaging program — message types, frequency, rates, and STOP and HELP.',
+  },
+  {
+    path: '/sms-program',
+    view: 'sms',
+    title: 'SMS Program | HeliumSol',
+    description:
+      'How the HeliumSol SMS program works — the messages we send, how customers give verbal consent, sample messages, and how to opt out with STOP or get help with HELP.',
   },
 ];
 

@@ -56,6 +56,10 @@ Things an agent needs to know:
   required statement: consent, message types, "Message frequency may vary",
   "Message and data rates may apply", STOP, HELP, no sharing of opt-in data,
   "not a condition of purchasing", and the support contact.
+- `/sms-program` (the `SMS_PROGRAM` doc in the same file) is the campaign URL
+  given to the SMS provider. HeliumSol takes consent **verbally**, so this page
+  describes that process word for word: the script, the confirmation text, and
+  the STOP and HELP replies. If the real process changes, change this page too.
 - Reviewers read these pages without running JavaScript. That only works
   because `scripts/prerender.tsx` writes them out as real HTML and
   `server.cjs` serves `dist/<route>/index.html` before falling back to the

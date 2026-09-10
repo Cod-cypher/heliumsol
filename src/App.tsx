@@ -15,7 +15,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import LegalPage from "./pages/LegalPage";
-import { PRIVACY, TERMS } from "./content/legal";
+import { PRIVACY, TERMS, SMS_PROGRAM } from "./content/legal";
 import { getRoute, applyRouteMeta } from "./routes";
 
 export default function App() {
@@ -59,6 +59,8 @@ export default function App() {
         <LegalPage doc={PRIVACY} />
       ) : route.view === "terms" ? (
         <LegalPage doc={TERMS} />
+      ) : route.view === "sms" ? (
+        <LegalPage doc={SMS_PROGRAM} />
       ) : (
         <HomePage />
       )}

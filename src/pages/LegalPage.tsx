@@ -1,5 +1,5 @@
 /**
- * Shared layout for the privacy policy and terms of service.
+ * Shared layout for the privacy policy, terms of service, and SMS program page.
  *
  * Both documents are the same shape — badge, title, intro, then a card of
  * numbered sections — so they share one component and differ only in the

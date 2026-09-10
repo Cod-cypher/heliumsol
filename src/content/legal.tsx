@@ -31,7 +31,7 @@
  */
 
 import type { ReactNode } from "react";
-import { Shield, Scale } from "lucide-react";
+import { Shield, Scale, MessageSquare } from "lucide-react";
 import { CONTACT } from "../constants";
 
 export interface LegalSection {
@@ -73,6 +73,15 @@ function List({ children }: { children: ReactNode }) {
     <ul className="mt-3 flex list-disc flex-col gap-2 pl-5 marker:text-slate-400 dark:marker:text-slate-500">
       {children}
     </ul>
+  );
+}
+
+/** A script or text message quoted word for word, set apart from the prose. */
+function Quote({ children }: { children: ReactNode }) {
+  return (
+    <blockquote className="mt-3 rounded-lg border-l-2 border-navy-300 dark:border-navy-500 bg-slate-50 dark:bg-white/5 px-4 py-3 text-slate-700 dark:text-slate-300">
+      {children}
+    </blockquote>
   );
 }
 
@@ -521,6 +530,167 @@ export const TERMS: LegalDoc = {
         <>
           Questions about these terms, or help with the HeliumSol text messaging program, are
           welcome. Email <MailLink /> or call {CONTACT.phone} and a human will answer.
+        </>
+      ),
+    },
+  ],
+};
+
+/**
+ * The campaign URL for the SMS registration: a public page describing the
+ * program and — because HeliumSol takes consent verbally, not through a web
+ * form — exactly how that consent is taken. Reviewers hold the business to
+ * what this page says, so if the process changes (a web form is added, the
+ * script or the confirmation text changes), this page has to change with it.
+ */
+export const SMS_PROGRAM: LegalDoc = {
+  badge: "TEXT MESSAGING",
+  icon: MessageSquare,
+  title: "SMS Program",
+  intro:
+    "How the HeliumSol text messaging program works: what we send, how customers give their consent, and how to stop messages at any time.",
+  sections: [
+    {
+      heading: "1. About the program",
+      body: (
+        <>
+          The HeliumSol SMS program sends text messages to customers and prospective customers of
+          HeliumSol, a digital agency that designs and builds websites, web and mobile apps, AI
+          assistants, and workflow automation. Messages are limited to inquiries, quotes, service
+          information, scheduling, appointment updates, and customer support.
+        </>
+      ),
+    },
+    {
+      heading: "2. How customers opt in",
+      id: "opt-in",
+      body: (
+        <>
+          <p>
+            Customers opt in verbally, during a phone call or conversation with a HeliumSol team
+            member — for example, when they contact us about a project or book a consultation.
+            Before any text message is sent, the team member:
+          </p>
+          <List>
+            <li>
+              asks whether the customer would like to receive text messages from HeliumSol about
+              their inquiry, quotes, service information, scheduling, appointment updates, and
+              customer support;
+            </li>
+            <li>
+              tells the customer that message frequency may vary, that message and data rates may
+              apply, that they can reply STOP at any time to opt out or HELP for assistance, and
+              that consent is not a condition of purchasing any HeliumSol services;
+            </li>
+            <li>confirms the mobile number the customer wants the messages sent to.</li>
+          </List>
+          <p className="mt-3">
+            Text messages are sent only if the customer clearly agrees. A customer who declines, or
+            does not answer, is not texted. HeliumSol records each consent — the customer&rsquo;s
+            name and mobile number, the date and time, and the team member who took it — so that it
+            can be verified later.
+          </p>
+        </>
+      ),
+    },
+    {
+      heading: "3. What the customer is asked",
+      body: (
+        <>
+          The team member asks, in these words or very close to them:
+          <Quote>
+            &ldquo;Would you like to receive text messages from HeliumSol about your inquiry,
+            quotes, scheduling, appointment updates, and support? Message frequency may vary, and
+            message and data rates may apply. You can reply STOP at any time to opt out, or HELP
+            for help. Agreeing to texts is not required to use our services. Is it okay to text you
+            at [mobile number]?&rdquo;
+          </Quote>
+        </>
+      ),
+    },
+    {
+      heading: "4. Confirmation message",
+      body: (
+        <>
+          Once a customer agrees, HeliumSol sends one confirmation text:
+          <Quote>
+            HeliumSol: You&rsquo;re subscribed to texts about your inquiry, quotes, scheduling,
+            appointment updates &amp; support. Msg frequency varies. Msg &amp; data rates may apply.
+            Reply HELP for help, STOP to opt out.
+          </Quote>
+        </>
+      ),
+    },
+    {
+      heading: "5. Example messages",
+      body: (
+        <>
+          Typical messages in the program look like this:
+          <Quote>
+            HeliumSol: Hi [Name], your quote for the website project is ready — we&rsquo;ve emailed
+            it to you. Reply here with any questions. Reply STOP to opt out.
+          </Quote>
+          <Quote>
+            HeliumSol: Reminder — your discovery call is tomorrow at 2:00 PM ET. Need to
+            reschedule? Just reply. Reply STOP to opt out.
+          </Quote>
+          <Quote>
+            HeliumSol: We&rsquo;ve received your support request and will follow up within 1
+            business day. Reply HELP for help, STOP to opt out.
+          </Quote>
+        </>
+      ),
+    },
+    {
+      heading: "6. Opting out and getting help",
+      id: "stop-help",
+      body: (
+        <>
+          <p>
+            Reply STOP to any HeliumSol text message to opt out. You will receive one final message
+            confirming it, and no further texts:
+          </p>
+          <Quote>HeliumSol: You have been unsubscribed and will receive no further messages.</Quote>
+          <p className="mt-3">Reply HELP at any time for assistance. You will receive:</p>
+          <Quote>
+            HeliumSol: For help, email {CONTACT.email} or call {CONTACT.phone}. Msg &amp; data rates
+            may apply. Reply STOP to opt out.
+          </Quote>
+          <p className="mt-3">
+            You can also opt out by telling a HeliumSol team member or by emailing <MailLink />.
+            Opting out stops text messages only; it does not cancel any HeliumSol services,
+            projects, or agreements.
+          </p>
+        </>
+      ),
+    },
+    {
+      heading: "7. Frequency and cost",
+      body: (
+        <>
+          Message frequency may vary, depending on your inquiry or project. Message and data rates
+          may apply, according to your mobile plan. Mobile carriers are not liable for delayed or
+          undelivered messages.
+        </>
+      ),
+    },
+    {
+      heading: "8. Privacy",
+      body: (
+        <>
+          HeliumSol does not sell, rent, or share mobile information or SMS consent data with third
+          parties or affiliates for their own marketing or promotional purposes. How HeliumSol
+          handles your number and consent is set out in the{" "}
+          <A href="/privacy-policy#sms">Privacy Policy</A>, and the full SMS terms are in the{" "}
+          <A href="/terms-of-service#sms-terms">Terms of Service</A>.
+        </>
+      ),
+    },
+    {
+      heading: "9. Contact",
+      body: (
+        <>
+          For help with the HeliumSol SMS program, email <MailLink /> or call {CONTACT.phone}.
         </>
       ),
     },
