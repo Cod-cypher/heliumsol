@@ -18,3 +18,15 @@ View your app in AI Studio: https://ai.studio/apps/53843ec2-860c-4cd4-9fee-2b00f
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Deploy
+
+Push to `main`, then run:
+
+```powershell
+ssh root@167.233.120.70 "cd /opt/heliumsol && git fetch -q origin main && git reset --hard origin/main && bash deploy.sh"
+```
+
+It finishes by printing `deployed <commit> -> /opt/heliumsol/dist`. See
+[AGENTS.md](AGENTS.md) for how the server is set up and how to check the
+deploy worked.
