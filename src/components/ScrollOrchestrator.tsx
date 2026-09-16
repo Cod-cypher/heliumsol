@@ -9,6 +9,20 @@ import { Code, Layers, MessageSquare, Cpu, Check } from "lucide-react";
 export default function ScrollOrchestrator() {
   const [activeSection, setActiveSection] = useState<number>(0);
 
+  // The rail is position:fixed, so without this it floats over every section
+  // below the demos too. Shown only while the demo area is on screen.
+  const workspaceRef = useRef<HTMLDivElement>(null);
+  const [railVisible, setRailVisible] = useState(false);
+  useEffect(() => {
+    const el = workspaceRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => setRailVisible(entry.isIntersecting), {
+      rootMargin: "-45% 0px -45% 0px",
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   // References to track intersection
   const sec1Ref = useRef<HTMLDivElement>(null);
   const sec2Ref = useRef<HTMLDivElement>(null);
@@ -18,7 +32,7 @@ export default function ScrollOrchestrator() {
   const stages = [
     { id: 0, title: "01 / Code", subtitle: "Synthesis Loop", icon: <Code className="h-4 w-4" />, ref: sec1Ref },
     { id: 1, title: "02 / Showcase", subtitle: "Curated Slides", icon: <Layers className="h-4 w-4" />, ref: sec2Ref },
-    { id: 2, title: "03 / Dialogue", subtitle: "Collaborative Agent", icon: <MessageSquare className="h-4 w-4" />, ref: sec3Ref },
+    { id: 2, title: "03 / Dialogue", subtitle: "AI Assistant", icon: <MessageSquare className="h-4 w-4" />, ref: sec3Ref },
     { id: 3, title: "04 / Intelligence", subtitle: "Neural Sync", icon: <Cpu className="h-4 w-4" />, ref: sec4Ref },
   ];
 
@@ -61,7 +75,7 @@ export default function ScrollOrchestrator() {
   };
 
   return (
-    <div id="workspace" className="relative w-full bg-white dark:bg-ink-950">
+    <div id="workspace" ref={workspaceRef} className="relative w-full bg-white dark:bg-ink-950">
 
       {/* 1. ARCHITECTURAL GRID BACKGROUND OVERLAYS - Lines throughout the app */}
       <div className="absolute inset-y-0 left-0 right-0 pointer-events-none z-0 overflow-hidden">
@@ -70,7 +84,14 @@ export default function ScrollOrchestrator() {
       </div>
 
       {/* 2. FLOATING NAVIGATION TRACK RAIL INDEX - Desktop Only */}
-      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-5 bg-white/95 dark:bg-ink-900/90 border border-slate-200/80 dark:border-white/10 p-4 rounded-xl shadow-soft backdrop-blur-md transition-all">
+      {/* Only from 2xl (1536px): below that the 7xl content column reaches the
+          viewport edge and the rail sits on top of it. */}
+      <div
+        aria-hidden={!railVisible}
+        className={`fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden 2xl:flex flex-col gap-5 bg-white/95 dark:bg-ink-900/90 border border-slate-200/80 dark:border-white/10 p-4 rounded-xl shadow-soft backdrop-blur-md transition-all duration-300 ${
+          railVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4 pointer-events-none"
+        }`}
+      >
         <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em] text-left block mb-1">
           Canvas Hub
         </span>

@@ -1,6 +1,6 @@
 // Central place for contact + booking details used across the site.
-// TODO: replace BOOKING_URL with your real Calendly / Cal.com link.
-export const BOOKING_URL = "#contact";
+// Every "Contact us" button points at the /contact enquiry form.
+export const BOOKING_URL = "/contact";
 
 export const CONTACT = {
   email: "info@heliumsol.com",

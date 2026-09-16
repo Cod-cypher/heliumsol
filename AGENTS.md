@@ -1,15 +1,35 @@
 # HeliumSol — notes for coding agents
 
-Marketing site for heliumsol.com: Vite + React 19 + Tailwind v4, a
-client-rendered SPA with no routing library (`src/App.tsx` reads the path;
-routes and their meta live in `src/routes.ts`).
+Marketing site for heliumsol.com: Vite + React 19 + Tailwind v4 with no routing
+library (`src/App.tsx` reads the path; routes and their meta live in
+`src/routes.ts`), served by an Express server (`server.ts`) with Prisma on
+Postgres. Every route is pre-rendered to static HTML at build time.
+
+The backend was copied from the optimizeindex repo and adapted; it has its own
+code, its own `heliumsol` database (same Postgres instance as optimizeindex)
+and its own PM2 process. Nothing is shared at runtime.
+
+- `server.ts` — analytics ingest (`/api/track`), leads (`/api/leads`: Postgres
+  + SMTP email), chat (`server/chat/*`, OpenAI Responses API with human
+  handoff by emailed join link), admin login + chat inbox (`/admin`).
+- `prisma/schema.prisma` — Lead, Visitor, Session, PageView, Event, AdminUser,
+  ChatConversation, ChatMessage. Same shape as optimizeindex's tables.
+- `src/components/ContactLeadForm.tsx` — the 3-step form on `/contact`.
+- `src/components/chat/*` — the chat widget; `src/content/chat.ts` holds its
+  persona, rules and copy; `public/llms.txt` is its knowledge of HeliumSol.
 
 ## Commands
 
-- `npm run dev` — dev server on port 3000
-- `npm run build` — `vite build`, then `scripts/prerender.tsx` writes static
-  HTML for the legal pages into `dist/`
+- `npm run dev` — `tsx server.ts`: API + Vite middleware on `PORT` from .env
+  (3000 locally). Needs a filled-in `.env` (see `.env.example`).
+- `npm run build` — client build to `dist/client`, SSR build to `dist/ssr`,
+  `scripts/prerender.ts` writes every route + 404.html + sitemap.xml +
+  robots.txt, esbuild bundles the server to `dist/server.cjs`
+- `npm start` — `node server.cjs` (production mode, serves `dist/client`)
 - `npm run lint` — `tsc --noEmit` (there is no test suite)
+- `npx prisma migrate dev --name <change>` — after editing the schema; commit
+  the migration. Production applies it with `prisma migrate deploy` on deploy.
+- `npm run admin -- <email> <password> [name]` — create an admin login
 
 ## Deploying
 
@@ -26,7 +46,8 @@ worked with:
 curl.exe -s https://heliumsol.com/privacy-policy | Select-String "<title>"
 ```
 
-That should print `Privacy Policy | HeliumSol`, not the homepage title.
+That should print `Privacy Policy | HeliumSol`, not the homepage title. Also
+check `https://heliumsol.com/api/health` returns `"db":"up"`.
 
 Things an agent needs to know:
 
@@ -41,10 +62,16 @@ Things an agent needs to know:
   lost. `deploy.sh` and `server.cjs` are both in this repo; change them here
   and push.
 - **How production is wired.** nginx proxies heliumsol.com to
-  `127.0.0.1:3003`. That port is `server.cjs`, an Express static server
-  running under PM2 as `heliumsol`. The nginx config lives only on the server,
-  at `/etc/nginx/sites-enabled/heliumsol.conf`. `deploy.sh` builds into
-  `dist-new/`, swaps it in for `dist/`, then runs `pm2 reload heliumsol`.
+  `127.0.0.1:3003`. That port is `server.cjs` (a shim that loads the bundled
+  `dist/server.cjs`) running under PM2 as `heliumsol` from
+  `ecosystem.config.cjs`. The nginx config lives only on the server, at
+  `/etc/nginx/sites-enabled/heliumsol.conf`. `deploy.sh` runs `npm ci` and
+  `prisma migrate deploy`, builds into `dist-new/`, swaps it in for `dist/`,
+  then runs `pm2 reload heliumsol`.
+- **Production config is `/opt/heliumsol/.env`** (gitignored, so the hard reset
+  leaves it alone). `deploy.sh` refuses to run without it.
+- **PM2 must run exactly one instance.** Chat presence, rate limits and the
+  OpenAI token-cap cache live in process memory.
 
 ## Legal pages and SMS compliance
 
@@ -60,11 +87,12 @@ Things an agent needs to know:
   given to the SMS provider. HeliumSol takes consent **verbally**, so this page
   describes that process word for word: the script, the confirmation text, and
   the STOP and HELP replies. If the real process changes, change this page too.
-- Reviewers read these pages without running JavaScript. That only works
-  because `scripts/prerender.tsx` writes them out as real HTML and
-  `server.cjs` serves `dist/<route>/index.html` before falling back to the
-  SPA shell. A new page that must be readable without JS needs adding to the
-  prerender script.
+- Reviewers read these pages without running JavaScript. That works because
+  `scripts/prerender.ts` writes every route in `ROUTES` out as real HTML and
+  the server serves `dist/client/<route>/index.html`. Unknown paths get
+  `404.html` with a 404 status. A new page only needs adding to `ROUTES` and
+  `App.tsx` — but it must not read `window`/`document` during render, or the
+  pre-render breaks.
 
 ## Environment gotchas
 

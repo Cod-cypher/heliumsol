@@ -98,8 +98,10 @@ export const PRIVACY: LegalDoc = {
       heading: "1. Who we are",
       body: (
         <>
-          HeliumSol is a digital agency that designs and builds websites, web and mobile
-          applications, AI assistants, and workflow automation. This policy covers this website, the
+          HeliumSol is a brand of Idea Brothers LLC. HeliumSol is a digital agency that designs and
+          builds websites, web and mobile applications, AI assistants, and workflow automation. In
+          this policy, &ldquo;HeliumSol&rdquo;, &ldquo;we&rdquo; and &ldquo;us&rdquo; mean Idea
+          Brothers LLC, operating as HeliumSol. This policy covers this website, the
           enquiries that come through it, and the HeliumSol text messaging program. Work we carry
           out for a client is additionally governed by the agreement for that project, which takes
           precedence where the two overlap. Questions go to <MailLink /> or {CONTACT.phone}.
@@ -188,7 +190,7 @@ export const PRIVACY: LegalDoc = {
               of messages unless you separately agree to them.
             </li>
             <li>
-              <B>Frequency.</B> Message frequency may vary, depending on your inquiry or project.
+              <B>Frequency.</B> Message frequency varies, up to 4 messages per month.
             </li>
             <li>
               <B>Cost.</B> Message and data rates may apply, according to your mobile plan.
@@ -199,7 +201,9 @@ export const PRIVACY: LegalDoc = {
               HELP for assistance.
             </li>
             <li>
-              <B>No sharing for marketing.</B> HeliumSol does not sell, rent, or share mobile
+              <B>No sharing for marketing.</B> Mobile information, including SMS opt-in data and
+              consent, will not be shared with third parties or affiliates for their own marketing or
+              promotional purposes. HeliumSol does not sell, rent, or share mobile
               information or SMS consent data with third parties or affiliates for their own
               marketing or promotional purposes. Text messaging opt-in data and consent are not
               shared with any third party, other than the messaging provider that delivers
@@ -345,7 +349,7 @@ export const TERMS: LegalDoc = {
   icon: Scale,
   title: "Terms of Service",
   intro:
-    "These terms cover your use of this website, the AI assistant on it, and the HeliumSol text messaging (SMS) program. Work we deliver for clients is governed by the written agreement for that project, not by this page.",
+    "HeliumSol is a brand of Idea Brothers LLC. These terms cover your use of this website, the AI assistant on it, and the HeliumSol text messaging (SMS) program. Work we deliver for clients is governed by the written agreement for that project, not by this page.",
   sections: [
     {
       heading: "1. Using this site",
@@ -407,21 +411,21 @@ export const TERMS: LegalDoc = {
               HeliumSol services.
             </li>
             <li>
-              <B>Frequency.</B> Message frequency may vary.
+              <B>Frequency.</B> Message frequency varies, up to 4 messages per month.
             </li>
             <li>
               <B>Cost.</B> Message and data rates may apply.
             </li>
             <li>
-              <B>Opting out.</B> Reply STOP to any message to opt out. You will receive one message
+              <B>Opting out.</B> Reply STOP to opt out at any time. You will receive one message
               confirming that you have been unsubscribed, and HeliumSol will send no further text
               messages unless you opt in again. Opting out stops SMS messages only — it does not
               cancel any HeliumSol services, projects, or agreements, and HeliumSol may still contact
               you by email or phone about them.
             </li>
             <li>
-              <B>Help.</B> Reply HELP for assistance, or contact HeliumSol support at <MailLink /> or{" "}
-              {CONTACT.phone}.
+              <B>Help.</B> Reply HELP for assistance. HeliumSol is a brand of Idea Brothers LLC. For
+              support, contact HeliumSol at <MailLink /> or (202) 810-7042.
             </li>
             <li>
               <B>Delivery.</B> Mobile carriers are not liable for delayed or undelivered messages.
@@ -554,8 +558,8 @@ export const SMS_PROGRAM: LegalDoc = {
       heading: "1. About the program",
       body: (
         <>
-          The HeliumSol SMS program sends text messages to customers and prospective customers of
-          HeliumSol, a digital agency that designs and builds websites, web and mobile apps, AI
+          HeliumSol is a brand of Idea Brothers LLC. The HeliumSol SMS program sends text messages to
+          customers and prospective customers of HeliumSol, a digital agency that designs and builds websites, web and mobile apps, AI
           assistants, and workflow automation. Messages are limited to inquiries, quotes, service
           information, scheduling, appointment updates, and customer support.
         </>
@@ -578,7 +582,8 @@ export const SMS_PROGRAM: LegalDoc = {
               customer support;
             </li>
             <li>
-              tells the customer that message frequency may vary, that message and data rates may
+              tells the customer that message frequency varies, up to 4 messages per month, that
+              message and data rates may
               apply, that they can reply STOP at any time to opt out or HELP for assistance, and
               that consent is not a condition of purchasing any HeliumSol services;
             </li>
@@ -600,8 +605,8 @@ export const SMS_PROGRAM: LegalDoc = {
           The team member asks, in these words or very close to them:
           <Quote>
             &ldquo;Would you like to receive text messages from HeliumSol about your inquiry,
-            quotes, scheduling, appointment updates, and support? Message frequency may vary, and
-            message and data rates may apply. You can reply STOP at any time to opt out, or HELP
+            quotes, scheduling, appointment updates, and support? Message frequency varies, up to 4
+            messages per month, and message and data rates may apply. You can reply STOP at any time to opt out, or HELP
             for help. Agreeing to texts is not required to use our services. Is it okay to text you
             at [mobile number]?&rdquo;
           </Quote>
@@ -615,7 +620,7 @@ export const SMS_PROGRAM: LegalDoc = {
           Once a customer agrees, HeliumSol sends one confirmation text:
           <Quote>
             HeliumSol: You&rsquo;re subscribed to texts about your inquiry, quotes, scheduling,
-            appointment updates &amp; support. Msg frequency varies. Msg &amp; data rates may apply.
+            appointment updates &amp; support. Up to 4 msgs/month. Msg &amp; data rates may apply.
             Reply HELP for help, STOP to opt out.
           </Quote>
         </>
@@ -668,8 +673,8 @@ export const SMS_PROGRAM: LegalDoc = {
       heading: "7. Frequency and cost",
       body: (
         <>
-          Message frequency may vary, depending on your inquiry or project. Message and data rates
-          may apply, according to your mobile plan. Mobile carriers are not liable for delayed or
+          Message frequency varies, up to 4 messages per month. Message and data rates may apply,
+          according to your mobile plan. Mobile carriers are not liable for delayed or
           undelivered messages.
         </>
       ),
@@ -678,7 +683,7 @@ export const SMS_PROGRAM: LegalDoc = {
       heading: "8. Privacy",
       body: (
         <>
-          HeliumSol does not sell, rent, or share mobile information or SMS consent data with third
+          Mobile information, including SMS opt-in data and consent, will not be shared with third
           parties or affiliates for their own marketing or promotional purposes. How HeliumSol
           handles your number and consent is set out in the{" "}
           <A href="/privacy-policy#sms">Privacy Policy</A>, and the full SMS terms are in the{" "}
@@ -690,7 +695,8 @@ export const SMS_PROGRAM: LegalDoc = {
       heading: "9. Contact",
       body: (
         <>
-          For help with the HeliumSol SMS program, email <MailLink /> or call {CONTACT.phone}.
+          HeliumSol is a brand of Idea Brothers LLC. For help with the HeliumSol SMS program, email{" "}
+          <MailLink /> or call {CONTACT.phone}.
         </>
       ),
     },

@@ -10,9 +10,8 @@ import Hero from "../components/Hero";
 import Services from "../components/Services";
 import ScrollOrchestrator from "../components/ScrollOrchestrator";
 import Process from "../components/Process";
-import Testimonials from "../components/Testimonials";
+import Commitments from "../components/Commitments";
 import ClosingCTA from "../components/ClosingCTA";
-import FloatingChatButton from "../components/FloatingChatButton";
 
 export default function HomePage() {
   return (
@@ -30,19 +29,12 @@ export default function HomePage() {
         {/* How we work */}
         <Process />
 
-        {/* Social proof */}
-        <Testimonials />
+        {/* What working with us involves */}
+        <Commitments />
 
         {/* Closing call to action */}
         <ClosingCTA />
       </main>
-
-      {/*
-        Lives here rather than in App because it scrolls to #chatbot-stage-container,
-        which only exists on this page. On a legal page the button would be a
-        no-op, so it simply is not rendered there.
-      */}
-      <FloatingChatButton />
     </>
   );
 }

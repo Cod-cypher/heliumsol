@@ -311,7 +311,14 @@ export default function StageCodeIntro({}: StageCodeIntroProps) {
     }
   ];
 
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  // Measured after mount so the first client render matches the pre-render.
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth < 768);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   // 1. Scale growth factor as user scrolls. Starts compact, expands to target size
   const startScale = 0.65;

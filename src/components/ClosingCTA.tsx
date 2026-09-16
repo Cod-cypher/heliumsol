@@ -25,7 +25,7 @@ export default function ClosingCTA() {
               Ready to grow your business?
             </h2>
             <p className="mt-5 text-base sm:text-lg text-navy-100/70 leading-relaxed">
-              Book a free discovery call and we'll map out exactly how a new website, app,
+              Tell us what you're building and we'll come back with how a new website, app,
               chatbot, or automation could work for you — no pressure, no obligation.
             </p>
 
@@ -34,7 +34,7 @@ export default function ClosingCTA() {
                 href={BOOKING_URL}
                 className="group inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 text-sm font-semibold text-navy-900 shadow-soft hover:bg-slate-100 transition-all duration-300"
               >
-                Book a call
+                Contact us
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
               </a>
               <a

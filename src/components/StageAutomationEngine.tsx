@@ -19,6 +19,13 @@ export default function StageAutomationEngine({ progress = 0.55 }: StageAutomati
 
   const [localScroll, setLocalScroll] = useState(0.5);
 
+  // Set after mount: a clock read during render differs between the build-time
+  // pre-render and the browser, which breaks hydration.
+  const [logTime, setLogTime] = useState("--:--:--");
+  useEffect(() => {
+    setLogTime(new Date().toLocaleTimeString([], { hour12: false }));
+  }, []);
+
   useEffect(() => {
     return scrollYProgress.on("change", (latest) => {
       setLocalScroll(latest);
@@ -361,7 +368,7 @@ export default function StageAutomationEngine({ progress = 0.55 }: StageAutomati
             <span>LOGGER DRAG STATUS: ACTIVE</span>
           </div>
           <div className="flex gap-4 whitespace-nowrap">
-            <span className="text-zinc-500">[{new Date().toLocaleTimeString([], { hour12: false })}]</span>
+            <span className="text-zinc-500">[{logTime}]</span>
             <span className="text-blue-400">Node coordinates recalculated successfully</span>
             <span className="text-emerald-400 font-semibold">GET /api/v1/telemetry 200 OK</span>
             <span className="text-amber-400">Scroll acceleration multiplier active</span>

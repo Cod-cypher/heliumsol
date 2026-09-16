@@ -11,7 +11,8 @@ export default function Navbar() {
     { label: "Services", href: "/#services" },
     { label: "Work", href: "/#work" },
     { label: "Process", href: "/#process" },
-    { label: "Testimonials", href: "/#testimonials" },
+    { label: "Why us", href: "/#how-we-work" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
@@ -55,7 +56,7 @@ export default function Navbar() {
               href={BOOKING_URL}
               className="group hidden sm:flex items-center gap-2 rounded-lg bg-navy-800 dark:bg-navy-600 px-5 py-2.5 text-[11px] font-semibold uppercase tracking-wide text-white shadow-soft hover:bg-navy-900 dark:hover:bg-navy-500 transition-all duration-300"
             >
-              <span>Book a call</span>
+              <span>Contact us</span>
               <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
             </a>
 
@@ -104,7 +105,7 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="rounded-lg bg-navy-800 dark:bg-navy-600 text-center py-2.5 text-sm font-medium text-white shadow-sm hover:bg-navy-900 dark:hover:bg-navy-500"
               >
-                Book a call
+                Contact us
               </a>
             </div>
           </div>

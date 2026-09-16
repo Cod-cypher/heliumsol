@@ -1,0 +1,31 @@
+# HeliumSol
+
+> HeliumSol is a full-service digital agency. We design and build full-stack websites, web and mobile apps, AI chatbots, and the automated workflows that run quietly behind them.
+
+Contact: info@heliumsol.com · +1 (202) 810-7042 · https://heliumsol.com/contact
+Remote, serving clients worldwide. We reply within one business day.
+
+## Services
+
+- Full-stack websites: fast, conversion-focused sites that turn visitors into customers.
+- Web and mobile apps: custom applications that scale with a business.
+- AI chatbots and assistants: assistants that answer questions and capture leads around the clock, on a website or other channels.
+- Workflow automation: connecting a business's existing tools, including with n8n, to automate repetitive work.
+- General tech solutions: if a project involves software, AI or automation and is not listed above, the team is happy to talk it through and say honestly whether it is a fit.
+
+## How working with HeliumSol goes
+
+1. Discovery: we learn your goals, audience, and what success looks like for your business.
+2. Design and build: we design, build and refine in short cycles, with you in the loop the whole way.
+3. Launch: we ship, test, and make sure everything performs on every device before go-live.
+4. Grow: ongoing support, automation and improvements over time.
+
+Pricing and timelines depend on the project and are only given by a person after discovery. HeliumSol does not publish prices and does not guarantee specific results such as leads, sales or revenue.
+
+## Pages
+
+- [Home](https://heliumsol.com/): services, process and how to get in touch.
+- [Contact](https://heliumsol.com/contact): a short three-step enquiry form for chatbot, AI, automation, website, app or other tech projects.
+- [Privacy Policy](https://heliumsol.com/privacy-policy): what HeliumSol collects from the website, enquiries and its SMS program, and how it is used.
+- [Terms of Service](https://heliumsol.com/terms-of-service): terms for using the website and AI assistant, and the SMS program terms.
+- [SMS Program](https://heliumsol.com/sms-program): how the HeliumSol SMS program works, including consent, STOP and HELP.

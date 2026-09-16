@@ -60,7 +60,7 @@ export default function Hero() {
             href={BOOKING_URL}
             className="group w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-navy-800 dark:bg-navy-600 px-6 py-3.5 text-sm font-semibold text-white shadow-card hover:bg-navy-900 dark:hover:bg-navy-500 transition-all duration-300"
           >
-            <span>Book a call</span>
+            <span>Contact us</span>
             <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
           </a>
           <a

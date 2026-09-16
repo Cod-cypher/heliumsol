@@ -1,14 +1,9 @@
-import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useState, useEffect, useRef } from "react";
-import { Sparkles, Send, MessageSquare, Terminal, RefreshCw, CheckCircle2, User, Bot, HelpCircle, AlertCircle } from "lucide-react";
-
-interface Message {
-  id: string;
-  sender: "user" | "bot";
-  text: string;
-  badge?: string;
-  timestamp: string;
-}
+import { Terminal } from "lucide-react";
+import { useChat } from "./chat/ChatProvider";
+import ChatConversation from "./chat/ChatConversation";
+import ChatForm from "./chat/ChatForm";
 
 export default function StageAIChatbot() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -47,119 +42,26 @@ export default function StageAIChatbot() {
   const charX = useTransform(scrollYProgress, [0.05, 0.38], [-slideOffset, 0]);
   const charOpacity = useTransform(scrollYProgress, [0.05, 0.38], [0, 1]);
 
-  // Core interactive message state
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: "init-1",
-      sender: "bot",
-      text: "Greetings! I am HE-BOT, your collaborative workspace assistant. My telemetry and matrix logic are successfully compiled and synced.",
-      badge: "Synced",
-      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-    },
-    {
-      id: "init-2",
-      sender: "bot",
-      text: "You can type anything in the chat box or click any suggestion chip below to request live layout renders, database schemas, or workflow integrations. Try it!",
-      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-    }
-  ]);
+  // The live assistant. Shared with the floating widget through ChatProvider,
+  // so a conversation started here carries on in the corner widget and on
+  // every other page.
+  const { session, sending, awaitingReply, sendText, setInlineVisible } = useChat();
+  const botState = (awaitingReply || sending ? "THINKING" : "IDLE") as "IDLE" | "THINKING" | "REPLYING";
 
-  const [inputText, setInputText] = useState("");
-  const [isBotTyping, setIsBotTyping] = useState(false);
-  const [botState, setBotState] = useState<"IDLE" | "THINKING" | "REPLYING">("IDLE");
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  // Auto scroll to bot messages
+  // While this section is on screen, replies here are being read, so they do
+  // not count as unread on the launcher.
   useEffect(() => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
-    }
-  }, [messages, isBotTyping]);
-
-  // Reply generator logic based on keywords
-  const generateSmartReply = (userPrompt: string): { text: string; badge: string } => {
-    const query = userPrompt.toLowerCase();
-    
-    if (query.includes("coordinate") || query.includes("landing") || query.includes("layout") || query.includes("deck") || query.includes("ui") || query.includes("carousel") || query.includes("card") || query.includes("project")) {
-      return {
-        text: "Analyzing design guidelines. Synthesized fluid flexbox grid cards. Repaired parent component constraints and applied high-contrast Swiss display headings. Look at Step 01 above to view the compiled source code!",
-        badge: "UI Complete"
-      };
-    }
-    
-    if (query.includes("database") || query.includes("postgres") || query.includes("sync") || query.includes("sql") || query.includes("schema") || query.includes("drizzle")) {
-      return {
-        text: "Constructed Drizzle-compliant PostgreSQL structures. Migrated active tables. Dispatched secure Docker telemetry logs connecting port 3000 seamlessly.",
-        badge: "Database Active"
-      };
-    }
-    
-    if (query.includes("slack") || query.includes("crm") || query.includes("integration") || query.includes("workflow") || query.includes("n8n") || query.includes("automation")) {
-      return {
-        text: "Constructing neural triggers. Routed live Webhook gateways linking slack handles, CRM transaction modules, and transactional SMTP relays. You can drag and test these nodes below!",
-        badge: "Dockerized"
-      };
-    }
-
-    if (query.includes("compile") || query.includes("error") || query.includes("integrity") || query.includes("vite") || query.includes("run")) {
-      return {
-        text: "Linter check: stable. Vite development server bound to host 0.0.0.0 and port 3000. All type scopes are correctly mapped. Workspace integrity is flawless.",
-        badge: "Zero Errors"
-      };
-    }
-
-    if (query.includes("hello") || query.includes("hi ") || query.includes("hey")) {
-      return {
-        text: "Hello there! I am fully synchronized and listening. What part of the HeliumSol prototyping system would you like us to assemble or review?",
-        badge: "Active Host"
-      };
-    }
-
-    // Default intelligent helper fallback
-    return {
-      text: `Understood. Processing module dispatch for "${userPrompt}". Compiling system handlers, matching token variables, and establishing workflow metrics. All parameters validated stable.`,
-      badge: "Dispatched"
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(([entry]) => setInlineVisible(entry.isIntersecting), {
+      threshold: 0.35,
+    });
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      setInlineVisible(false);
     };
-  };
-
-  const handleSendMessage = (textToSend: string) => {
-    if (!textToSend.trim() || isBotTyping) return;
-
-    const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-    // 1. User Message
-    const userMsg: Message = {
-      id: `user-${Date.now()}`,
-      sender: "user",
-      text: textToSend,
-      timestamp
-    };
-    
-    setMessages(prev => [...prev, userMsg]);
-    setInputText("");
-    
-    // 2. Set Bot State
-    setIsBotTyping(true);
-    setBotState("THINKING");
-
-    // 3. Simulates bot replying
-    setTimeout(() => {
-      setBotState("REPLYING");
-      const replyData = generateSmartReply(textToSend);
-      
-      const botMsg: Message = {
-        id: `bot-${Date.now()}`,
-        sender: "bot",
-        text: replyData.text,
-        badge: replyData.badge,
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-      };
-      
-      setMessages(prev => [...prev, botMsg]);
-      setIsBotTyping(false);
-      setBotState("IDLE");
-    }, 1250);
-  };
+  }, [setInlineVisible]);
 
   return (
     <div 
@@ -173,13 +75,13 @@ export default function StageAIChatbot() {
       {/* Header text introducing Stage */}
       <div className="text-center max-w-xl mx-auto mb-12 relative z-10 select-none">
         <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-navy-600 dark:text-navy-300 block mb-3 font-display">
-          Module 03 — Agent Terminal
+          Module 03 — AI Assistant
         </span>
         <h2 className="text-3xl sm:text-5xl font-display font-semibold text-slate-900 dark:text-white leading-tight">
-          Collaborative Agent
+          Talk to our AI assistant
         </h2>
         <p className="text-[13px] sm:text-sm text-slate-500 dark:text-slate-400 mt-4 font-sans leading-relaxed">
-          Interact with <b>HE-BOT</b> directly. Type your own messages or try preset hooks below to review layout adjustments, databases, or active node triggers.
+          The same kind of assistant we build for clients, answering live. Ask about a project, or ask for a person and someone from the team can join the chat.
         </p>
       </div>
 
@@ -329,116 +231,23 @@ export default function StageAIChatbot() {
               <div className="flex items-center gap-2">
                 <Terminal className="h-3.5 w-3.5 text-slate-400 dark:text-slate-500" />
                 <span className="text-[11px] font-mono font-bold text-slate-520 dark:text-slate-300 uppercase tracking-wider">
-                  Live Terminal Copilot Thread
+                  HeliumSol assistant
                 </span>
               </div>
               <span className="text-[9.5px] font-mono text-slate-400 dark:text-slate-400 bg-white dark:bg-ink-900 px-2 py-0.5 border border-slate-200/60 dark:border-white/10 rounded">
-                Model: Gemini 2.5
+                Live AI assistant
               </span>
             </div>
 
-            {/* Conversation Messages Display */}
-            <div 
-              ref={scrollContainerRef}
-              className="flex-1 p-5 overflow-y-auto space-y-4 text-left scroll-smooth"
-            >
-              <AnimatePresence initial={false}>
-                {messages.map((msg) => (
-                  <motion.div
-                    key={msg.id}
-                    initial={{ opacity: 0, y: 10, scale: 0.99 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 0.35, ease: "easeOut" }}
-                    className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
-                  >
-                    <div 
-                      className={`max-w-[85%] rounded-2xl p-3.5 border text-xs sm:text-[13px] leading-relaxed shadow-3xs relative overflow-hidden ${
-                        msg.sender === "user"
-                          ? "bg-slate-100 dark:bg-ink-800 border-slate-200 dark:border-white/10 rounded-tr-none text-slate-800 dark:text-slate-100"
-                          : "bg-navy-50 dark:bg-navy-900/40 border-navy-100 dark:border-navy-800 rounded-tl-none text-slate-700 dark:text-slate-200"
-                      }`}
-                    >
-                      {/* Decorative bot details */}
-                      {msg.sender === "bot" && (
-                        <div className="flex items-center gap-1.5 text-[9px] font-mono font-bold text-navy-700 mb-1">
-                          <Bot className="h-3 w-3" />
-                          <span>HE-BOT ACTIVE AGENT</span>
-                          {msg.badge && (
-                            <>
-                              <span className="mx-1">•</span>
-                              <span className="text-[8px] text-emerald-700 bg-emerald-50 px-1.5 border border-emerald-100 rounded-sm uppercase tracking-wide">
-                                {msg.badge}
-                              </span>
-                            </>
-                          )}
-                        </div>
-                      )}
-
-                      {/* User title */}
-                      {msg.sender === "user" && (
-                        <div className="flex items-center gap-1 text-[9px] font-mono font-bold text-slate-400 mb-1">
-                          <User className="h-3 w-3" />
-                          <span>USER PIPELINE DEMAND</span>
-                        </div>
-                      )}
-
-                      <p className="font-sans font-normal">{msg.text}</p>
-                      
-                      <span className="block mt-1.5 text-right font-mono text-[8.5px] text-slate-400 tracking-tight">
-                        {msg.timestamp}
-                      </span>
-                    </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-
-              {/* Live Loading state when Bot is computing response */}
-              {isBotTyping && (
-                <motion.div 
-                  initial={{ opacity: 0, y: 5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex justify-start"
-                >
-                  <div className="bg-navy-50 dark:bg-navy-900/40 border border-navy-100 dark:border-navy-800 rounded-2xl rounded-tl-none p-4 max-w-[85%] text-left">
-                    <div className="flex items-center gap-2 text-[9px] font-mono text-navy-700 font-bold mb-1">
-                      <RefreshCw className="h-3 w-3 animate-spin text-navy-600" />
-                      <span>HE-BOT THINKING & SYNTHESIZING...</span>
-                    </div>
-                    <div className="flex gap-1.5 items-center mt-2 pl-1.5">
-                      <span className="h-1.5 w-1.5 rounded-full bg-navy-400 animate-bounce [animation-delay:-0.3s]" />
-                      <span className="h-1.5 w-1.5 rounded-full bg-navy-400 animate-bounce [animation-delay:-0.15s]" />
-                      <span className="h-1.5 w-1.5 rounded-full bg-navy-400 animate-bounce" />
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </div>
-
-            {/* Message Input Actions */}
-            <form 
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSendMessage(inputText);
-              }}
-              className="px-5 py-4 border-t border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-ink-800 flex items-center gap-2 relative"
-            >
-              <input
-                type="text"
-                maxLength={200}
-                placeholder="Ask HE-BOT to build layouts, databases, triggers..."
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
-                disabled={isBotTyping}
-                className="w-full text-xs sm:text-sm bg-white dark:bg-ink-900 border border-slate-200 dark:border-white/10 rounded-lg px-4 py-3 pr-12 font-medium text-slate-700 dark:text-slate-200 outline-none focus:ring-2 focus:ring-navy-500/20 focus:border-navy-400 shadow-3xs placeholder:text-slate-400 dark:placeholder:text-slate-500 disabled:bg-slate-55 disabled:text-slate-400"
+            {/* The live conversation — the same thread as the floating widget. */}
+            {session?.mode === "form" ? (
+              <ChatForm notice={session.notice} onDone={() => {}} />
+            ) : (
+              <ChatConversation
+                idPrefix="hs-inline-chat"
+                placeholder="Ask about a website, app, chatbot or automation…"
               />
-              <button
-                type="submit"
-                disabled={!inputText.trim() || isBotTyping}
-                className="absolute right-7 top-1/2 -translate-y-1/2 h-8.5 w-8.5 rounded-lg bg-navy-800 hover:bg-navy-900 active:scale-95 text-white flex items-center justify-center shadow-sm cursor-pointer transition-all disabled:bg-slate-200 disabled:text-slate-400 disabled:cursor-not-allowed"
-              >
-                <Send className="h-3.5 w-3.5" />
-              </button>
-            </form>
+            )}
           </motion.div>
 
         </div>
@@ -446,15 +255,15 @@ export default function StageAIChatbot() {
         {/* Dynamic suggestion chips */}
         <div className="flex gap-2 flex-wrap justify-center mt-5 select-none">
           {[
-            "Redecorate UI layout guidelines", 
-            "Design postgres sync database schema", 
-            "Connect slack webhook notifications", 
-            "Vite dev compilation status check"
+            "Can you build an AI chatbot for my website?",
+            "What can you automate with n8n?",
+            "How does a website project work?",
+            "I want to talk to a person"
           ].map((item, id) => (
             <button
               key={id}
-              onClick={() => handleSendMessage(item)}
-              disabled={isBotTyping}
+              onClick={() => void sendText(item)}
+              disabled={sending || awaitingReply}
               className="text-[10px] sm:text-[11.5px] font-semibold text-slate-500 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white border border-slate-200 dark:border-white/10 bg-white dark:bg-ink-800 hover:bg-slate-50 dark:hover:bg-ink-700 px-3.5 py-1.5 rounded-full shadow-3xs cursor-pointer transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {item}

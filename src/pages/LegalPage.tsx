@@ -26,7 +26,7 @@ import type { LegalDoc } from "../content/legal";
 */
 let startsVisible =
   typeof document === "undefined" ||
-  !!document.getElementById("root")?.hasAttribute("data-prerendered");
+  document.getElementById("root")?.dataset.prerendered === "true";
 
 export default function LegalPage({ doc }: { doc: LegalDoc }) {
   const Icon = doc.icon;
@@ -121,7 +121,7 @@ export default function LegalPage({ doc }: { doc: LegalDoc }) {
               href={BOOKING_URL}
               className="group inline-flex items-center gap-1.5 rounded-lg bg-navy-800 dark:bg-navy-600 px-4 py-2.5 text-xs font-semibold text-white shadow-soft hover:bg-navy-900 dark:hover:bg-navy-500 transition-all"
             >
-              Book a call
+              Contact us
               <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
             </a>
           </div>

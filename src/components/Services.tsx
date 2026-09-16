@@ -89,7 +89,7 @@ export default function Services() {
             href={BOOKING_URL}
             className="inline-flex items-center justify-center gap-2 rounded-lg bg-navy-800 dark:bg-navy-600 px-6 py-3 text-sm font-semibold text-white shadow-soft hover:bg-navy-900 dark:hover:bg-navy-500 transition-all duration-300"
           >
-            Book a call
+            Contact us
             <ArrowRight className="h-4 w-4" />
           </a>
           <p className="text-sm text-slate-500 dark:text-slate-400">

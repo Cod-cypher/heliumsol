@@ -2,14 +2,14 @@
 # Rebuild heliumsol.com from the latest origin/main. Run on the server as
 # /opt/heliumsol/deploy.sh.
 #
-# The site is served by the PM2 process "heliumsol" (server.cjs). That process
-# resolves files under dist/ per request, so a new build is live as soon as the
-# swap below lands; the reload at the end is only so that changes to
-# server.cjs itself take effect.
+# The site is served by the PM2 process "heliumsol" (server.cjs, which loads
+# the bundled server from dist/server.cjs). It reads its configuration from
+# /opt/heliumsol/.env, which is gitignored, so the hard reset below never
+# touches it.
 #
 # Note this is a deploy checkout, not a working copy: it hard-resets to
 # origin/main, so anything edited directly on the box is discarded — this file
-# and server.cjs included, since both live in the repo. Push to GitHub instead.
+# and server.ts included, since both live in the repo. Push to GitHub instead.
 set -euo pipefail
 
 cd /opt/heliumsol
@@ -17,33 +17,41 @@ cd /opt/heliumsol
 git fetch --quiet origin main
 git reset --hard origin/main
 
+test -s .env || { echo "missing /opt/heliumsol/.env - see .env.example" >&2; exit 1; }
+
+# npm ci runs `prisma generate` through the postinstall script.
 npm ci
 
-# Build to a scratch dir rather than straight to dist/. `vite build` empties
-# its output dir before writing, so building in place would leave the live
-# site 404ing for the few seconds the build takes, and would leave it broken
-# for good if the build failed halfway.
+# Apply any new database migrations before the new code starts using them.
+npx prisma migrate deploy
+
+# Build to a scratch dir rather than straight to dist/, so the live site keeps
+# serving the previous build until the new one is complete and checked.
 rm -rf dist-new
-npx vite build --outDir dist-new --emptyOutDir
+npx vite build --outDir dist-new/client --emptyOutDir
+npx vite build --ssr src/entry-server.tsx --outDir dist-new/ssr
+# Writes real HTML for every route (crawlers and SMS carrier reviewers read
+# pages without running JavaScript), plus 404.html, sitemap.xml, robots.txt.
+npx tsx scripts/prerender.ts dist-new
+npx esbuild server.ts --bundle --platform=node --format=cjs --packages=external \
+  --sourcemap --outfile=dist-new/server.cjs
 
-# Write static HTML for the legal pages into the same scratch dir. Without it
-# /privacy-policy and /terms-of-service serve the homepage shell to anything
-# that does not run JavaScript, which is how SMS carrier reviewers read them.
-npx tsx scripts/prerender.tsx dist-new
-
-# Guard against swapping in a build that produced nothing, or lost its legal
-# pages.
-test -s dist-new/index.html
-test -s dist-new/privacy-policy/index.html
-test -s dist-new/terms-of-service/index.html
-test -s dist-new/sms-program/index.html
+# Guard against swapping in a build that produced nothing or lost pages.
+test -s dist-new/server.cjs
+test -s dist-new/client/index.html
+test -s dist-new/client/app-shell.html
+test -s dist-new/client/404.html
+test -s dist-new/client/contact/index.html
+test -s dist-new/client/privacy-policy/index.html
+test -s dist-new/client/terms-of-service/index.html
+test -s dist-new/client/sms-program/index.html
+test -s dist-new/client/sitemap.xml
 
 rm -rf dist-old
 if [ -d dist ]; then mv dist dist-old; fi
 mv dist-new dist
 
-# heliumsol runs in cluster mode, so reload swaps workers without dropping
-# requests.
+# Restart onto the new server bundle.
 pm2 reload heliumsol
 
 echo "deployed $(git rev-parse --short HEAD) -> /opt/heliumsol/dist"

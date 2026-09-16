@@ -24,8 +24,8 @@ export default function Footer() {
   const companyLinks = [
     { label: "Our Work", href: "/#work" },
     { label: "How We Work", href: "/#process" },
-    { label: "Testimonials", href: "/#testimonials" },
-    { label: "Book a Call", href: BOOKING_URL },
+    { label: "Why us", href: "/#how-we-work" },
+    { label: "Contact", href: BOOKING_URL },
   ];
 
   return (
@@ -118,7 +118,7 @@ export default function Footer() {
                 href={BOOKING_URL}
                 className="group inline-flex items-center gap-1.5 rounded-lg bg-navy-800 dark:bg-navy-600 px-3.5 py-2 text-xs font-semibold text-white shadow-soft hover:bg-navy-900 dark:hover:bg-navy-500 transition-all"
               >
-                Book a call
+                Contact us
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
               </a>
             </div>
@@ -128,7 +128,7 @@ export default function Footer() {
 
         {/* Closing Row */}
         <div className="mt-16 pt-8 border-t border-slate-200/60 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 dark:text-slate-500 font-medium">
-          <span>© {new Date().getFullYear()} HeliumSol. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} HeliumSol. HeliumSol is a brand of Idea Brothers LLC. All rights reserved.</span>
           <div className="flex items-center gap-5">
             {legalLinks.map((link) => (
               <a
