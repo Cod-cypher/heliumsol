@@ -431,9 +431,44 @@ export default function ContactLeadForm() {
           )}
         </div>
 
-        <p className="mt-4 text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">
-          We will read your enquiry and tell you honestly whether we are the right fit for it.
-        </p>
+       <p className="mt-4 text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">
+  We will read your enquiry and tell you honestly whether we are the right fit for it.
+
+  <span className="block mt-2">
+    <strong className="font-semibold text-slate-600 dark:text-slate-300">
+      SMS Disclaimer:
+    </strong>{" "}
+    By providing your phone number and submitting this form, you consent to receive text
+    messages from HeliumSol about message topics such as reminders, scheduling, promotions,
+    etc. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out
+    and HELP for assistance, or call{" "}
+    <a
+      href="tel:+12028107042"
+      className="underline hover:text-slate-700 dark:hover:text-slate-300"
+    >
+      +1 202-810-7042
+    </a>
+    . Our{" "}
+    <a
+      href="https://heliumsol.com/privacy-policy"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline hover:text-slate-700 dark:hover:text-slate-300"
+    >
+      Privacy Policy
+    </a>{" "}
+    and{" "}
+    <a
+      href="https://heliumsol.com/terms-of-service"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline hover:text-slate-700 dark:hover:text-slate-300"
+    >
+      Terms of Service
+    </a>{" "}
+    are available here.
+  </span>
+</p>
       </form>
     </div>
   );
