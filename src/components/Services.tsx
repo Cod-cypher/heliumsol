@@ -15,12 +15,12 @@ const services = [
     outcome: "Custom applications that scale with your business.",
     tag: "Apps",
   },
-  {
-    icon: Bot,
-    name: "AI Chatbots",
-    outcome: "24/7 assistants that capture leads and answer instantly.",
-    tag: "AI",
-  },
+  // {
+  //   icon: Bot,
+  //   name: "AI Chatbots",
+  //   outcome: "24/7 assistants that capture leads and answer instantly.",
+  //   tag: "AI",
+  // },
   {
     icon: Workflow,
     name: "Workflow Automation",

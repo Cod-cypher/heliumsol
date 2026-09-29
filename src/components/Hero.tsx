@@ -81,7 +81,7 @@ export default function Hero() {
           {[
             { label: "Websites", text: "Built to convert" },
             { label: "Web & Apps", text: "Full-stack builds" },
-            { label: "AI Chatbots", text: "24/7 lead capture" },
+            // { label: "AI Chatbots", text: "24/7 lead capture" },
             { label: "Automation", text: "n8n workflows" },
           ].map((item, index) => (
             <div
