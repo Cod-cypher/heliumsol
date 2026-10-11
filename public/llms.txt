@@ -7,7 +7,7 @@ Remote, serving clients worldwide. We reply within one business day. A person re
 
 ## Free offer
 
-A free website plus a knowledge-base chatbot, with API usage included for 1 month. HeliumSol builds the website and a chatbot trained on the business's own content at no charge, and covers the chatbot's API usage for the first month. After that, API usage is billed at cost, with the rate confirmed in writing before the month ends. One free website and chatbot per business. The signup form never asks for a password.
+A free website, a knowledge-base chatbot and email on the business's own domain, all hosted by HeliumSol. HeliumSol builds the website and a chatbot trained on the business's own content at no charge, sets up professional email on the domain, and hosts everything. The chatbot's API usage and the email are included for the first month; after that both are billed at cost, with the rate confirmed in writing before the month ends. The business buys and owns its domain name. One free website and chatbot per business. No obligation before launch. The signup form never asks for a password.
 
 - [Free website and chatbot signup](https://heliumsol.com/free-website-and-chatbot): the offer terms, what is included, and the signup form.
 

@@ -113,7 +113,7 @@ function Choices({
   onChange: (v: string) => void;
 }) {
   return (
-    <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
+    <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">
       {options.map((o) => {
         const v = typeof o === 'string' ? o : o.value;
         const l = typeof o === 'string' ? o : o.label;
@@ -183,7 +183,7 @@ export default function SignupForm() {
 
     const list = (s: Multi) => (s.size ? [...s].join(', ') : 'none selected');
     const comments = [
-      `Offer: free website + knowledge-base chatbot (API usage included for 1 month)`,
+      `Offer: free website + knowledge-base chatbot + email on their domain (chatbot API usage and email included for 1 month; HeliumSol hosts; client buys and owns the domain)`,
       `Source: ${typeof window !== 'undefined' ? window.location.pathname : ''}`,
       '',
       `Business: ${businessName.trim()}`,

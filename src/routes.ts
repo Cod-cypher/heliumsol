@@ -93,9 +93,9 @@ const STATIC_ROUTES: RouteMeta[] = [
   {
     path: SIGNUP_PATH,
     view: 'signup',
-    title: 'Free Website + AI Chatbot, 1 Month API Included | HeliumSol',
+    title: 'Free Website, AI Chatbot and Email on Your Domain | HeliumSol',
     description:
-      'A free website plus a knowledge-base chatbot trained on your business, with API usage included for the first month. One short form; a person reads it.',
+      'A free website, a knowledge-base chatbot trained on your business, and email on your domain, hosted by HeliumSol. Chatbot API usage and email free for a month.',
     priority: 0.9,
     lastmod: PAGES_UPDATED,
   },
