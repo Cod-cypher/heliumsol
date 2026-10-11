@@ -3,6 +3,7 @@ import { BOOKING_URL, CONTACT } from "../constants";
 import { navigate } from "../routes";
 import { SIGNUP_PATH } from "../site";
 import { SERVICES } from "../content/services";
+import { LANDINGS } from "../content/landings";
 
 export default function Footer() {
   /*
@@ -17,6 +18,7 @@ export default function Footer() {
   ];
 
   const serviceLinks = SERVICES.map((s) => ({ label: s.name, href: `/services/${s.slug}` }));
+  const useCaseLinks = LANDINGS.map((l) => ({ label: l.name, href: `/${l.slug}` }));
 
   const companyLinks = [
     { label: "Free website + chatbot", href: SIGNUP_PATH },
@@ -49,7 +51,7 @@ export default function Footer() {
           </div>
 
           {/* Link columns (8 cols total) */}
-          <div className="md:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
+          <div className="md:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
             <div className="text-left">
               <h3 className="text-[10px] font-bold text-slate-800 dark:text-slate-200 font-display uppercase tracking-widest mb-4">
                 Services
@@ -64,6 +66,23 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
+
+            {useCaseLinks.length > 0 && (
+              <div className="text-left">
+                <h3 className="text-[10px] font-bold text-slate-800 dark:text-slate-200 font-display uppercase tracking-widest mb-4">
+                  AI use cases
+                </h3>
+                <ul className="flex flex-col gap-2.5">
+                  {useCaseLinks.map((link) => (
+                    <li key={link.label}>
+                      <a href={link.href} className="text-xs text-slate-500 dark:text-slate-400 hover:text-navy-700 dark:hover:text-white transition-colors font-medium">
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             <div className="text-left">
               <h3 className="text-[10px] font-bold text-slate-800 dark:text-slate-200 font-display uppercase tracking-widest mb-4">
@@ -80,7 +99,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="text-left col-span-2 sm:col-span-1">
+            <div className="text-left col-span-2 sm:col-span-4 lg:col-span-1">
               <h3 className="text-[10px] font-bold text-slate-800 dark:text-slate-200 font-display uppercase tracking-widest mb-4">
                 Get in touch
               </h3>

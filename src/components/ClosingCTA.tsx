@@ -2,6 +2,7 @@ import { useSkipEntrance } from "../lib/useSkipEntrance";
 import { motion } from "motion/react";
 import { ArrowRight, Mail } from "lucide-react";
 import { BOOKING_URL, CONTACT } from "../constants";
+import { SIGNUP_PATH } from "../site";
 
 export default function ClosingCTA() {
   const skip = useSkipEntrance();
@@ -27,24 +28,26 @@ export default function ClosingCTA() {
               Ready to grow your business?
             </h2>
             <p className="mt-5 text-base sm:text-lg text-navy-100/70 leading-relaxed">
-              Tell us what you're building and we'll come back with how a new website, app,
-              chatbot, or automation could work for you — no pressure, no obligation.
+              Start with a free website and a knowledge-base chatbot, with API usage included for
+              the first month. Or tell us what you're building and we'll come back with how a new
+              website, app, chatbot, or automation could work for you — no pressure, no obligation.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <a
-                href={BOOKING_URL}
+                id="home-closing-free-offer"
+                href={SIGNUP_PATH}
                 className="group inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 text-sm font-semibold text-navy-900 shadow-soft hover:bg-slate-100 transition-all duration-300"
               >
-                Contact us
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                Get the free website and chatbot
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
               </a>
               <a
-                href={`mailto:${CONTACT.email}`}
+                href={BOOKING_URL}
                 className="inline-flex items-center justify-center gap-2 rounded-lg border border-navy-700 px-7 py-3.5 text-sm font-semibold text-navy-100 hover:bg-navy-800 transition-all duration-300"
               >
-                <Mail className="h-4 w-4" />
-                {CONTACT.email}
+                <Mail className="h-4 w-4" aria-hidden="true" />
+                Contact us
               </a>
             </div>
 
