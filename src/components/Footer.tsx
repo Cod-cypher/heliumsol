@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Phone, ArrowRight } from "lucide-react";
 import { BOOKING_URL, CONTACT } from "../constants";
 import { navigate } from "../routes";
 import { SIGNUP_PATH } from "../site";
@@ -118,10 +118,6 @@ export default function Footer() {
                     {CONTACT.phone}
                   </a>
                 </li>
-                <li className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 font-medium">
-                  <MapPin className="h-3.5 w-3.5 text-slate-400 dark:text-slate-500 shrink-0" />
-                  {CONTACT.location}
-                </li>
               </ul>
               <a
                 href={BOOKING_URL}
@@ -137,7 +133,7 @@ export default function Footer() {
 
         {/* Closing Row */}
         <div className="mt-16 pt-8 border-t border-slate-200/60 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600 dark:text-slate-400 font-medium">
-          <span>© {new Date().getFullYear()} HeliumSol. HeliumSol is a brand of Idea Brothers LLC. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} HeliumSol. All rights reserved.</span>
           <div className="flex items-center gap-5">
             {legalLinks.map((link) => (
               <a

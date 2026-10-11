@@ -29,7 +29,7 @@ export default function ClosingCTA() {
             </h2>
             <p className="mt-5 text-base sm:text-lg text-navy-100/70 leading-relaxed">
               Start with a free website, a knowledge-base chatbot and email on your domain, hosted by
-              us, with chatbot API usage and email included for the first month. Or tell us what you're building and we'll come back with how a new
+              us, with hosting, chatbot API usage and email included for the first month. Or tell us what you're building and we'll come back with how a new
               website, app, chatbot, or automation could work for you — no pressure, no obligation.
             </p>
 

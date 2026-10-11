@@ -17,7 +17,7 @@ interface Props {
 
 export default function OfferCta({
   heading = 'Start with a free website and chatbot',
-  text = 'HeliumSol will build and host your website, add a knowledge-base chatbot trained on your business, and set up email on your domain. Chatbot API usage and email are included for the first month. One short form, and a person reads it.',
+  text = 'HeliumSol will build and host your website, add a knowledge-base chatbot trained on your business, and set up email on your domain. Hosting, chatbot API usage and email are included for the first month. One short form, and a person reads it.',
   source,
 }: Props) {
   return (

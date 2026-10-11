@@ -21,7 +21,7 @@ const INCLUDED = [
   {
     icon: Globe,
     title: 'A website, built for you',
-    text: 'Designed and built by HeliumSol with the pages your business needs, fast on phones, and prerendered so search engines read every word. Hosting is handled by us.',
+    text: 'Coded by HeliumSol with the pages your business needs, fast on phones, and prerendered so search engines read every word. Hosted by us, free for the first month.',
   },
   {
     icon: Bot,
@@ -36,9 +36,9 @@ const INCLUDED = [
 ];
 
 const TERMS = [
-  { icon: Server, text: 'HeliumSol handles the hosting of the website and the chatbot. There is nothing for you to set up or maintain.' },
+  { icon: Server, text: 'HeliumSol handles the hosting of the website and the chatbot. There is nothing for you to set up or maintain, and hosting is free for the first month.' },
   { icon: KeyRound, text: 'You buy and own your domain name. It stays registered in your name, and the website and its content are yours.' },
-  { icon: Clock, text: 'After the first month, chatbot API usage and email are billed at cost. The rate for your setup is confirmed with you in writing before the month ends, so there is no surprise bill.' },
+  { icon: Clock, text: 'After the first month, hosting, chatbot API usage and email are billed at cost. The rate for your setup is confirmed with you in writing before the month ends, so there is no surprise bill.' },
   { icon: ShieldCheck, text: 'No obligation. You can say no at any point before launch, and nothing is charged for the build.' },
 ];
 
@@ -52,7 +52,7 @@ const NEXT = [
 const OFFER_FAQ: FaqItem[] = [
   {
     q: 'Is the website really free?',
-    a: 'Yes. HeliumSol designs, builds and hosts the website at no charge as part of this offer. The only costs that can arise are the chatbot’s API usage and your email after the first month, both billed at cost and confirmed with you in writing before that month ends, and the domain name, which you buy and own.',
+    a: 'Yes. HeliumSol builds the website at no charge as part of this offer, and hosting is free for the first month. The only costs that can arise are hosting, the chatbot’s API usage and your email after the first month, all billed at cost and confirmed with you in writing before that month ends, and the domain name, which you buy and own.',
   },
   {
     q: 'What is a knowledge-base chatbot?',
@@ -60,7 +60,7 @@ const OFFER_FAQ: FaqItem[] = [
   },
   {
     q: 'Who hosts the website, and who owns the domain?',
-    a: 'HeliumSol hosts the website and the chatbot, so there is nothing for you to manage. You buy the domain name and it is registered in your name, so it is yours regardless of who hosts the site. If you already have a domain, we use that.',
+    a: 'HeliumSol hosts the website and the chatbot, so there is nothing for you to manage; hosting is free for the first month and then billed at cost. You buy the domain name and it is registered in your name, so it is yours regardless of who hosts the site. If you already have a domain, we use that.',
   },
   {
     q: 'How does the free email work?',
@@ -119,8 +119,8 @@ export default function SignupPage() {
               </h1>
               <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-navy-100/80">
                 HeliumSol builds your business a website and an AI chatbot that answers from your own content, sets up
-                professional email on your domain, and hosts all of it. The chatbot's API usage and the email are
-                included for the first month. You buy and own the domain; we do the rest.
+                professional email on your domain, and hosts all of it. Hosting, the chatbot's API usage and the
+                email are included for the first month, then billed at cost. You buy and own the domain; we do the rest.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3">
                 <a
@@ -146,8 +146,8 @@ export default function SignupPage() {
 
             <ul className="lg:col-span-4 grid grid-cols-3 lg:grid-cols-1 gap-3" aria-label="What is included">
               {[
-                { k: '$0', v: 'for the build and the hosting' },
-                { k: '1 month', v: 'of chatbot API usage and email included' },
+                { k: '$0', v: 'for the build' },
+                { k: '1 month', v: 'of hosting, chatbot API usage and email included' },
                 { k: '<1 day', v: 'to hear back from a real person' },
               ].map((s) => (
                 <li key={s.k} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur-sm">

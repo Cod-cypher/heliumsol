@@ -41,7 +41,7 @@ export default function AboutPage() {
             connect the tools a business already uses.
           </p>
           <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-400">
-            The agency is remote and serves clients worldwide. Contact is by email at{' '}
+            Contact is by email at{' '}
             <a href={`mailto:${CONTACT.email}`} className="font-medium text-navy-700 dark:text-navy-300 underline underline-offset-2">
               {CONTACT.email}
             </a>

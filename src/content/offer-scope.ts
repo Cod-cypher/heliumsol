@@ -34,7 +34,7 @@ export const OFFER_SCOPE: OfferScopePage[] = [
       'What HeliumSol builds in the free website: the pages, forms and calls to action, the speed, SEO and privacy standards, how it works with the chatbot, and what you own.',
     h1: 'What the free website includes',
     answer:
-      'The free website is a professional, mobile-first business site built and hosted by HeliumSol: a home page, service or product pages, an about page, a contact page with a working enquiry form, a privacy policy, and any extra pages the business needs, such as FAQs, pricing, a portfolio or service areas. It is built to load fast, pass basic SEO and accessibility checks, and feed every enquiry to you. The content and structure are adapted to your business, not a template with the names swapped.',
+      'The free website is a professional, mobile-first business site coded by HeliumSol and hosted by us, with hosting free for the first month and then billed at cost: a home page, service or product pages, an about page, a contact page with a working enquiry form, a privacy policy, and any extra pages the business needs, such as FAQs, pricing, a portfolio or service areas. It is built to load fast, pass basic SEO and accessibility checks, and feed every enquiry to you. The content and structure are adapted to your business, not a template with the names swapped.',
     blocks: [
       {
         type: 'table',
@@ -89,9 +89,9 @@ export const OFFER_SCOPE: OfferScopePage[] = [
         heading: 'What do you own, and what does it cost after the first month?',
         columns: ['Item', 'Who owns or pays'],
         rows: [
-          ['The website and its content', 'Yours. The design, pages and copy belong to your business.'],
+          ['The website and its content', 'Yours. The code, pages and copy belong to your business.'],
           ['The domain name', 'Yours. You buy it and it is registered in your name; we use it.'],
-          ['Hosting of the website and chatbot', 'HeliumSol handles it. Nothing for you to set up or maintain.'],
+          ['Hosting of the website and chatbot', 'HeliumSol handles it; nothing for you to set up or maintain. Free for the first month, then billed at cost like the chatbot API usage and email, confirmed in writing before the month ends.'],
           ['Chatbot API usage', 'Included for the first month, then billed at cost, confirmed in writing before the month ends.'],
           ['Email on your domain', 'Included for the first month, then billed at cost, confirmed in writing before the month ends.'],
           ['Third-party services you choose (CRM, booking tool, payments)', 'Paid directly by you; we document which ones are in use.'],
@@ -208,7 +208,7 @@ export const OFFER_SCOPE: OfferScopePage[] = [
           ['Monthly cap', 'A token cap per month; when reached, the chatbot falls back to a contact form rather than running up a bill.'],
           ['Rate limit', 'A per-visitor limit so one person or script cannot run hundreds of conversations.'],
           ['Model', 'A current small model from a major provider for routine questions; upgrading is a configuration change, not a rebuild.'],
-          ['Hosting', 'Runs on the same hosting as your website, handled by HeliumSol.'],
+          ['Hosting', 'Runs on the same hosting as your website, handled by HeliumSol. Free for the first month, then billed at cost.'],
         ],
       },
       {
