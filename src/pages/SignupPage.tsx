@@ -137,7 +137,7 @@ export default function SignupPage() {
               {[
                 { k: '$0', v: 'for the build and the hosting' },
                 { k: '1 month', v: 'of chatbot API usage and email included' },
-                { k: '1 day', v: 'to hear back from a real person' },
+                { k: '<1 day', v: 'to hear back from a real person' },
               ].map((s) => (
                 <li key={s.k} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur-sm">
                   <span className="block font-display text-2xl md:text-3xl font-bold text-white">{s.k}</span>
@@ -149,29 +149,8 @@ export default function SignupPage() {
         </div>
       </section>
 
-      {/* Included cards */}
-      <section aria-labelledby="included-heading" className="relative mx-auto max-w-7xl px-4 md:px-8 -mt-8">
-        <h2 id="included-heading" className="sr-only">
-          What is included
-        </h2>
-        <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {INCLUDED.map((item) => (
-            <li
-              key={item.title}
-              className="rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-ink-900 p-6 shadow-card"
-            >
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-navy-50 dark:bg-navy-900/50 text-navy-700 dark:text-navy-200">
-                <item.icon className="h-5 w-5" aria-hidden="true" />
-              </div>
-              <h3 className="mt-4 font-display text-lg font-bold tracking-tight text-slate-900 dark:text-white">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{item.text}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
-
       {/* What happens next */}
-      <section aria-labelledby="next-heading" className="mx-auto max-w-7xl px-4 md:px-8 mt-16">
+      <section aria-labelledby="next-heading" className="mx-auto max-w-7xl px-4 md:px-8 mt-12">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
           <h2 id="next-heading" className="font-display text-2xl md:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
             What happens after you sign up
@@ -244,6 +223,27 @@ export default function SignupPage() {
         <div className="lg:col-span-8">
           <SignupForm />
         </div>
+      </section>
+
+      {/* Included cards, after the form */}
+      <section aria-labelledby="included-heading" className="relative mx-auto max-w-7xl px-4 md:px-8 mt-16">
+        <h2 id="included-heading" className="font-display text-2xl md:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+          What you get
+        </h2>
+        <ul className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+          {INCLUDED.map((item) => (
+            <li
+              key={item.title}
+              className="rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-ink-900 p-6 shadow-card"
+            >
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-navy-50 dark:bg-navy-900/50 text-navy-700 dark:text-navy-200">
+                <item.icon className="h-5 w-5" aria-hidden="true" />
+              </div>
+              <h3 className="mt-4 font-display text-lg font-bold tracking-tight text-slate-900 dark:text-white">{item.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{item.text}</p>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <div className="mx-auto max-w-7xl px-4 md:px-8">
