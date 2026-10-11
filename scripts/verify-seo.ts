@@ -59,6 +59,7 @@ const EXPECTED_TYPES: Record<string, string[][]> = {
   about: [['AboutPage'], ['BreadcrumbList']],
   caseStudies: [['CollectionPage'], ['BreadcrumbList']],
   signup: [['WebPage'], ['FAQPage'], ['BreadcrumbList']],
+  offerScope: [['WebPage'], ['BreadcrumbList']],
 };
 
 function normalize(p: string): string {

@@ -22,6 +22,7 @@ import { submitLead } from '../lib/leads';
 import { trackSignupConversion } from '../lib/analytics';
 import { trackEvent } from '../lib/tracker';
 import { CONTACT } from '../constants';
+import { SIGNUP_PATH } from '../site';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const DRAFT_KEY = 'hs_signup_draft';
@@ -129,7 +130,7 @@ function readDraft(): Draft | null {
 
 function Section({ n, title, intro, children }: { n: number; title: string; intro?: string; children: ReactNode }) {
   return (
-    <fieldset id={`signup-section-${n}`} className="scroll-mt-28 rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-ink-900 p-6 md:p-8 shadow-soft">
+    <fieldset id={`signup-section-${n}`} className="scroll-mt-44 rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-ink-900 p-6 md:p-8 shadow-soft">
       <legend className="sr-only">{`${n}. ${title}`}</legend>
       <div className="flex items-start gap-4">
         <span
@@ -339,7 +340,7 @@ export default function SignupForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="space-y-6" id="signup-form">
+    <form onSubmit={onSubmit} noValidate className="space-y-6 scroll-mt-24" id="signup-form">
       {/* Progress + draft status */}
       <div className="sticky top-[4.5rem] md:top-20 z-20 rounded-xl border border-slate-200 dark:border-white/10 bg-white/95 dark:bg-ink-900/95 backdrop-blur px-4 py-3 shadow-soft">
         <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
@@ -536,28 +537,36 @@ export default function SignupForm() {
           </p>
         )}
 
-        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+        <div className="pt-2">
           <button
             id="signup-submit"
             type="submit"
             disabled={status === 'submitting'}
-            className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-navy-800 dark:bg-navy-600 px-7 py-3.5 text-sm font-semibold text-white shadow-card hover:bg-navy-900 dark:hover:bg-navy-500 disabled:opacity-60 transition-all"
+            className="group inline-flex w-full sm:w-auto shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-navy-800 dark:bg-navy-600 px-8 py-4 text-base font-semibold text-white shadow-card hover:bg-navy-900 dark:hover:bg-navy-500 disabled:opacity-60 transition-all"
           >
             {status === 'submitting' ? (
               <>
-                <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+                <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />
                 Sending
               </>
             ) : (
               <>
-                Request my free website and chatbot
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
+                Request my free website + chatbot
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
               </>
             )}
           </button>
-          <span className="text-xs text-slate-500 dark:text-slate-400">
-            Not finished? Your answers stay saved on this device. Come back any time.
-          </span>
+          <p className="mt-3 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+            Not finished? Your answers stay saved on this device; come back any time. Wondering what you get? See{' '}
+            <a href={`${SIGNUP_PATH}/website`} className="font-medium underline underline-offset-2">
+              what the free website includes
+            </a>{' '}
+            and{' '}
+            <a href={`${SIGNUP_PATH}/chatbot`} className="font-medium underline underline-offset-2">
+              what the free chatbot includes
+            </a>
+            .
+          </p>
         </div>
       </Section>
     </form>

@@ -21,6 +21,7 @@ import { SITE_ORIGIN, LEGAL_UPDATED_ISO, SIGNUP_PATH, DEFAULT_OG_IMAGE, type OgI
 import { SERVICES } from './content/services';
 import { LANDINGS } from './content/landings';
 import { POSTS, CATEGORIES, blogLastmod } from './content/blog';
+import { OFFER_SCOPE } from './content/offer-scope';
 
 export type View =
   | 'home'
@@ -28,6 +29,7 @@ export type View =
   | 'about'
   | 'caseStudies'
   | 'signup'
+  | 'offerScope'
   | 'services'
   | 'service'
   | 'landing'
@@ -69,6 +71,7 @@ export type RouteMeta =
         | 'notfound';
     })
   | (RouteBase & { view: 'service'; slug: string })
+  | (RouteBase & { view: 'offerScope'; slug: string })
   | (RouteBase & { view: 'landing'; slug: string })
   | (RouteBase & { view: 'blogCategory'; category: string })
   | (RouteBase & {
@@ -173,6 +176,16 @@ const STATIC_ROUTES: RouteMeta[] = [
   },
 ];
 
+const OFFER_SCOPE_ROUTES: RouteMeta[] = OFFER_SCOPE.map((p) => ({
+  path: `${SIGNUP_PATH}/${p.slug}`,
+  view: 'offerScope',
+  slug: p.slug,
+  title: `${p.title} | HeliumSol`,
+  description: p.description,
+  priority: 0.7,
+  lastmod: p.updated,
+}));
+
 const SERVICE_ROUTES: RouteMeta[] = SERVICES.map((s) => ({
   path: `/services/${s.slug}`,
   view: 'service',
@@ -222,7 +235,13 @@ const BLOG_ROUTES: RouteMeta[] = [
   ),
 ];
 
-export const ROUTES: RouteMeta[] = [...STATIC_ROUTES, ...SERVICE_ROUTES, ...LANDING_ROUTES, ...BLOG_ROUTES];
+export const ROUTES: RouteMeta[] = [
+  ...STATIC_ROUTES,
+  ...OFFER_SCOPE_ROUTES,
+  ...SERVICE_ROUTES,
+  ...LANDING_ROUTES,
+  ...BLOG_ROUTES,
+];
 
 // A post slugged "category", or a landing page that collides with a static
 // page, would silently shadow the other. Fail both Vite builds instead.

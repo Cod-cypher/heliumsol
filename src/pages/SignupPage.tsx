@@ -6,7 +6,7 @@
  * markup, no motion: all of it must be in the prerendered HTML.
  */
 
-import { Globe, Bot, Mail, ShieldCheck, CheckCircle2, Clock, KeyRound, Server } from 'lucide-react';
+import { Globe, Bot, Mail, ShieldCheck, CheckCircle2, Clock, KeyRound, Server, ArrowRight } from 'lucide-react';
 import Breadcrumbs from '../components/Breadcrumbs';
 import SignupForm from '../components/SignupForm';
 import Faq from '../components/Faq';
@@ -131,6 +131,17 @@ export default function SignupPage() {
                 </a>
                 <span className="text-sm text-navy-200/80">Takes about five minutes. Never asks for a password.</span>
               </div>
+              <p className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium">
+                <span className="text-navy-200/70">Not sure what "free" covers?</span>
+                <a href={`${SIGNUP_PATH}/website`} className="inline-flex items-center gap-1.5 text-white underline decoration-navy-300/60 underline-offset-4 hover:decoration-white">
+                  What the free website includes
+                  <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+                <a href={`${SIGNUP_PATH}/chatbot`} className="inline-flex items-center gap-1.5 text-white underline decoration-navy-300/60 underline-offset-4 hover:decoration-white">
+                  What the free chatbot includes
+                  <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+              </p>
             </div>
 
             <ul className="lg:col-span-4 grid grid-cols-3 lg:grid-cols-1 gap-3" aria-label="What is included">

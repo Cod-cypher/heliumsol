@@ -26,6 +26,7 @@ import LandingPage from "./pages/LandingPage";
 import AboutPage from "./pages/AboutPage";
 import CaseStudiesPage from "./pages/CaseStudiesPage";
 import SignupPage from "./pages/SignupPage";
+import OfferScopePage from "./pages/OfferScopePage";
 import BlogIndexPage from "./pages/BlogIndexPage";
 import BlogCategoryPage from "./pages/BlogCategoryPage";
 import PostPage from "./pages/PostPage";
@@ -48,6 +49,8 @@ function renderView(route: RouteMeta) {
       return <CaseStudiesPage />;
     case "signup":
       return <SignupPage />;
+    case "offerScope":
+      return <OfferScopePage slug={route.slug} />;
     case "services":
       return <ServicesIndexPage />;
     case "service":
