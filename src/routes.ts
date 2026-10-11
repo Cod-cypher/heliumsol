@@ -22,6 +22,7 @@ import { SERVICES } from './content/services';
 import { LANDINGS } from './content/landings';
 import { POSTS, CATEGORIES, blogLastmod } from './content/blog';
 import { OFFER_SCOPE } from './content/offer-scope';
+import { PROGRAM_PATH } from './content/program';
 
 export type View =
   | 'home'
@@ -29,6 +30,7 @@ export type View =
   | 'about'
   | 'caseStudies'
   | 'signup'
+  | 'program'
   | 'offerScope'
   | 'services'
   | 'service'
@@ -63,6 +65,7 @@ export type RouteMeta =
         | 'about'
         | 'caseStudies'
         | 'signup'
+        | 'program'
         | 'services'
         | 'blog'
         | 'privacy'
@@ -100,6 +103,15 @@ const STATIC_ROUTES: RouteMeta[] = [
     description:
       'A free website, a knowledge-base chatbot trained on your business, and email on your domain, hosted by HeliumSol. Chatbot API usage and email free for a month.',
     priority: 0.9,
+    lastmod: PAGES_UPDATED,
+  },
+  {
+    path: PROGRAM_PATH,
+    view: 'program',
+    title: 'Founding Partner Program: Why It Is Free | HeliumSol',
+    description:
+      'HeliumSol is selecting a few businesses for a free website, chatbot and email in exchange for honest feedback. Who it is for, what we ask, costs and ownership.',
+    priority: 0.8,
     lastmod: PAGES_UPDATED,
   },
   {

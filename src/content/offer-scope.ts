@@ -130,7 +130,7 @@ export const OFFER_SCOPE: OfferScopePage[] = [
     name: 'What the free chatbot includes',
     title: 'What the Free AI Chatbot Includes',
     description:
-      'What HeliumSol builds in the free chatbot: what it knows, what it can do, the accuracy rules it follows, how it captures leads and hands off to a person, and the usage limits.',
+      'What HeliumSol builds in the free chatbot: what it knows, what it can do, its accuracy rules, how it captures leads and hands off to a person, and the usage limits.',
     h1: 'What the free AI chatbot includes',
     answer:
       'The free chatbot is an AI assistant on your website that answers from an approved knowledge base about your business, helps visitors find the right service or page, collects their details when they want to go further, and hands off to a person when it should. It never invents company information, prices or availability, and it says so when it does not know. API usage is included for the first month, with a cap so there is no surprise bill.',

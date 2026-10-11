@@ -5,7 +5,12 @@
 Contact: info@heliumsol.com · +1 (202) 810-7042 · https://heliumsol.com/contact
 We reply within one business day. A person reads every enquiry.
 
-## Free offer
+## Free offer and the Founding Partner Program
+
+Why it is free: HeliumSol is selecting a small number of businesses to receive a professionally built website and AI chatbot as part of its founding client program, to build a real portfolio instead of advertising. In exchange it asks for honest feedback about the experience. If the business is happy with the result, HeliumSol would appreciate permission to showcase the project, but that is separate from the quality of the service and can be declined. There are no upfront development fees for the agreed scope; all ongoing costs, usage limits, ownership terms and optional paid services are explained in writing before work begins.
+
+- [Founding Partner Program](https://heliumsol.com/founding-partner-program): why the offer exists, who it is for, what is asked in return, how selection works, costs and ownership.
+
 
 A free website, a knowledge-base chatbot and email on the business's own domain, all hosted by HeliumSol. HeliumSol builds the website and a chatbot trained on the business's own content at no charge, sets up professional email on the domain, and hosts everything. Hosting, the chatbot's API usage and the email are included for the first month; after that all three are billed at cost, with the rate confirmed in writing before the month ends. The business buys and owns its domain name. One free website and chatbot per business. No obligation before launch. The signup form never asks for a password.
 

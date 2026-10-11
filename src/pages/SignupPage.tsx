@@ -15,6 +15,7 @@ import { webPage } from '../lib/jsonld';
 import { CONTACT } from '../constants';
 import { SIGNUP_PATH } from '../site';
 import { ROUTES } from '../routes';
+import { PROGRAM_PATH, PROGRAM_SUMMARY } from '../content/program';
 import type { FaqItem } from '../content/types';
 
 const INCLUDED = [
@@ -111,7 +112,7 @@ export default function SignupPage() {
             <div className="lg:col-span-8">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-navy-100 backdrop-blur-sm">
                 <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                Free offer · Limited to one per business
+                Founding Partner Program · Limited places
               </span>
               <h1 className="mt-5 font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
                 A free website, a knowledge-base chatbot, and email on your domain
@@ -188,6 +189,22 @@ export default function SignupPage() {
       {/* Summary + form */}
       <section aria-labelledby="form-heading" className="mx-auto max-w-7xl px-4 md:px-8 mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
         <aside className="lg:col-span-4 lg:sticky lg:top-28 space-y-6">
+          <div className="rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-ink-900 p-6 shadow-soft">
+            <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-navy-600 dark:text-navy-300 font-display">
+              {PROGRAM_SUMMARY.eyebrow}
+            </span>
+            <h2 className="mt-2 font-display text-xl font-bold tracking-tight text-slate-900 dark:text-white">{PROGRAM_SUMMARY.heading}</h2>
+            {PROGRAM_SUMMARY.paragraphs.map((p) => (
+              <p key={p} className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                {p}
+              </p>
+            ))}
+            <a href={PROGRAM_PATH} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-navy-700 dark:text-navy-300 hover:underline">
+              How the program works
+              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
+          </div>
+
           <div className="rounded-2xl border border-navy-100 dark:border-navy-800 bg-navy-50/70 dark:bg-navy-900/30 p-6">
             <h2 id="form-heading" className="font-display text-xl font-bold tracking-tight text-slate-900 dark:text-white">
               The terms, in plain words

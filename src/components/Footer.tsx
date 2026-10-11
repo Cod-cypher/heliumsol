@@ -22,6 +22,7 @@ export default function Footer() {
 
   const companyLinks = [
     { label: "Free website + chatbot", href: SIGNUP_PATH },
+    { label: "Founding Partner Program", href: "/founding-partner-program" },
     { label: "What the free website includes", href: `${SIGNUP_PATH}/website` },
     { label: "What the free chatbot includes", href: `${SIGNUP_PATH}/chatbot` },
     { label: "About", href: "/about" },

@@ -12,6 +12,7 @@ import ScrollOrchestrator from "../components/ScrollOrchestrator";
 import Process from "../components/Process";
 import Commitments from "../components/Commitments";
 import ClosingCTA from "../components/ClosingCTA";
+import FoundingProgram from "../components/FoundingProgram";
 import JsonLd from "../components/JsonLd";
 import { organization, webSite } from "../lib/jsonld";
 
@@ -25,6 +26,9 @@ export default function HomePage() {
 
         {/* What we offer */}
         <Services />
+
+        {/* Why the website and chatbot are free */}
+        <FoundingProgram />
 
         {/* Capability demos + portfolio (scroll-driven sequence) */}
         <ScrollOrchestrator />
