@@ -10,6 +10,7 @@ import { Globe, Bot, Mail, ShieldCheck, CheckCircle2, Clock, KeyRound, Server, A
 import Breadcrumbs from '../components/Breadcrumbs';
 import SignupForm from '../components/SignupForm';
 import Faq from '../components/Faq';
+import FoundingProgram from '../components/FoundingProgram';
 import JsonLd from '../components/JsonLd';
 import { webPage } from '../lib/jsonld';
 import { CONTACT } from '../constants';
@@ -140,6 +141,10 @@ export default function SignupPage() {
                 </a>
                 <a href={`${SIGNUP_PATH}/chatbot`} className="inline-flex items-center gap-1.5 text-white underline decoration-navy-300/60 underline-offset-4 hover:decoration-white">
                   What the free chatbot includes
+                  <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+                <a href={PROGRAM_PATH} className="inline-flex items-center gap-1.5 text-white underline decoration-navy-300/60 underline-offset-4 hover:decoration-white">
+                  Why it is free: the Founding Partner Program
                   <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
               </p>
@@ -276,6 +281,11 @@ export default function SignupPage() {
 
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <Faq items={OFFER_FAQ} heading="Questions about the offer" />
+      </div>
+
+      {/* Why it is free, at the end: the apply button scrolls back up to the form. */}
+      <div className="mt-16">
+        <FoundingProgram applyHref="#signup-form" />
       </div>
 
       <JsonLd data={webPage({ path: SIGNUP_PATH, name: route.title, description: route.description })} />

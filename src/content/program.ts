@@ -20,6 +20,10 @@ export const PROGRAM_SUMMARY = {
   ],
 };
 
+/** One paragraph, for the section at the end of the offer page. */
+export const PROGRAM_SHORT =
+  'HeliumSol is selecting a small number of businesses to receive a professionally built website and AI chatbot as part of its founding client program. In exchange we ask for honest feedback, and, only if you are happy with the result, permission to showcase the project. No upfront development fees for the agreed scope; every ongoing cost, limit and ownership term is explained in writing before work begins.';
+
 export const PROGRAM_ANSWER =
   'The Founding Partner Program is how HeliumSol builds its first public portfolio: a small number of businesses get a professionally built website, a knowledge-base chatbot and email on their domain with no upfront development fees for the agreed scope. In return we ask for honest feedback, and, only if you are happy with the result, permission to show the project. Ongoing costs, limits and ownership are explained before any work starts.';
 
