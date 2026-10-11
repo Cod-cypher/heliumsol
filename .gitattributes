@@ -1,3 +1,6 @@
 # deploy.sh runs on the Linux server; a CRLF checkout on Windows would be
 # committed back with \r line endings and bash would refuse to run it.
 *.sh text eol=lf
+
+# Blog posts are parsed by a build-time plugin; keep frontmatter free of .
+*.md text eol=lf

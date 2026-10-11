@@ -5,15 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist/ssr && tsx scripts/prerender.ts && npm run build:server",
-    "build:server": "esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
+    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist/ssr && npm run build:server && tsx scripts/prerender.ts && tsx scripts/verify-seo.ts",
+    "build:server": "esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --metafile=dist/server-meta.json --outfile=dist/server.cjs",
     "start": "node server.cjs",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
     "admin": "tsx scripts/create-admin.ts",
     "postinstall": "prisma generate",
-    "mail:test": "tsx scripts/mail-test.ts"
+    "mail:test": "tsx scripts/mail-test.ts",
+    "verify:seo": "tsx scripts/verify-seo.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
@@ -40,6 +41,8 @@
     "@types/react-dom": "^19.3.0",
     "autoprefixer": "^10.4.21",
     "esbuild": "^0.25.0",
+    "image-size": "2.0.4",
+    "marked": "18.1.0",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
     "typescript": "~5.8.2",

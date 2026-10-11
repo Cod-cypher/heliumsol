@@ -2,10 +2,13 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
+import markdown from './scripts/vite-plugin-md';
 
 export default defineConfig(({isSsrBuild}) => {
   return {
-    plugins: [react(), tailwindcss()],
+    // markdown() first: it owns content/blog/*.md before any other plugin
+    // sees them, in both the client and the SSR build.
+    plugins: [markdown(), react(), tailwindcss()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

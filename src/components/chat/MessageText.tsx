@@ -22,7 +22,7 @@
  */
 
 import type { ReactNode } from 'react';
-import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_DISPLAY } from '../../routes';
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_DISPLAY } from '../../site';
 
 /** Addresses a message may turn into a mailto:. Ours only. */
 const KNOWN_EMAILS = [CONTACT_EMAIL, 'info@heliumsol.com'];

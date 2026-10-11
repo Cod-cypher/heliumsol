@@ -1,0 +1,4 @@
+html,body{margin:0;width:1600px;height:900px;overflow:hidden;background:#142540;font-family:Inter,"Segoe UI",system-ui,sans-serif;color:#fff}
+.wrap{position:relative;width:1600px;height:900px;background:radial-gradient(1100px 700px at 20% 10%,#243f63 0%,#142540 55%,#0d1a2e 100%)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 70% 65% at 50% 50%,#000 55%,transparent 100%)}
+.label{position:absolute;left:100px;bottom:80px;font-size:26px;letter-spacing:.18em;text-transform:uppercase;color:#9db4d6;font-weight:700}

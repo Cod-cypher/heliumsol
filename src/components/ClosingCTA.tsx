@@ -1,13 +1,15 @@
+import { useSkipEntrance } from "../lib/useSkipEntrance";
 import { motion } from "motion/react";
 import { ArrowRight, Mail } from "lucide-react";
 import { BOOKING_URL, CONTACT } from "../constants";
 
 export default function ClosingCTA() {
+  const skip = useSkipEntrance();
   return (
     <section id="contact" className="relative bg-white dark:bg-ink-950 px-4 md:px-8 py-20 border-t border-slate-200/70 dark:border-white/10">
       <div className="mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={skip ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}

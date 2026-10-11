@@ -331,9 +331,9 @@ export default function StageAutomationEngine({ progress = 0.55 }: StageAutomati
                           {renderNodeIcon(node.icon)}
                         </div>
                         <div className="text-left leading-tight">
-                          <h4 className="text-[10px] font-bold text-slate-800 uppercase tracking-tight">
+                          <p className="text-[10px] font-bold text-slate-800 uppercase tracking-tight">
                             {node.label}
-                          </h4>
+                          </p>
                         </div>
                       </div>
 

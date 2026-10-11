@@ -207,6 +207,14 @@ async function startServer() {
       return;
     }
 
+    // The prerendered pages really exist at /<path>/index.html, and the
+    // static handler would serve them there as duplicates of the clean URL.
+    if (req.path.endsWith("/index.html")) {
+      const clean = req.path.slice(0, -"/index.html".length) || "/";
+      res.redirect(301, clean + req.originalUrl.slice(req.path.length));
+      return;
+    }
+
     next();
   });
 
@@ -451,9 +459,9 @@ async function startServer() {
       res.status(400).json({ error: "invalid_email" });
       return;
     }
-    // The contact form requires all three; enforce it here too so a scripted
-    // POST cannot create a lead nobody can reply to.
-    if (body.type === "general_enquiry" && (!name || !phone)) {
+    // The contact and free-offer forms require all three; enforce it here too
+    // so a scripted POST cannot create a lead nobody can reply to.
+    if ((body.type === "general_enquiry" || body.type === "free_offer_signup") && (!name || !phone)) {
       res.status(400).json({ error: "name_and_phone_required" });
       return;
     }
@@ -796,7 +804,16 @@ async function startServer() {
         // rule above 301s straight back.
         redirect: false,
         setHeaders(res, filePath) {
-          if (filePath.includes(`${path.sep}assets${path.sep}`)) {
+          // Express's mime table predates AVIF; without this the hero
+          // images go out as application/octet-stream.
+          if (filePath.endsWith(".avif")) res.setHeader("Content-Type", "image/avif");
+          // Fonts and images are content-named: change the file name when
+          // the file changes.
+          if (
+            filePath.includes(`${path.sep}assets${path.sep}`) ||
+            filePath.includes(`${path.sep}fonts${path.sep}`) ||
+            filePath.includes(`${path.sep}images${path.sep}`)
+          ) {
             res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
           } else if (filePath.endsWith(".html")) {
             res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");

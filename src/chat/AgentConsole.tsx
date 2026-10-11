@@ -20,7 +20,7 @@ import type {
   VisitorState,
 } from '../../shared/chatTypes';
 import { mergeMessages } from '../lib/chat';
-import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY } from '../routes';
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY } from '../site';
 import {
   CHAT_AGENT_VISITOR_AWAY,
   CHAT_AGENT_VISITOR_GONE,

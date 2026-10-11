@@ -32,9 +32,12 @@ npx vite build --outDir dist-new/client --emptyOutDir
 npx vite build --ssr src/entry-server.tsx --outDir dist-new/ssr
 # Writes real HTML for every route (crawlers and SMS carrier reviewers read
 # pages without running JavaScript), plus 404.html, sitemap.xml, robots.txt.
-npx tsx scripts/prerender.ts dist-new
 npx esbuild server.ts --bundle --platform=node --format=cjs --packages=external \
-  --sourcemap --outfile=dist-new/server.cjs
+  --sourcemap --metafile=dist-new/server-meta.json --outfile=dist-new/server.cjs
+npx tsx scripts/prerender.ts dist-new
+# Fails the deploy on a missing H1, canonical, share image, broken internal
+# link, sitemap drift, or a server bundle that swallowed the blog.
+npx tsx scripts/verify-seo.ts dist-new
 
 # Guard against swapping in a build that produced nothing or lost pages.
 test -s dist-new/server.cjs
@@ -45,7 +48,12 @@ test -s dist-new/client/contact/index.html
 test -s dist-new/client/privacy-policy/index.html
 test -s dist-new/client/terms-of-service/index.html
 test -s dist-new/client/sms-program/index.html
+test -s dist-new/client/services/index.html
+test -s dist-new/client/blog/index.html
+test -s dist-new/client/blog/feed.xml
+test -s dist-new/client/free-website-and-chatbot/index.html
 test -s dist-new/client/sitemap.xml
+test -s dist-new/client/robots.txt
 
 rm -rf dist-old
 if [ -d dist ]; then mv dist dist-old; fi

@@ -12,11 +12,14 @@ import ScrollOrchestrator from "../components/ScrollOrchestrator";
 import Process from "../components/Process";
 import Commitments from "../components/Commitments";
 import ClosingCTA from "../components/ClosingCTA";
+import JsonLd from "../components/JsonLd";
+import { organization, webSite } from "../lib/jsonld";
 
 export default function HomePage() {
   return (
     <>
       <main className="relative">
+        <JsonLd data={[organization(), webSite()]} />
         {/* Hero — value proposition + primary CTA */}
         <Hero />
 

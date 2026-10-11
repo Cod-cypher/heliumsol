@@ -1,8 +1,10 @@
+import { useSkipEntrance } from "../lib/useSkipEntrance";
 import { motion } from "motion/react";
 import { Sparkles, ArrowRight, ArrowDownRight } from "lucide-react";
 import { BOOKING_URL } from "../constants";
 
 export default function Hero() {
+  const skip = useSkipEntrance();
   return (
     <section id="vibe" className="relative min-h-screen flex items-center justify-center pt-32 pb-20 px-4 md:px-8 bg-white dark:bg-ink-950 overflow-hidden">
       {/* Soft ambient background accents */}
@@ -15,7 +17,7 @@ export default function Hero() {
       <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
         {/* Top Tag - Clean Editorial Border */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={skip ? false : { opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-wider text-slate-600 dark:text-slate-300 shadow-soft backdrop-blur-xs mb-8 hover:border-navy-200 dark:hover:border-white/20 transition-all duration-300"
@@ -26,7 +28,7 @@ export default function Hero() {
 
         {/* Headline with subtle accent contrast */}
         <motion.h1
-          initial={{ opacity: 0, y: 25 }}
+          initial={skip ? false : { opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.08] max-w-4xl"
@@ -39,7 +41,7 @@ export default function Hero() {
 
         {/* Subtitle */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={skip ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="mt-8 text-base sm:text-lg text-slate-500 dark:text-slate-400 max-w-2xl font-normal leading-relaxed"
@@ -51,7 +53,7 @@ export default function Hero() {
 
         {/* Call to Actions - Curated Editorial buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={skip ? false : { opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-10 flex flex-col sm:flex-row items-center gap-4 w-full justify-center max-w-sm px-4"
@@ -73,7 +75,7 @@ export default function Hero() {
 
         {/* Features list */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={skip ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
           className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl"
@@ -81,7 +83,7 @@ export default function Hero() {
           {[
             { label: "Websites", text: "Built to convert" },
             { label: "Web & Apps", text: "Full-stack builds" },
-            // { label: "AI Chatbots", text: "24/7 lead capture" },
+            { label: "AI Chatbots", text: "24/7 lead capture" },
             { label: "Automation", text: "n8n workflows" },
           ].map((item, index) => (
             <div

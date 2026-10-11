@@ -1,3 +1,4 @@
+import { useSkipEntrance } from "../lib/useSkipEntrance";
 import { motion } from "motion/react";
 import { Clock, UserCheck, MessageSquareText, Scale, RefreshCcw, Bot } from "lucide-react";
 import { BOOKING_URL, CONTACT } from "../constants";
@@ -39,6 +40,7 @@ const commitments = [
 ];
 
 export default function Commitments() {
+  const skip = useSkipEntrance();
   return (
     <section
       id="how-we-work"
@@ -63,7 +65,7 @@ export default function Commitments() {
           {commitments.map((item, index) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 18 }}
+              initial={skip ? false : { opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}

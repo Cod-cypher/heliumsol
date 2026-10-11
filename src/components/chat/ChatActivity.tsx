@@ -14,7 +14,7 @@
 
 import { useEffect, useState } from 'react';
 import { Check, Loader2, Mail, Phone } from 'lucide-react';
-import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_DISPLAY } from '../../routes';
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_DISPLAY } from '../../site';
 import type { ChatActivity } from './ChatProvider';
 
 const STEPS: Record<ChatActivity, { label: string; at: number }[]> = {

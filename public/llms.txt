@@ -1,17 +1,31 @@
 # HeliumSol
 
-> HeliumSol is a full-service digital agency. We design and build full-stack websites, web and mobile apps, AI chatbots, and the automated workflows that run quietly behind them.
+> HeliumSol is a full-service digital agency. We design and build full-stack websites, web and mobile apps, AI chatbots and AI assistants, and the n8n workflow automations that run quietly behind them. HeliumSol is a brand of Idea Brothers LLC.
 
 Contact: info@heliumsol.com · +1 (202) 810-7042 · https://heliumsol.com/contact
-Remote, serving clients worldwide. We reply within one business day.
+Remote, serving clients worldwide. We reply within one business day. A person reads every enquiry.
+
+## Free offer
+
+A free website plus a knowledge-base chatbot, with API usage included for 1 month. HeliumSol builds the website and a chatbot trained on the business's own content at no charge, and covers the chatbot's API usage for the first month. After that, API usage is billed at cost, with the rate confirmed in writing before the month ends. One free website and chatbot per business. The signup form never asks for a password.
+
+- [Free website and chatbot signup](https://heliumsol.com/free-website-and-chatbot): the offer terms, what is included, and the signup form.
 
 ## Services
 
-- Full-stack websites: fast, conversion-focused sites that turn visitors into customers.
-- Web and mobile apps: custom applications that scale with a business.
-- AI chatbots and assistants: assistants that answer questions and capture leads around the clock, on a website or other channels.
-- Workflow automation: connecting a business's existing tools, including with n8n, to automate repetitive work.
+- [Full-stack development](https://heliumsol.com/services/full-stack-development): websites and web applications built front to back: design, front end, server, database and integrations. Pages are prerendered so search engines and AI tools read the full content.
+- [Mobile app development](https://heliumsol.com/services/mobile-app-development): iOS and Android apps, cross-platform (React Native or Flutter) or native (Swift or Kotlin), with the backend and app store release included.
+- [AI chatbots](https://heliumsol.com/services/ai-chatbots): chatbots grounded in a business's own content that answer questions, capture leads and hand off to a person. The assistant on heliumsol.com is one of them.
+- [AI assistant solutions](https://heliumsol.com/services/ai-assistant-solutions): assistants that can also look things up and take approved actions (book, log, update) through permissioned, logged tools, with a person in the loop.
+- [Workflow automation](https://heliumsol.com/services/workflow-automation): n8n workflows that connect the tools a business already uses, with approvals and alerts where a person should stay involved.
 - General tech solutions: if a project involves software, AI or automation and is not listed above, the team is happy to talk it through and say honestly whether it is a fit.
+
+## AI chatbot and assistant use cases
+
+- [AI chatbot for small business](https://heliumsol.com/ai-chatbot-for-small-business): what a chatbot handles for a small team, what it costs to run, how it is set up.
+- [AI customer support chatbot](https://heliumsol.com/ai-customer-support-chatbot): grounded answers from documentation, with early handoff to a person.
+- [Lead generation chatbot](https://heliumsol.com/lead-generation-chatbot): qualifies one question at a time, captures contact details, routes the lead to inbox or CRM, respects SMS consent rules.
+- [AI assistant for your website](https://heliumsol.com/website-ai-assistant): a knowledge-base assistant trained on the site's own content, included free with a new website.
 
 ## How working with HeliumSol goes
 
@@ -20,11 +34,25 @@ Remote, serving clients worldwide. We reply within one business day.
 3. Launch: we ship, test, and make sure everything performs on every device before go-live.
 4. Grow: ongoing support, automation and improvements over time.
 
-Pricing and timelines depend on the project and are only given by a person after discovery. HeliumSol does not publish prices and does not guarantee specific results such as leads, sales or revenue.
+Pricing and timelines depend on the project and are only given by a person after discovery. HeliumSol does not publish prices and does not guarantee specific results such as leads, sales or revenue. Clients own their code, domains and accounts.
+
+## Blog
+
+Practical guides with linked sources. Feed: https://heliumsol.com/blog/feed.xml
+
+- [Blog index](https://heliumsol.com/blog)
+- [What does an AI chatbot cost?](https://heliumsol.com/blog/what-does-an-ai-chatbot-cost): build versus running cost, with published per-token API prices and a worked example.
+- [AI assistant vs chatbot](https://heliumsol.com/blog/ai-assistant-vs-chatbot): a chatbot answers; an assistant answers and acts through tools. How to decide.
+- [Core Web Vitals explained for business owners](https://heliumsol.com/blog/core-web-vitals-for-business-owners): LCP, INP and CLS, Google's thresholds, and what to ask a developer.
+- [Native vs cross-platform mobile apps](https://heliumsol.com/blog/native-vs-cross-platform-mobile-apps): Swift and Kotlin versus React Native and Flutter, and how to choose.
+- [What can you automate with n8n?](https://heliumsol.com/blog/what-can-you-automate-with-n8n): twelve workflows worth building first, and what to leave manual.
 
 ## Pages
 
 - [Home](https://heliumsol.com/): services, process and how to get in touch.
+- [Services](https://heliumsol.com/services): index of the five service pages.
+- [About](https://heliumsol.com/about): who HeliumSol is and how a project runs.
+- [Case studies](https://heliumsol.com/case-studies): concept examples now; client case studies are published with permission as they become available.
 - [Contact](https://heliumsol.com/contact): a short three-step enquiry form for chatbot, AI, automation, website, app or other tech projects.
 - [Privacy Policy](https://heliumsol.com/privacy-policy): what HeliumSol collects from the website, enquiries and its SMS program, and how it is used.
 - [Terms of Service](https://heliumsol.com/terms-of-service): terms for using the website and AI assistant, and the SMS program terms.

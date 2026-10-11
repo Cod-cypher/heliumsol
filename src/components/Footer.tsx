@@ -1,6 +1,8 @@
-import { Twitter, Github, Linkedin, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { BOOKING_URL, CONTACT } from "../constants";
 import { navigate } from "../routes";
+import { SIGNUP_PATH } from "../site";
+import { SERVICES } from "../content/services";
 
 export default function Footer() {
   /*
@@ -14,17 +16,14 @@ export default function Footer() {
     { label: "SMS Program", href: "/sms-program" },
   ];
 
-  const serviceLinks = [
-    { label: "Full-Stack Websites", href: "/#services" },
-    { label: "Web & Mobile Apps", href: "/#services" },
-    { label: "AI Chatbots", href: "/#services" },
-    { label: "Workflow Automation", href: "/#services" },
-  ];
+  const serviceLinks = SERVICES.map((s) => ({ label: s.name, href: `/services/${s.slug}` }));
 
   const companyLinks = [
-    { label: "Our Work", href: "/#work" },
-    { label: "How We Work", href: "/#process" },
-    { label: "Why us", href: "/#how-we-work" },
+    { label: "Free website + chatbot", href: SIGNUP_PATH },
+    { label: "About", href: "/about" },
+    { label: "Case studies", href: "/case-studies" },
+    { label: "Blog", href: "/blog" },
+    { label: "How we work", href: "/#process" },
     { label: "Contact", href: BOOKING_URL },
   ];
 
@@ -37,7 +36,7 @@ export default function Footer() {
           <div className="md:col-span-4 flex flex-col gap-4 text-left">
             <a href="/" className="flex items-center gap-2.5">
               <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-navy-800 dark:bg-navy-600 shadow-inner">
-                <div className="w-3.5 h-3.5 bg-white rounded-xs rotate-45" />
+                <span aria-hidden="true" className="font-display text-sm font-extrabold text-white leading-none">H</span>
               </div>
               <span className="font-display text-base font-bold tracking-tight text-slate-900 dark:text-white">
                 Helium<span className="text-navy-700 dark:text-navy-300 font-semibold">Sol</span>
@@ -47,17 +46,6 @@ export default function Footer() {
               A full-service digital agency building websites, apps, chatbots, and automation —
               built to help growing businesses ship faster and get results.
             </p>
-            <div className="flex items-center gap-3 mt-2">
-              <a href="#" aria-label="Twitter" className="rounded-lg p-1.5 text-slate-400 dark:text-slate-500 hover:text-navy-700 dark:hover:text-white hover:bg-slate-150 dark:hover:bg-white/10 transition-colors">
-                <Twitter className="h-4 w-4" />
-              </a>
-              <a href="#" aria-label="GitHub" className="rounded-lg p-1.5 text-slate-400 dark:text-slate-500 hover:text-navy-700 dark:hover:text-white hover:bg-slate-150 dark:hover:bg-white/10 transition-colors">
-                <Github className="h-4 w-4" />
-              </a>
-              <a href="#" aria-label="LinkedIn" className="rounded-lg p-1.5 text-slate-400 dark:text-slate-500 hover:text-navy-700 dark:hover:text-white hover:bg-slate-150 dark:hover:bg-white/10 transition-colors">
-                <Linkedin className="h-4 w-4" />
-              </a>
-            </div>
           </div>
 
           {/* Link columns (8 cols total) */}
@@ -127,7 +115,7 @@ export default function Footer() {
         </div>
 
         {/* Closing Row */}
-        <div className="mt-16 pt-8 border-t border-slate-200/60 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 dark:text-slate-500 font-medium">
+        <div className="mt-16 pt-8 border-t border-slate-200/60 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600 dark:text-slate-400 font-medium">
           <span>© {new Date().getFullYear()} HeliumSol. HeliumSol is a brand of Idea Brothers LLC. All rights reserved.</span>
           <div className="flex items-center gap-5">
             {legalLinks.map((link) => (

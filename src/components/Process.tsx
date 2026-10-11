@@ -1,3 +1,4 @@
+import { useSkipEntrance } from "../lib/useSkipEntrance";
 import { motion } from "motion/react";
 import { Compass, PenTool, Rocket, TrendingUp } from "lucide-react";
 
@@ -25,6 +26,7 @@ const steps = [
 ];
 
 export default function Process() {
+  const skip = useSkipEntrance();
   return (
     <section id="process" className="relative bg-white dark:bg-ink-950 py-24 sm:py-32 px-4 md:px-8 border-t border-slate-200/70 dark:border-white/10">
       <div className="mx-auto max-w-7xl">
@@ -51,7 +53,7 @@ export default function Process() {
             return (
               <motion.div
                 key={step.title}
-                initial={{ opacity: 0, y: 18 }}
+                initial={skip ? false : { opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}

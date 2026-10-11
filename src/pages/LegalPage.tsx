@@ -7,34 +7,19 @@
  * src/content/legal.tsx and a route, not another copy of this file.
  */
 
-import { useEffect, useState, type MouseEvent } from "react";
+import type { MouseEvent } from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { navigate, LEGAL_UPDATED } from "../routes";
+import { navigate } from "../routes";
+import { LEGAL_UPDATED } from "../site";
 import { BOOKING_URL } from "../constants";
 import type { LegalDoc } from "../content/legal";
-
-/*
-  Whether the page should start fully visible rather than fade in.
-
-  True during the build-time prerender (no document), so the static HTML that
-  scripts/prerender.tsx writes does not ship the whole policy at opacity 0 —
-  which, to anything that does not run JS, is a page of invisible text. True
-  again for the first client render over that prerendered HTML, where replaying
-  the entrance would blank text the reader is already looking at. Cleared after
-  the first mount so in-app navigation still animates.
-*/
-let startsVisible =
-  typeof document === "undefined" ||
-  document.getElementById("root")?.dataset.prerendered === "true";
+import { useSkipEntrance } from "../lib/useSkipEntrance";
 
 export default function LegalPage({ doc }: { doc: LegalDoc }) {
   const Icon = doc.icon;
-  const [skipIntro] = useState(() => startsVisible);
-
-  useEffect(() => {
-    startsVisible = false;
-  }, []);
+  // Prerendered text must never ship at opacity 0; see useSkipEntrance.
+  const skipIntro = useSkipEntrance();
 
   const goHome = (e: MouseEvent) => {
     e.preventDefault();
@@ -128,31 +113,31 @@ export default function LegalPage({ doc }: { doc: LegalDoc }) {
         </div>
 
         {/*
-          Cross-link between the two documents. People who come looking for one
-          usually want to glance at the other, and this saves a trip through the
-          footer.
+          Cross-links between the legal documents. People who come looking for
+          one usually want to glance at the others, and this saves a trip
+          through the footer.
         */}
-        <nav className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-slate-400 dark:text-slate-500">
-          <a
-            href="/privacy-policy"
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("/privacy-policy");
-            }}
-            className="hover:text-navy-700 dark:hover:text-white transition-colors"
-          >
-            Privacy Policy
-          </a>
-          <a
-            href="/terms-of-service"
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("/terms-of-service");
-            }}
-            className="hover:text-navy-700 dark:hover:text-white transition-colors"
-          >
-            Terms of Service
-          </a>
+        <nav
+          aria-label="Legal pages"
+          className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-slate-400 dark:text-slate-500"
+        >
+          {[
+            { href: "/privacy-policy", label: "Privacy Policy" },
+            { href: "/terms-of-service", label: "Terms of Service" },
+            { href: "/sms-program", label: "SMS Program" },
+          ].map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(link.href);
+              }}
+              className="hover:text-navy-700 dark:hover:text-white transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
         </nav>
       </motion.div>
     </main>

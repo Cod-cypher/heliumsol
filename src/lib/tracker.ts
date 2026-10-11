@@ -7,6 +7,7 @@
  * goal selections, phone/email taps, form starts, outbound clicks), then
  * batches them to /api/track. Complements GA4 with data we own in Postgres.
  */
+import { trackContactClick } from './analytics';
 
 const VISITOR_KEY = 'hs_vid';
 const SESSION_KEY = 'hs_sid';
@@ -225,8 +226,10 @@ function onClick(e: MouseEvent) {
   if (href.startsWith('tel:')) {
     // `id` rides along so a tap can be attributed to the block that earned it.
     trackEvent('phone_click', href.replace('tel:', ''), { text, id });
+    trackContactClick('phone', href);
   } else if (href.startsWith('mailto:')) {
     trackEvent('email_click', href.replace('mailto:', ''), { text });
+    trackContactClick('email', href);
   } else if (href && new URL(href, window.location.href).origin !== window.location.origin) {
     trackEvent('outbound_click', href.slice(0, 300), { text });
   } else if (id.startsWith('goal-pill-') || id.startsWith('modal-goal-')) {
@@ -317,7 +320,8 @@ export function initTracker() {
     });
   }
 
-  trackPageViewStart();
+  // The first page view is started by App.tsx once the route is known;
+  // starting one here too recorded a zero-duration duplicate on every landing.
 
   document.addEventListener('click', onClick, { capture: true, passive: true });
   document.addEventListener('focusin', onFocusIn, { passive: true });

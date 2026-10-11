@@ -153,7 +153,7 @@ function CodeEditorCard({
         
         {lineRenderData.map((lineData, lIdx) => (
           <div key={lIdx} className="prefix-editor-line min-h-[1.1rem] flex items-start">
-            <span className="w-5 text-slate-300 dark:text-slate-600 pr-2 text-right select-none text-[8.5px] md:text-[9px] leading-5 font-semibold">
+            <span className="w-5 text-slate-500 dark:text-slate-500 pr-2 text-right select-none text-[8.5px] md:text-[9px] leading-5 font-semibold">
               {String(lIdx + 1).padStart(2, "0")}
             </span>
             <span className="pl-0.5 whitespace-pre leading-5 text-slate-700 dark:text-slate-300 flex-1 relative">

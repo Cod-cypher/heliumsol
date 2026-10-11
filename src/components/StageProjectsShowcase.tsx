@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { useState } from "react";
-import { Project } from "../types";
+import { CONCEPT_PROJECTS } from "../content/projects";
 import { 
   ExternalLink, Layers, Sparkles, TrendingUp, BarChart2, ShoppingBag, FolderKanban, Cpu, ChevronLeft, ChevronRight 
 } from "lucide-react";
@@ -10,70 +10,8 @@ interface StageProjectsShowcaseProps {
 }
 
 export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
-  // NOTE: Placeholder portfolio. Replace these with real client projects
-  // (name, live URL, stack, and a one-line result) when available.
-  const projects: Project[] = [
-    {
-      id: "brightpath",
-      title: "BrightPath Clinic",
-      subtitle: "Healthcare · Website + Booking",
-      description: "A new website with online appointment booking that doubled new patient enquiries.",
-      category: "Website",
-      tech: ["React", "Node", "Booking"],
-      color: {
-        bg: "bg-amber-50/70",
-        text: "text-amber-700",
-        border: "border-amber-100",
-        accent: "bg-amber-500"
-      },
-      mockupType: "dashboard"
-    },
-    {
-      id: "summit-gear",
-      title: "Summit Gear Co.",
-      subtitle: "Outdoor retail · E-commerce",
-      description: "A headless storefront with a streamlined checkout that cut cart abandonment and lifted online sales.",
-      category: "E-Commerce",
-      tech: ["Next.js", "Shopify", "Stripe"],
-      color: {
-        bg: "bg-emerald-50/70",
-        text: "text-emerald-700",
-        border: "border-emerald-100",
-        accent: "bg-emerald-500"
-      },
-      mockupType: "commerce"
-    },
-    {
-      id: "ledgerly",
-      title: "Ledgerly",
-      subtitle: "Fintech · Web app",
-      description: "A full-stack analytics dashboard giving finance teams real-time visibility across every account.",
-      category: "Web App",
-      tech: ["React", "FastAPI", "Postgres"],
-      color: {
-        bg: "bg-teal-50/70",
-        text: "text-teal-700",
-        border: "border-teal-100",
-        accent: "bg-teal-500"
-      },
-      mockupType: "analytics"
-    },
-    {
-      id: "flowops",
-      title: "FlowOps",
-      subtitle: "Operations · Automation + Chatbot",
-      description: "An n8n automation suite and AI support chatbot that handles enquiries and routes leads around the clock.",
-      category: "Automation + AI",
-      tech: ["n8n", "OpenAI", "Slack"],
-      color: {
-        bg: "bg-violet-50/70",
-        text: "text-violet-700",
-        border: "border-violet-100",
-        accent: "bg-violet-500"
-      },
-      mockupType: "canvas"
-    }
-  ];
+  // Concept examples, not client projects; see src/content/projects.ts.
+  const projects = CONCEPT_PROJECTS;
 
   const [activeIdx, setActiveIdx] = useState(0);
 
@@ -99,7 +37,7 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
           Our Work
         </span>
         <h2 className="text-3xl sm:text-5xl font-display font-semibold text-slate-900 dark:text-white leading-tight">
-          Sites & systems we've shipped
+          The kinds of sites and systems we build
         </h2>
         <p className="text-base text-slate-500 dark:text-slate-400 mt-4 font-sans leading-relaxed">
           A sample of the websites, apps, and automations we've designed and built for clients — from
@@ -118,7 +56,7 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
             <div className="h-3 w-3 rounded-full bg-emerald-400" />
           </div>
           <div className="hidden sm:inline-block text-slate-400 dark:text-slate-500 font-mono text-[11px] select-all">
-            https://safari.heliumsol.co/showcase/{projects[activeIdx].id}
+            https://heliumsol.com/case-studies#{projects[activeIdx].id}
           </div>
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1.5 border border-slate-200 dark:border-white/10 bg-white dark:bg-ink-900 rounded-lg px-2.5 py-1 text-slate-500 dark:text-slate-400 text-[11px] font-mono shadow-3xs">
@@ -143,6 +81,7 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
           <div className="absolute inset-y-0 left-4 z-20 flex items-center">
             <button 
               onClick={prevSlide}
+              aria-label="Previous example"
               className="h-10 w-10 rounded-full border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-ink-800/90 hover:bg-white dark:hover:bg-ink-800 text-slate-600 dark:text-slate-300 shadow-sm flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 transition-all"
             >
               <ChevronLeft className="h-5 w-5 stroke-[2.2]" />
@@ -152,6 +91,7 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
           <div className="absolute inset-y-0 right-4 z-20 flex items-center">
             <button 
               onClick={nextSlide}
+              aria-label="Next example"
               className="h-10 w-10 rounded-full border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-ink-800/90 hover:bg-white dark:hover:bg-ink-800 text-slate-600 dark:text-slate-300 shadow-sm flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 transition-all"
             >
               <ChevronRight className="h-5 w-5 stroke-[2.2]" />
@@ -224,7 +164,7 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
                                 <Cpu className="h-5 w-5 animate-pulse" />
                               </div>
                               <div className="text-left">
-                                <h4 className="text-xs font-bold text-slate-700">HeliumCore Sol-X</h4>
+                                <p className="text-xs font-bold text-slate-700">HeliumCore Sol-X</p>
                                 <span className="text-[10px] text-zinc-400">Qty: 1</span>
                               </div>
                             </div>
@@ -325,10 +265,10 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
                         </div>
 
                         <a
-                          href="#contact"
+                          href="/case-studies"
                           className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-700 dark:text-slate-200 hover:text-navy-700 dark:hover:text-white transition-colors"
                         >
-                          <span>Start a project</span>
+                          <span>About these examples</span>
                           <ExternalLink className="h-3.5 w-3.5" />
                         </a>
                       </div>
@@ -346,6 +286,8 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
             <button
               key={pIdx}
               onClick={() => setActiveIdx(pIdx)}
+              aria-label={`Show example ${pIdx + 1} of ${projects.length}`}
+              aria-current={pIdx === activeIdx ? "true" : undefined}
               className={`h-2 rounded-full transition-all duration-300 ${pIdx === activeIdx ? "w-6 bg-navy-700 dark:bg-navy-400" : "w-2 bg-slate-300 dark:bg-slate-600 hover:bg-slate-400 dark:hover:bg-slate-500"}`}
             />
           ))}

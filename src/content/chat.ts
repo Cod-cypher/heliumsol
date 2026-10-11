@@ -10,7 +10,7 @@
  * do has to be written here, in words.
  */
 
-import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY } from '../routes';
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY } from '../site';
 
 /** What a human joining the conversation is called, unless the env overrides it. */
 export const CHAT_AGENT_NAME = 'HeliumSol';

@@ -11,7 +11,7 @@
  */
 
 import type { ChatConversation, ChatMessage } from "@prisma/client";
-import { SITE_ORIGIN } from "../../src/routes";
+import { SITE_ORIGIN } from "../../src/site";
 
 /** Lead.comments is clamped to 5000 by the pipeline. Leave headroom. */
 const COMMENTS_BUDGET = 4900;

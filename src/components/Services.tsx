@@ -1,3 +1,4 @@
+import { useSkipEntrance } from "../lib/useSkipEntrance";
 import { motion } from "motion/react";
 import { Globe, Smartphone, Bot, Workflow, ArrowRight } from "lucide-react";
 import { BOOKING_URL } from "../constants";
@@ -15,12 +16,12 @@ const services = [
     outcome: "Custom applications that scale with your business.",
     tag: "Apps",
   },
-  // {
-  //   icon: Bot,
-  //   name: "AI Chatbots",
-  //   outcome: "24/7 assistants that capture leads and answer instantly.",
-  //   tag: "AI",
-  // },
+  {
+    icon: Bot,
+    name: "AI Chatbots",
+    outcome: "24/7 assistants that capture leads and answer instantly.",
+    tag: "AI",
+  },
   {
     icon: Workflow,
     name: "Workflow Automation",
@@ -30,6 +31,7 @@ const services = [
 ];
 
 export default function Services() {
+  const skip = useSkipEntrance();
   return (
     <section id="services" className="relative bg-slate-50/60 dark:bg-ink-900/40 py-24 sm:py-32 px-4 md:px-8 border-t border-slate-200/70 dark:border-white/10">
       <div className="mx-auto max-w-7xl">
@@ -56,7 +58,7 @@ export default function Services() {
             return (
               <motion.div
                 key={service.name}
-                initial={{ opacity: 0, y: 18 }}
+                initial={skip ? false : { opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.5, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
