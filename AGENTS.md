@@ -69,8 +69,12 @@ and its own PM2 process. Nothing is shared at runtime.
 
 ## Commands
 
-- `npm run dev` — `tsx server.ts`: API + Vite middleware on `PORT` from .env
-  (3000 locally). Needs a filled-in `.env` (see `.env.example`).
+- `npm run dev` — `tsx server.ts`: API + Vite middleware on `PORT` from .env.
+  Needs a filled-in `.env` (see `.env.example`). First time on a machine:
+  `.\scripts\setup-local-db.ps1` creates the local Postgres role and
+  database, writes `DATABASE_URL` and a free `PORT` into `.env`, and runs
+  the migrations. On this dev machine ports 2659–3158 and 3189–3288 are
+  reserved by Hyper-V, so the script uses 4321.
 - `npm run build` — client build to `dist/client`, SSR build to `dist/ssr`,
   esbuild bundles the server to `dist/server.cjs` (with a metafile),
   `scripts/prerender.ts` writes every route + 404.html + sitemap.xml +
