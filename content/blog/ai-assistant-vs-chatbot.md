@@ -85,7 +85,7 @@ Build cost is where they differ. A chatbot is knowledge, rules, a widget and a h
 
 Start with the chatbot. Get the knowledge base right, watch the transcripts, and note where conversations stall because the assistant cannot see your systems. Those stalls are your list of tools, in priority order, with evidence. Add the first one or two, with approval steps, and expand as the log shows they behave.
 
-That is the order HeliumSol follows, and it is the order the [free website and chatbot offer](/free-website-and-chatbot) is built around: a grounded chatbot first, with API usage included for the first month, and tools when the answers have earned them.
+That is the order HeliumSol follows, and it is the order the [free website and chatbot offer](/free-website-and-chatbot) is built around: a grounded chatbot first, with API usage included for the first month, and tools when the answers have earned them. For the support use case specifically, see [AI customer support chatbot](/ai-customer-support-chatbot); for the automation behind the tools, [what can you automate with n8n](/blog/what-can-you-automate-with-n8n).
 
 ## Sources
 

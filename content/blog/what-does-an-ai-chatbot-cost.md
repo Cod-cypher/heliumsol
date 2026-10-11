@@ -89,7 +89,7 @@ That depends on what it replaces. If the same twenty questions arrive by phone a
 
 HeliumSol does not promise a number of leads or a saving, because nobody can. What it can show is the transcript log: how many conversations happened, what people asked, how many left their details, and how many asked for a person. That is the evidence to judge the cost against.
 
-If you want to see the running cost in practice before committing to a build, the [free website and chatbot offer](/free-website-and-chatbot) includes a knowledge-base chatbot with API usage covered for the first month. For what a chatbot can and cannot do for a small team, read [AI chatbot for small business](/ai-chatbot-for-small-business).
+If you want to see the running cost in practice before committing to a build, the [free website and chatbot offer](/free-website-and-chatbot) includes a knowledge-base chatbot with API usage covered for the first month; [what the free chatbot includes](/free-website-and-chatbot/chatbot) lists its limits. For what a chatbot can and cannot do for a small team, read [AI chatbot for small business](/ai-chatbot-for-small-business), and for the support side, [AI customer support chatbot](/ai-customer-support-chatbot).
 
 ## Sources
 

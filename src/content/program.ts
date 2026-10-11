@@ -99,7 +99,7 @@ export const PROGRAM_BLOCKS: Block[] = [
     heading: 'What does "showcase the project" mean?',
     intro: 'If you agree, and only then:',
     items: [
-      'Your business name, a link to the live site, and a short description of what was built appear on our case studies page.',
+      'Your business name, a link to the live site, and a short description of what was built appear on our [case studies page](/case-studies).',
       'Any result we mention has to be one you have confirmed. We do not invent numbers.',
       'You approve the wording before it goes up and can ask for it to come down later.',
       'Declining changes nothing about the build, the hosting or the support you receive.',

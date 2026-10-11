@@ -114,7 +114,7 @@ export const OFFER_SCOPE: OfferScopePage[] = [
       {
         type: 'callout',
         heading: 'Beyond the free scope',
-        text: 'A customer portal with logins, an online shop with checkout, a custom web application or a mobile app are separate projects. If your business needs one, the free website is the foundation and we quote the rest after discovery.',
+        text: 'A customer portal with logins, an online shop with checkout, a custom web application or a [mobile app](/services/mobile-app-development) are separate projects. If your business needs one, the free website is the foundation and we quote the rest after discovery.',
         link: { label: 'See full-stack development', href: '/services/full-stack-development' },
       },
     ],
@@ -122,6 +122,8 @@ export const OFFER_SCOPE: OfferScopePage[] = [
       { label: 'What the free chatbot includes', href: `${SIGNUP_PATH}/chatbot`, note: 'Knowledge base, capabilities, accuracy rules and lead capture.' },
       { label: 'Full-stack development', href: '/services/full-stack-development', note: 'When the site needs to become an application.' },
       { label: 'Core Web Vitals explained for business owners', href: '/blog/core-web-vitals-for-business-owners', note: 'The speed standard the free site is built to.' },
+      { label: 'Case studies', href: '/case-studies', note: 'Where founding projects appear, with permission.' },
+      { label: 'The Founding Partner Program', href: '/founding-partner-program', note: 'Why the website is free.' },
     ],
     updated: UPDATED,
   },
@@ -232,7 +234,9 @@ export const OFFER_SCOPE: OfferScopePage[] = [
     related: [
       { label: 'What the free website includes', href: `${SIGNUP_PATH}/website`, note: 'Pages, features, standards and ownership.' },
       { label: 'AI chatbot development', href: '/services/ai-chatbots', note: 'The full service, for chatbots beyond the free scope.' },
+      { label: 'AI assistant for your website', href: '/website-ai-assistant', note: 'The same assistant, described for a business owner.' },
       { label: 'AI assistant vs chatbot', href: '/blog/ai-assistant-vs-chatbot', note: 'When answering is not enough and actions are needed.' },
+      { label: 'The Founding Partner Program', href: '/founding-partner-program', note: 'Why the chatbot is free.' },
     ],
     updated: UPDATED,
   },

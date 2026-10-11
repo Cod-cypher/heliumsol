@@ -24,10 +24,7 @@ export default function FoundingProgram({ applyHref = SIGNUP_PATH }: { applyHref
     >
       <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         <div className="lg:col-span-5">
-          <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-navy-600 dark:text-navy-300 font-display">
-            {PROGRAM_SUMMARY.eyebrow}
-          </span>
-          <h2 id="program-heading" className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+          <h2 id="program-heading" className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
             {PROGRAM_SUMMARY.heading}
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-500 dark:text-slate-400 leading-relaxed">{PROGRAM_SHORT}</p>

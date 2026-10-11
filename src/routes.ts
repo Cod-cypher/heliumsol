@@ -164,7 +164,7 @@ const STATIC_ROUTES: RouteMeta[] = [
     view: 'privacy',
     title: 'Privacy Policy | HeliumSol',
     description:
-      'How HeliumSol collects and uses information from its website, enquiries, and SMS text messaging program — including mobile opt-in consent, STOP and HELP, and how to contact us about your data.',
+      'How HeliumSol collects and uses information from its website, enquiries and SMS program, including opt-in consent, STOP and HELP, and how to reach us about your data.',
     priority: 0.3,
     lastmod: LEGAL_UPDATED_ISO,
   },
@@ -173,7 +173,7 @@ const STATIC_ROUTES: RouteMeta[] = [
     view: 'terms',
     title: 'Terms of Service | HeliumSol',
     description:
-      'The terms for using the HeliumSol website and AI assistant, and the SMS terms for the HeliumSol text messaging program — message types, frequency, rates, and STOP and HELP.',
+      'Terms for using the HeliumSol website and AI assistant, and the SMS terms for its text messaging program: message types, frequency, rates, STOP and HELP.',
     priority: 0.3,
     lastmod: LEGAL_UPDATED_ISO,
   },

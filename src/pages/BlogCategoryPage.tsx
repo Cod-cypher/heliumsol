@@ -30,7 +30,10 @@ export default function BlogCategoryPage({ category }: { category: string }) {
           answer={cat.description}
         />
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <h2 className="mt-12 font-display text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+          Guides in this category
+        </h2>
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
           {cat.posts.map((p, i) => (
             <PostCard key={p.slug} post={p} priority={i < 2} />
           ))}

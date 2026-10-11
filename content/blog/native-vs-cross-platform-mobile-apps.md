@@ -65,7 +65,7 @@ Before choosing between native and cross-platform, ask whether an app is needed 
 
 ## What should you expect from the build?
 
-Whichever route you choose, the app is the visible half. The server behind it, with accounts, data, notifications and integrations, is the other half, and it is the same work regardless of framework. Store submission is its own task: developer accounts in your name, privacy declarations, review questions. HeliumSol's [mobile app development](/services/mobile-app-development) service covers all three parts, and the first conversation is about the smallest release that is useful to a real user, which is the biggest lever on both cost and time.
+Whichever route you choose, the app is the visible half. The server behind it, with accounts, data, notifications and integrations, is the other half, and it is the same work regardless of framework. Store submission is its own task: developer accounts in your name, privacy declarations, review questions. HeliumSol's [mobile app development](/services/mobile-app-development) service covers all three parts, and the first conversation is about the smallest release that is useful to a real user, which is the biggest lever on both cost and time. An app that answers questions or takes bookings usually wants the same grounded assistant as a website; [AI customer support chatbot](/ai-customer-support-chatbot) describes how that works inside a product.
 
 ## How does HeliumSol decide?
 

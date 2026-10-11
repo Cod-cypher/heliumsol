@@ -45,7 +45,8 @@ export default function BlogIndexPage() {
           </nav>
         </PageHeader>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <h2 className="mt-12 font-display text-2xl font-bold tracking-tight text-slate-900 dark:text-white">All guides</h2>
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
           {POSTS.map((p, i) => (
             <PostCard key={p.slug} post={p} priority={i < 2} />
           ))}

@@ -76,6 +76,7 @@ export default function AboutPage() {
       <div className="mx-auto max-w-4xl">
         <RelatedLinks
           items={[
+            { label: 'The Founding Partner Program', href: '/founding-partner-program', note: 'Why the first websites and chatbots are free.' },
             { label: 'See every service HeliumSol offers', href: '/services', note: 'Websites, apps, AI chatbots, assistants and automation.' },
             { label: 'Read the blog', href: '/blog', note: 'Practical guides with sources you can check.' },
             { label: 'Case studies', href: '/case-studies', note: 'Concept examples now; client work as it is published.' },

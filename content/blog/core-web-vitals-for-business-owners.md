@@ -90,7 +90,7 @@ A good answer to each is specific. "It's fast" is not an answer; a number, a too
 
 ## Where to go from here
 
-If your current site cannot answer those questions, a performance review is a small project and often the most useful first engagement. If you are starting fresh, the [free website and chatbot offer](/free-website-and-chatbot) builds a site to these standards from the start. Either way, HeliumSol's [full-stack development](/services/full-stack-development) page explains what is included.
+If your current site cannot answer those questions, a performance review is a small project and often the most useful first engagement. If you are starting fresh, the [free website and chatbot offer](/free-website-and-chatbot) builds a site to these standards from the start; [what the free website includes](/free-website-and-chatbot/website) lists them. Either way, HeliumSol's [full-stack development](/services/full-stack-development) page explains what is included, and the [case studies](/case-studies) page shows the kinds of builds involved.
 
 ## Sources
 

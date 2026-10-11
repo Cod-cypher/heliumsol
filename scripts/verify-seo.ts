@@ -94,12 +94,43 @@ function collectTypes(node: unknown, out: Set<string>) {
   }
 }
 
+/** Per-page facts gathered for the site-wide checks. */
+interface PageFacts {
+  path: string;
+  title: string;
+  description: string;
+  h1: string;
+  /** Internal link targets found anywhere on the page. */
+  links: Set<string>;
+  /** Internal link targets found inside <main> (not header, footer or chat). */
+  contextualLinks: Set<string>;
+}
+const facts: PageFacts[] = [];
+
 function checkPage(page: ManifestPage, origin: string) {
   const where = page.path;
   const file = path.join(CLIENT, page.file);
   if (!fs.existsSync(file)) return err(where, `missing ${page.file}`);
   const html = fs.readFileSync(file, 'utf8');
   const $ = cheerio.load(html);
+  const pageFacts: PageFacts = {
+    path: page.path,
+    title: $('head title').first().text().trim(),
+    description: String($('head meta[name="description"]').attr('content') ?? '').trim(),
+    h1: $('h1').first().text().trim(),
+    links: new Set(),
+    contextualLinks: new Set(),
+  };
+  facts.push(pageFacts);
+
+  // Heading levels should not skip (h2 -> h4). A warning: it is a hygiene
+  // issue, not a crawl blocker.
+  let last = 1;
+  $('h1, h2, h3, h4, h5, h6').each((_, el) => {
+    const level = Number((el as { tagName: string }).tagName.slice(1));
+    if (level > last + 1) warn(where, `heading level skips from h${last} to h${level}: "${$(el).text().trim().slice(0, 50)}"`);
+    last = level;
+  });
 
   if (!/data-prerendered="true"/.test(html)) err(where, 'not marked data-prerendered="true"');
   if (!$('#root').children().length) err(where, '#root is empty');
@@ -182,6 +213,11 @@ function checkPage(page: ManifestPage, origin: string) {
     }
     const target = fileForPath(url.pathname);
     if (!target) return err(where, `broken internal link ${href}`);
+    const normalized = normalize(url.pathname);
+    if (normalized !== page.path) {
+      pageFacts.links.add(normalized);
+      if ($(el).closest('main').length) pageFacts.contextualLinks.add(normalized);
+    }
     if (url.hash) {
       const id = decodeURIComponent(url.hash.slice(1));
       if (!id) return;
@@ -246,6 +282,48 @@ function main() {
   const { origin } = manifest;
 
   for (const page of manifest.pages) checkPage(page, origin);
+
+  // Site-wide: no two indexable pages may share a title, description or H1,
+  // and every indexable page must be linked from at least one other page
+  // (orphans are invisible to crawlers that follow links).
+  const indexable = manifest.pages.filter((p) => !p.noindex);
+  for (const field of ['title', 'description', 'h1'] as const) {
+    const seen = new Map<string, string>();
+    for (const f of facts) {
+      if (!indexable.some((p) => p.path === f.path)) continue;
+      const key = f[field].toLowerCase();
+      if (!key) continue;
+      const other = seen.get(key);
+      if (other) err(f.path, `duplicate ${field} (same as ${other}): "${f[field].slice(0, 60)}"`);
+      else seen.set(key, f.path);
+    }
+  }
+  const inbound = new Map<string, Set<string>>();
+  const contextual = new Map<string, Set<string>>();
+  for (const f of facts) {
+    for (const target of f.links) {
+      if (!inbound.has(target)) inbound.set(target, new Set());
+      inbound.get(target)!.add(f.path);
+    }
+    for (const target of f.contextualLinks) {
+      if (!contextual.has(target)) contextual.set(target, new Set());
+      contextual.get(target)!.add(f.path);
+    }
+  }
+  for (const p of indexable) {
+    if (p.path === '/') continue;
+    const from = inbound.get(p.path)?.size ?? 0;
+    const ctx = contextual.get(p.path)?.size ?? 0;
+    if (from === 0) err(p.path, 'orphan: no other page links to it');
+    else if (ctx === 0) warn(p.path, `linked only from the header or footer (${from} pages); add a contextual link`);
+  }
+  if (process.argv.includes('--links')) {
+    console.log('\n  inbound links per page (total / from page bodies):');
+    for (const p of indexable) {
+      console.log(`    ${p.path.padEnd(46)} ${String(inbound.get(p.path)?.size ?? 0).padStart(3)} / ${String(contextual.get(p.path)?.size ?? 0).padStart(3)}`);
+    }
+    console.log('');
+  }
 
   // Pages on disk that no route produced (stale output from an older build).
   const known = new Set(manifest.pages.map((p) => p.file));

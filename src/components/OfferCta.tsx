@@ -7,6 +7,7 @@
 import { ArrowRight } from 'lucide-react';
 import { SIGNUP_PATH } from '../site';
 import { BOOKING_URL } from '../constants';
+import { PROGRAM_PATH } from '../content/program';
 
 interface Props {
   heading?: string;
@@ -54,6 +55,13 @@ export default function OfferCta({
             Or ask us a question first
           </a>
         </div>
+        <p className="mt-5 text-sm text-navy-200/80">
+          Why free? It is part of the{' '}
+          <a href={PROGRAM_PATH} className="font-semibold text-white underline decoration-navy-400 underline-offset-4 hover:decoration-white">
+            Founding Partner Program
+          </a>
+          : a small number of businesses, honest feedback in return, everything in writing first.
+        </p>
       </div>
     </section>
   );
