@@ -1,7 +1,8 @@
 /**
  * "Why is this free?" section: the Founding Partner Program in brief, with
- * the full story on /founding-partner-program. Rendered at the end of the
- * offer page. Plain markup, no motion, so the text is in the prerendered HTML.
+ * the full story on /founding-partner-program. Rendered on the homepage right
+ * after the hero. Plain markup, no motion, so the text is in the prerendered
+ * HTML.
  */
 
 import { ArrowRight, MessageSquareText, Handshake, FileText } from 'lucide-react';

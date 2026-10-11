@@ -56,7 +56,7 @@ export default function Hero() {
           initial={skip ? false : { opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-10 flex flex-col sm:flex-row items-center gap-4 w-full justify-center max-w-sm px-4"
+          className="mt-10 flex flex-col sm:flex-row flex-wrap items-center gap-4 w-full justify-center max-w-2xl px-4"
         >
           <a
             href={BOOKING_URL}
@@ -70,6 +70,12 @@ export default function Hero() {
             className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border border-slate-200 dark:border-white/15 bg-white dark:bg-white/5 px-6 py-3.5 text-sm font-semibold text-slate-600 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-300 transition-all duration-300"
           >
             <span>View our work</span>
+          </a>
+          <a
+            href="/founding-partner-program"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border border-navy-200 dark:border-navy-700 bg-navy-50/70 dark:bg-navy-900/30 px-6 py-3.5 text-sm font-semibold text-navy-800 dark:text-navy-200 hover:bg-navy-100 dark:hover:bg-navy-900/50 hover:border-navy-300 transition-all duration-300"
+          >
+            <span>Founding Partner Program</span>
           </a>
         </motion.div>
 
