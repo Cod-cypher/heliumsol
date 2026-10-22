@@ -18,7 +18,8 @@ export default function Footer() {
   ];
 
   const serviceLinks = SERVICES.map((s) => ({ label: s.name, href: `/services/${s.slug}` }));
-  const useCaseLinks = LANDINGS.map((l) => ({ label: l.name, href: `/${l.slug}` }));
+  const useCaseLinks = LANDINGS.filter((l) => l.group !== "industry").map((l) => ({ label: l.name, href: `/${l.slug}` }));
+  const industryLinks = LANDINGS.filter((l) => l.group === "industry").map((l) => ({ label: l.name, href: `/${l.slug}` }));
 
   const companyLinks = [
     { label: "Free website + chatbot", href: SIGNUP_PATH },
@@ -73,7 +74,7 @@ export default function Footer() {
             {useCaseLinks.length > 0 && (
               <div className="text-left">
                 <h3 className="text-[10px] font-bold text-slate-800 dark:text-slate-200 font-display uppercase tracking-widest mb-4">
-                  AI use cases
+                  AI chatbots
                 </h3>
                 <ul className="flex flex-col gap-2.5">
                   {useCaseLinks.map((link) => (
@@ -84,6 +85,22 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
+                {industryLinks.length > 0 && (
+                  <>
+                    <h3 className="mt-7 text-[10px] font-bold text-slate-800 dark:text-slate-200 font-display uppercase tracking-widest mb-4">
+                      By industry
+                    </h3>
+                    <ul className="flex flex-col gap-2.5">
+                      {industryLinks.map((link) => (
+                        <li key={link.label}>
+                          <a href={link.href} className="text-xs text-slate-500 dark:text-slate-400 hover:text-navy-700 dark:hover:text-white transition-colors font-medium">
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
               </div>
             )}
 

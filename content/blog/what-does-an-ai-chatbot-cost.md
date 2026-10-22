@@ -3,6 +3,7 @@ title: "What does an AI chatbot cost? Build and running costs, with the publishe
 description: "An AI chatbot has a one-off build cost and a per-conversation running cost set by published token prices. Both explained, with a worked example."
 seoTitle: "What Does an AI Chatbot Cost? Build and Running Costs | HeliumSol"
 date: 2026-10-12
+updated: 2026-10-22
 category: ai-chatbots-and-assistants
 tags: [AI chatbot cost, chatbot pricing, API pricing, small business]
 keyword: AI chatbot cost
@@ -13,7 +14,7 @@ imageAlt: "A simple chart of chatbot running cost rising slowly with the number 
 
 An AI chatbot costs two things: a one-off build, which depends on how much of your knowledge is already written down and what the chatbot connects to, and a running cost, which is mostly the AI provider's per-token API price and is small per conversation. With a current small model, a typical customer conversation costs a fraction of a cent in API usage; with a flagship model it costs a few cents. The build is the larger number and is quoted per project.
 
-This guide separates the two, shows the published prices as of the date above, and works an example so you can estimate your own running cost. It does not quote HeliumSol's build prices, because those are set after a discovery conversation about your project, not in a blog post.
+This guide separates the two, shows the published prices as of the date above, and works an example so you can estimate your own running cost. It does not quote HeliumSol's standard build prices, which are set after a discovery conversation about your project. Businesses accepted into the Founding Partner Program pay no build fee at all, as the last section explains.
 
 ## What are the two costs of an AI chatbot?
 
@@ -89,7 +90,13 @@ That depends on what it replaces. If the same twenty questions arrive by phone a
 
 HeliumSol does not promise a number of leads or a saving, because nobody can. What it can show is the transcript log: how many conversations happened, what people asked, how many left their details, and how many asked for a person. That is the evidence to judge the cost against.
 
-If you want to see the running cost in practice before committing to a build, the [free website and chatbot offer](/free-website-and-chatbot) includes a knowledge-base chatbot with API usage covered for the first month; [what the free chatbot includes](/free-website-and-chatbot/chatbot) lists its limits. For what a chatbot can and cannot do for a small team, read [AI chatbot for small business](/ai-chatbot-for-small-business), and for the support side, [AI customer support chatbot](/ai-customer-support-chatbot).
+## Can you get an AI chatbot built for free?
+
+Yes, in one specific way. HeliumSol's [Founding Partner Program](/founding-partner-program) is selecting a small number of businesses for a chatbot build with no upfront development fee, with a website and email on your domain if you need them. Hosting, chatbot API usage and email are free for the first month, then billed at cost, at a rate you are given in writing before that month ends. In return HeliumSol asks for honest feedback and, only if you are happy with the result, permission to show the project.
+
+That removes the larger of the two costs in this guide. The running cost stays what the provider charges, with the same caps described above. [Chatbot pricing](/chatbot-pricing) sets out every item side by side, [what the free chatbot includes](/free-website-and-chatbot/chatbot) lists its scope and limits, and the [signup form](/free-website-and-chatbot) takes about five minutes.
+
+For what a chatbot can and cannot do for a small team, read [AI chatbot for small business](/ai-chatbot-for-small-business), and for the support side, [AI customer support chatbot](/ai-customer-support-chatbot).
 
 ## Sources
 

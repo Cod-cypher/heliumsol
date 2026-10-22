@@ -9,6 +9,7 @@ import Process from '../components/Process';
 import Commitments from '../components/Commitments';
 import RelatedLinks from '../components/RelatedLinks';
 import OfferCta from '../components/OfferCta';
+import ProgramBanner from '../components/ProgramBanner';
 import JsonLd from '../components/JsonLd';
 import { webPage } from '../lib/jsonld';
 import { CONTACT } from '../constants';
@@ -28,6 +29,12 @@ export default function AboutPage() {
           eyebrow="About"
           title="A remote digital agency that builds websites, apps and AI assistants"
           answer={`HeliumSol is a brand of ${LEGAL_NAME}. It is a full-service digital agency that designs and builds full-stack websites, web and mobile apps, AI chatbots and assistants, and n8n workflow automation for businesses worldwide. The team works remotely and every enquiry is read by a person.`}
+        />
+
+        <ProgramBanner
+          source="about"
+          className="mt-10"
+          text="HeliumSol is building its first public portfolio by selecting a small number of businesses for a free website and AI chatbot build. Hosting, chatbot API usage and email are free for the first month. In return we ask for honest feedback."
         />
 
         <section aria-labelledby="who-heading" className="mt-14">

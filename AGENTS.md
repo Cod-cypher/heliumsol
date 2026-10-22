@@ -42,8 +42,17 @@ and its own PM2 process. Nothing is shared at runtime.
 - `src/lib/jsonld.ts` + `src/components/JsonLd.tsx` — structured data lives in
   components, not in the prerender. `Faq.tsx` and `Breadcrumbs.tsx` render the
   visible markup and the JSON-LD from one array so they cannot drift.
+- Landing pages live in three files merged by `src/content/landings.ts`:
+  `landings-buying.ts` (pricing, free chatbot, booking), the core use cases in
+  `landings.ts` itself, and `landings-industries.ts`. A page's `group`
+  (`use-case` or `industry`) decides its footer list and services-index
+  section.
 - `src/components/OfferCta.tsx` — the closing CTA every service, landing and
   blog page ends with. It points at `SIGNUP_PATH`.
+- `src/components/ProgramBanner.tsx` — the Founding Partner Program notice
+  near the top of every informational page (posts, blog index and
+  categories, landing pages, About, Case studies). It uses a container
+  query, so it stacks in narrow columns on its own.
 - `src/lib/useSkipEntrance.ts` — use `initial={skip ? false : {...}}` on any
   `motion` element that holds prerendered text, or the text ships at opacity 0.
 - `public/fonts/` — self-hosted woff2 (`@font-face` in `src/index.css`). No

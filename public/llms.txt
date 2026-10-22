@@ -27,12 +27,24 @@ A free website, a knowledge-base chatbot and email on the business's own domain,
 - [Workflow automation](https://heliumsol.com/services/workflow-automation): n8n workflows that connect the tools a business already uses, with approvals and alerts where a person should stay involved.
 - General tech solutions: if a project involves software, AI or automation and is not listed above, the team is happy to talk it through and say honestly whether it is a fit.
 
+## AI chatbot pricing and the free chatbot
+
+- [Chatbot pricing](https://heliumsol.com/chatbot-pricing): every cost side by side. Founding partners pay no upfront build fee; hosting, chatbot API usage and email are free for the first month, then billed at cost with a monthly usage cap. Standard builds are quoted after discovery.
+- [Free AI chatbot for your website](https://heliumsol.com/free-ai-chatbot-for-website): a chatbot built and set up by HeliumSol rather than a do-it-yourself tool, what "free" covers, and how to apply.
+
 ## AI chatbot and assistant use cases
 
+- [Appointment booking chatbot](https://heliumsol.com/appointment-booking-chatbot): three levels (hand-off to the booking page, booking request, direct calendar booking); it only confirms a booking the business's system confirmed. The free chatbot includes hand-off and booking requests.
 - [AI chatbot for small business](https://heliumsol.com/ai-chatbot-for-small-business): what a chatbot handles for a small team, what it costs to run, how it is set up.
 - [AI customer support chatbot](https://heliumsol.com/ai-customer-support-chatbot): grounded answers from documentation, with early handoff to a person.
 - [Lead generation chatbot](https://heliumsol.com/lead-generation-chatbot): qualifies one question at a time, captures contact details, routes the lead to inbox or CRM, respects SMS consent rules.
 - [AI assistant for your website](https://heliumsol.com/website-ai-assistant): a knowledge-base assistant trained on the site's own content, included free with a new website.
+
+## AI chatbots by industry
+
+- [AI chatbot for real estate](https://heliumsol.com/ai-chatbot-for-real-estate): buyer, seller, renter and landlord conversations; fair housing rules; no valuations or advice; viewing and valuation requests.
+- [AI chatbot for home services](https://heliumsol.com/ai-chatbot-for-home-services): plumbers, electricians, HVAC, cleaning and contractors; service area check, emergencies separated from quotes, job details collected. It is a website chat and does not answer phone calls.
+- [AI chatbot for law firms](https://heliumsol.com/ai-chatbot-for-law-firms): intake for conflict checks, no legal advice, no implied client relationship, firm-approved wording.
 
 ## How working with HeliumSol goes
 

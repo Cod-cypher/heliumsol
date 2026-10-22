@@ -6,10 +6,12 @@
 
 import type { LandingPage } from './types';
 import { SIGNUP_PATH } from '../site';
+import { BUYING_LANDINGS } from './landings-buying';
+import { INDUSTRY_LANDINGS } from './landings-industries';
 
 const UPDATED = '2026-10-12';
 
-export const LANDINGS: LandingPage[] = [
+const CORE_LANDINGS: LandingPage[] = [
   {
     slug: 'ai-chatbot-for-small-business',
     name: 'AI chatbot for small business',
@@ -58,10 +60,10 @@ export const LANDINGS: LandingPage[] = [
         type: 'bullets',
         heading: 'Which small businesses get the most from a chatbot?',
         items: [
-          'Home and trade services, where the first question is always "do you cover my area" and the second is "how soon".',
+          'Home and trade services, where the first question is always "do you cover my area" and the second is "how soon". See the [chatbot for home service businesses](/ai-chatbot-for-home-services).',
           'Clinics and practices, where new patients want to know what to expect, what is covered and how to book.',
           'Restaurants and venues, for hours, menus, dietary questions and private bookings.',
-          'Professional services, where a qualifying conversation before a call saves everyone time.',
+          'Professional services, where a qualifying conversation before a call saves everyone time. Law firms need stricter rules; see the [chatbot for law firms](/ai-chatbot-for-law-firms).',
           'Shops, for stock, delivery, returns and "do you have this in" questions.',
         ],
       },
@@ -104,6 +106,8 @@ export const LANDINGS: LandingPage[] = [
       { label: 'AI customer support chatbot', href: '/ai-customer-support-chatbot', note: 'For the questions that come after the sale.' },
       { label: 'AI assistant for your website', href: '/website-ai-assistant', note: 'The version included free with a new site.' },
       { label: 'What does an AI chatbot cost?', href: '/blog/what-does-an-ai-chatbot-cost', note: 'Build and running costs with published API prices.' },
+      { label: 'Chatbot pricing', href: '/chatbot-pricing', note: 'What HeliumSol charges, and what is free.' },
+      { label: 'Appointment booking chatbot', href: '/appointment-booking-chatbot', note: 'When visitors should book, not just ask.' },
       { label: 'The Founding Partner Program', href: '/founding-partner-program', note: 'Why the first builds are free.' },
     ],
     updated: UPDATED,
@@ -305,6 +309,8 @@ export const LANDINGS: LandingPage[] = [
       { label: 'What can you automate with n8n?', href: '/blog/what-can-you-automate-with-n8n', note: 'Lead intake is workflow number one.' },
       { label: 'AI chatbot for small business', href: '/ai-chatbot-for-small-business', note: 'What a chatbot can and cannot do for a small team.' },
       { label: 'AI customer support chatbot', href: '/ai-customer-support-chatbot', note: 'After the lead becomes a customer.' },
+      { label: 'AI chatbot for real estate', href: '/ai-chatbot-for-real-estate', note: 'Qualifying buyers, sellers and renters.' },
+      { label: 'AI chatbot for law firms', href: '/ai-chatbot-for-law-firms', note: 'Intake without legal advice.' },
     ],
     updated: UPDATED,
   },
@@ -405,9 +411,16 @@ export const LANDINGS: LandingPage[] = [
       { label: 'What the free chatbot includes', href: `${SIGNUP_PATH}/chatbot`, note: 'Exactly what the free assistant knows and does.' },
       { label: 'AI customer support chatbot', href: '/ai-customer-support-chatbot', note: 'The same assistant, pointed at support.' },
       { label: 'Full-stack website development', href: '/services/full-stack-development', note: 'The site the assistant lives on.' },
+      { label: 'Free AI chatbot for your website', href: '/free-ai-chatbot-for-website', note: 'What the free build covers and how to apply.' },
     ],
     updated: UPDATED,
   },
 ];
+
+/**
+ * Every landing page. Buying-intent pages first, then use cases, then
+ * industries; this order is the order of the footer and services index lists.
+ */
+export const LANDINGS: LandingPage[] = [...BUYING_LANDINGS, ...CORE_LANDINGS, ...INDUSTRY_LANDINGS];
 
 export const LANDING_BY_SLUG = new Map(LANDINGS.map((l) => [l.slug, l]));

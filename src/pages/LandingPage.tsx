@@ -8,6 +8,7 @@ import Blocks from '../components/Blocks';
 import Faq from '../components/Faq';
 import RelatedLinks from '../components/RelatedLinks';
 import OfferCta from '../components/OfferCta';
+import ProgramBanner from '../components/ProgramBanner';
 import JsonLd from '../components/JsonLd';
 import { service } from '../lib/jsonld';
 import { LANDING_BY_SLUG } from '../content/landings';
@@ -30,10 +31,12 @@ export default function LandingPage({ slug }: { slug: string }) {
             ...(parent ? [{ name: parent.name, href: `/services/${parent.slug}` }] : []),
             { name: page.name, href: path },
           ]}
-          eyebrow="Use case"
+          eyebrow={page.eyebrow ?? (page.group === 'industry' ? 'By industry' : 'Use case')}
           title={page.h1}
           answer={page.answer}
         />
+
+        <ProgramBanner source={`landing-${page.slug}`} className="mt-10" />
 
         <div className="mt-14">
           <Blocks blocks={page.blocks} />

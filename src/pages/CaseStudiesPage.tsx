@@ -6,6 +6,7 @@
 import PageHeader from '../components/PageHeader';
 import RelatedLinks from '../components/RelatedLinks';
 import OfferCta from '../components/OfferCta';
+import ProgramBanner from '../components/ProgramBanner';
 import JsonLd from '../components/JsonLd';
 import { collectionPage } from '../lib/jsonld';
 import { CONCEPT_PROJECTS } from '../content/projects';
@@ -38,6 +39,12 @@ export default function CaseStudiesPage() {
             the fastest route.
           </p>
         </div>
+
+        <ProgramBanner
+          source="case-studies"
+          className="mt-6"
+          text="The first case studies here will be Founding Partner projects: businesses that get a website and AI chatbot built with no upfront development fee, and decide afterwards whether they are happy for the work to be shown."
+        />
 
         <section aria-labelledby="concepts-heading" className="mt-14">
           <h2 id="concepts-heading" className="font-display text-2xl md:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">

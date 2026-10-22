@@ -12,6 +12,8 @@ import PostBody from '../components/blog/PostBody';
 import AuthorBox from '../components/blog/AuthorBox';
 import RelatedPosts from '../components/blog/RelatedPosts';
 import OfferCta from '../components/OfferCta';
+import ProgramBanner from '../components/ProgramBanner';
+import { PROGRAM_PATH } from '../content/program';
 import JsonLd from '../components/JsonLd';
 import { article } from '../lib/jsonld';
 import { formatDate } from '../lib/dates';
@@ -111,6 +113,9 @@ export default function PostPage({ slug }: { slug: string }) {
           </nav>
         )}
 
+        {/* Early, so a reader learns they can apply before reaching the end. */}
+        <ProgramBanner source={`post-${post.slug}`} className="mt-10" />
+
         <div className="mt-10">
           <PostBody slug={post.slug} />
         </div>
@@ -121,7 +126,11 @@ export default function PostPage({ slug }: { slug: string }) {
             <a href={`/services/${svc.slug}`} className="font-semibold text-navy-700 dark:text-navy-300 underline underline-offset-2">
               {svc.name.toLowerCase()} by HeliumSol
             </a>
-            , or{' '}
+            , apply to the{' '}
+            <a href={PROGRAM_PATH} className="font-semibold text-navy-700 dark:text-navy-300 underline underline-offset-2">
+              Founding Partner Program
+            </a>{' '}
+            for a free build, or{' '}
             <a href="/contact" className="font-semibold text-navy-700 dark:text-navy-300 underline underline-offset-2">
               ask the team a question
             </a>

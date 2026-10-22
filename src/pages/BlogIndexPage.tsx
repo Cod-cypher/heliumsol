@@ -6,6 +6,7 @@ import { Rss } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import PostCard from '../components/blog/PostCard';
 import OfferCta from '../components/OfferCta';
+import ProgramBanner from '../components/ProgramBanner';
 import JsonLd from '../components/JsonLd';
 import { collectionPage } from '../lib/jsonld';
 import { POSTS, CATEGORIES } from '../content/blog';
@@ -44,6 +45,8 @@ export default function BlogIndexPage() {
             </a>
           </nav>
         </PageHeader>
+
+        <ProgramBanner source="blog-index" className="mt-10" />
 
         <h2 className="mt-12 font-display text-2xl font-bold tracking-tight text-slate-900 dark:text-white">All guides</h2>
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">

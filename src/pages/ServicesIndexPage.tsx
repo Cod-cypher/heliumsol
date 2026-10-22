@@ -44,26 +44,31 @@ export default function ServicesIndexPage() {
           ))}
         </ul>
 
-        {LANDINGS.length > 0 && (
-          <section aria-labelledby="usecases-heading" className="mt-16">
-            <h2 id="usecases-heading" className="font-display text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
-              AI chatbots and assistants by use case
-            </h2>
-            <ul className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {LANDINGS.map((l) => (
-                <li key={l.slug}>
-                  <a
-                    href={`/${l.slug}`}
-                    className="block rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-ink-900 p-5 shadow-soft hover:border-navy-200 dark:hover:border-white/20 transition-colors"
-                  >
-                    <span className="text-sm font-semibold text-slate-900 dark:text-white">{l.name}</span>
-                    <span className="mt-1 block text-xs text-slate-500 dark:text-slate-400">{l.description}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
+        {[
+          { id: 'usecases-heading', title: 'AI chatbots and assistants by use case', pages: LANDINGS.filter((l) => l.group !== 'industry') },
+          { id: 'industries-heading', title: 'AI chatbots by industry', pages: LANDINGS.filter((l) => l.group === 'industry') },
+        ]
+          .filter((list) => list.pages.length > 0)
+          .map((list) => (
+            <section key={list.id} aria-labelledby={list.id} className="mt-16">
+              <h2 id={list.id} className="font-display text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+                {list.title}
+              </h2>
+              <ul className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {list.pages.map((l) => (
+                  <li key={l.slug}>
+                    <a
+                      href={`/${l.slug}`}
+                      className="block h-full rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-ink-900 p-5 shadow-soft hover:border-navy-200 dark:hover:border-white/20 transition-colors"
+                    >
+                      <span className="text-sm font-semibold text-slate-900 dark:text-white">{l.name}</span>
+                      <span className="mt-1 block text-xs text-slate-500 dark:text-slate-400">{l.description}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
 
         <OfferCta source="services-index" />
         <JsonLd data={collectionPage({ path: '/services', name: route.title, description: route.description })} />

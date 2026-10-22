@@ -6,6 +6,7 @@ import PageHeader from '../components/PageHeader';
 import PostCard from '../components/blog/PostCard';
 import RelatedLinks from '../components/RelatedLinks';
 import OfferCta from '../components/OfferCta';
+import ProgramBanner from '../components/ProgramBanner';
 import JsonLd from '../components/JsonLd';
 import { collectionPage } from '../lib/jsonld';
 import { CATEGORY_BY_SLUG, CATEGORIES } from '../content/blog';
@@ -29,6 +30,8 @@ export default function BlogCategoryPage({ category }: { category: string }) {
           title={cat.name}
           answer={cat.description}
         />
+
+        <ProgramBanner source={`blog-category-${cat.slug}`} className="mt-10" />
 
         <h2 className="mt-12 font-display text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
           Guides in this category

@@ -68,4 +68,11 @@ export interface LandingPage extends ContentPage {
   parentService: string;
   /** Short name for breadcrumbs and link lists. */
   name: string;
+  /**
+   * Which list the page appears in: the footer column and the section of the
+   * services index. Defaults to 'use-case'.
+   */
+  group?: 'use-case' | 'industry';
+  /** Small label above the H1. Defaults to "Use case" or "By industry". */
+  eyebrow?: string;
 }
