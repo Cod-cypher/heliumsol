@@ -109,7 +109,7 @@ export default function SignupPage() {
           </div>
 
           <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
-            <div className="lg:col-span-8">
+            <div className="min-w-0 lg:col-span-8">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-navy-100 backdrop-blur-sm">
                 <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 Founding Partner Program · Limited places
@@ -134,15 +134,15 @@ export default function SignupPage() {
               </div>
               <p className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium">
                 <span className="text-navy-200/70">Not sure what "free" covers?</span>
-                <a href={`${SIGNUP_PATH}/website`} className="inline-flex items-center gap-1.5 text-white underline decoration-navy-300/60 underline-offset-4 hover:decoration-white">
+                <a href={`${SIGNUP_PATH}/website`} className="-my-2 inline-flex min-h-11 items-center gap-1.5 py-2 text-white underline decoration-navy-300/60 underline-offset-4 hover:decoration-white">
                   What the free website includes
                   <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
-                <a href={`${SIGNUP_PATH}/chatbot`} className="inline-flex items-center gap-1.5 text-white underline decoration-navy-300/60 underline-offset-4 hover:decoration-white">
+                <a href={`${SIGNUP_PATH}/chatbot`} className="-my-2 inline-flex min-h-11 items-center gap-1.5 py-2 text-white underline decoration-navy-300/60 underline-offset-4 hover:decoration-white">
                   What the free chatbot includes
                   <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
-                <a href={PROGRAM_PATH} className="inline-flex items-center gap-1.5 text-white underline decoration-navy-300/60 underline-offset-4 hover:decoration-white">
+                <a href={PROGRAM_PATH} className="-my-2 inline-flex min-h-11 items-center gap-1.5 py-2 text-white underline decoration-navy-300/60 underline-offset-4 hover:decoration-white">
                   Why it is free: the Founding Partner Program
                   <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
@@ -203,7 +203,7 @@ export default function SignupPage() {
                 {p}
               </p>
             ))}
-            <a href={PROGRAM_PATH} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-navy-700 dark:text-navy-300 hover:underline">
+            <a href={PROGRAM_PATH} className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-navy-700 dark:text-navy-300 hover:underline">
               How the program works
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </a>
@@ -252,7 +252,7 @@ export default function SignupPage() {
           </div>
         </aside>
 
-        <div className="lg:col-span-8">
+        <div className="min-w-0 lg:col-span-8">
           <SignupForm />
         </div>
       </section>

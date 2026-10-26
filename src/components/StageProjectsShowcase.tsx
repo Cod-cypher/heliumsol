@@ -33,7 +33,7 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
 
       {/* Visual background guide */}
       <div className="text-center max-w-xl mx-auto mb-10 relative z-10">
-        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-navy-600 dark:text-navy-300 block mb-3 font-display">
+        <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-navy-600 dark:text-navy-300 block mb-3 font-display">
           Our Work
         </span>
         <h2 className="text-3xl sm:text-5xl font-display font-semibold text-slate-900 dark:text-white leading-tight">
@@ -82,7 +82,7 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
             <button 
               onClick={prevSlide}
               aria-label="Previous example"
-              className="h-10 w-10 rounded-full border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-ink-800/90 hover:bg-white dark:hover:bg-ink-800 text-slate-600 dark:text-slate-300 shadow-sm flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 transition-all"
+              className="h-11 w-11 rounded-full border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-ink-800/90 hover:bg-white dark:hover:bg-ink-800 text-slate-600 dark:text-slate-300 shadow-sm flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 transition-all"
             >
               <ChevronLeft className="h-5 w-5 stroke-[2.2]" />
             </button>
@@ -92,7 +92,7 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
             <button 
               onClick={nextSlide}
               aria-label="Next example"
-              className="h-10 w-10 rounded-full border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-ink-800/90 hover:bg-white dark:hover:bg-ink-800 text-slate-600 dark:text-slate-300 shadow-sm flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 transition-all"
+              className="h-11 w-11 rounded-full border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-ink-800/90 hover:bg-white dark:hover:bg-ink-800 text-slate-600 dark:text-slate-300 shadow-sm flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 transition-all"
             >
               <ChevronRight className="h-5 w-5 stroke-[2.2]" />
             </button>
@@ -129,7 +129,7 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
                       {project.mockupType === "dashboard" && (
                         <div className="w-full h-full flex flex-col justify-between gap-3">
                           <div className="flex justify-between items-center bg-white border border-slate-200 p-2.5 rounded-lg shadow-3xs">
-                            <span className="text-[10px] font-mono text-slate-400 flex items-center gap-1">
+                            <span className="text-[11px] font-mono text-slate-400 flex items-center gap-1">
                               <TrendingUp className="h-3 w-3 text-amber-500" /> Solar Flux Array
                             </span>
                             <span className="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-100">Live: 94.6 KW</span>
@@ -140,7 +140,7 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
                               <div key={bIdx} className="flex-1 bg-amber-100 hover:bg-amber-400 rounded-sm transition-colors duration-200" style={{ height: `${h}%` }} />
                             ))}
                           </div>
-                          <div className="flex justify-between text-[9px] font-mono text-slate-400 border-t border-slate-200/60 pt-2">
+                          <div className="flex justify-between text-[11px] font-mono text-slate-400 border-t border-slate-200/60 pt-2">
                             <span>00:00 UTC</span>
                             <span>12:00 UTC</span>
                           </div>
@@ -150,7 +150,7 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
                       {project.mockupType === "commerce" && (
                         <div className="w-full h-full flex flex-col justify-between gap-3">
                           <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-                            <span className="text-[10px] font-mono text-slate-400 flex items-center gap-1">
+                            <span className="text-[11px] font-mono text-slate-400 flex items-center gap-1">
                               <ShoppingBag className="h-3 w-3 text-emerald-500" /> Aura Checkout
                             </span>
                             <div className="flex gap-1">
@@ -165,25 +165,25 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
                               </div>
                               <div className="text-left">
                                 <p className="text-xs font-bold text-slate-700">HeliumCore Sol-X</p>
-                                <span className="text-[10px] text-zinc-400">Qty: 1</span>
+                                <span className="text-[11px] text-zinc-400">Qty: 1</span>
                               </div>
                             </div>
                             <span className="text-xs font-bold text-slate-800">$299.00 USD</span>
                           </div>
-                          <button className="w-full rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white text-[11px] font-medium py-2.5 shadow-3xs flex items-center justify-center gap-1.5 transition-colors cursor-default">
+                          <span aria-hidden="true" className="flex w-full rounded-lg bg-emerald-700 text-white text-[11px] font-medium py-2.5 shadow-3xs flex items-center justify-center gap-1.5 transition-colors cursor-default">
                             <span>Complete Purchase</span>
                             <ExternalLink className="h-3 w-3" />
-                          </button>
+                          </span>
                         </div>
                       )}
 
                       {project.mockupType === "analytics" && (
                         <div className="w-full h-full flex flex-col justify-between gap-3">
                           <div className="flex justify-between items-center border-b border-slate-100 pb-2">
-                            <span className="text-[10px] font-mono text-slate-400 flex items-center gap-1">
+                            <span className="text-[11px] font-mono text-slate-400 flex items-center gap-1">
                               <BarChart2 className="h-3 w-3 text-teal-500" /> Flow Distribution
                             </span>
-                            <span className="text-[9px] text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded font-mono">+12.4%</span>
+                            <span className="text-[11px] text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded font-mono">+12.4%</span>
                           </div>
                           <div className="flex-1 flex items-center justify-center relative">
                             {/* SVG Circle diagram for visual elegance */}
@@ -197,7 +197,7 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
                               <span className="text-[8px] text-slate-405">Optimal</span>
                             </div>
                           </div>
-                          <div className="flex gap-4 justify-center text-[9px] font-mono text-slate-400">
+                          <div className="flex gap-4 justify-center text-[11px] font-mono text-slate-400">
                             <span className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-teal-400" /> Web</span>
                             <span className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-indigo-300" /> API</span>
                           </div>
@@ -207,10 +207,10 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
                       {project.mockupType === "canvas" && (
                         <div className="w-full h-full flex flex-col justify-between gap-3">
                           <div className="flex justify-between items-center border-b border-slate-100 pb-2">
-                            <span className="text-[10px] font-mono text-slate-400 flex items-center gap-1">
+                            <span className="text-[11px] font-mono text-slate-400 flex items-center gap-1">
                               <FolderKanban className="h-3 w-3 text-violet-500" /> Canvas Jobs
                             </span>
-                            <span className="text-[10px] text-slate-500 font-mono">Running</span>
+                            <span className="text-[11px] text-slate-500 font-mono">Running</span>
                           </div>
                           {/* Simulated mini Kanban workflow columns */}
                           <div className="flex-1 grid grid-cols-2 gap-2 mt-1">
@@ -235,10 +235,10 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
                       <div>
                         {/* Tags */}
                         <div className="flex flex-wrap items-center gap-2 mb-3 sm:mb-4">
-                          <span className={`inline-flex px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${project.color.bg} ${project.color.text} border ${project.color.border}`}>
+                          <span className={`inline-flex px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider ${project.color.bg} ${project.color.text} border ${project.color.border}`}>
                             {project.category}
                           </span>
-                          <span className="inline-flex items-center gap-0.5 text-slate-450 text-[10px]">
+                          <span className="inline-flex items-center gap-0.5 text-slate-450 text-[11px]">
                             <Sparkles className="h-3 w-3 text-navy-600" /> Sol-Vetted Core
                           </span>
                         </div>
@@ -246,7 +246,7 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
                         {/* Title and details */}
                         <h3 className="font-serif text-xl sm:text-3xl font-normal text-slate-900 dark:text-white leading-tight">
                           {project.title}
-                          <span className="block text-[10px] tracking-widest uppercase text-slate-400 dark:text-slate-500 font-bold font-display mt-2">{project.subtitle}</span>
+                          <span className="block text-[11px] tracking-widest uppercase text-slate-400 dark:text-slate-500 font-bold font-display mt-2">{project.subtitle}</span>
                         </h3>
 
                         <p className="mt-3 sm:mt-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
@@ -258,7 +258,7 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
                       <div className="mt-4 sm:mt-0 pt-4 border-t border-slate-200 dark:border-white/10 flex items-center justify-between flex-wrap gap-2">
                         <div className="flex flex-wrap gap-1.5">
                           {project.tech.map((t) => (
-                            <span key={t} className="px-2 py-0.5 rounded bg-slate-50 dark:bg-ink-800 border border-slate-205 dark:border-white/10 font-mono text-[10px] text-slate-500 dark:text-slate-400">
+                            <span key={t} className="px-2 py-0.5 rounded bg-slate-50 dark:bg-ink-800 border border-slate-205 dark:border-white/10 font-mono text-[11px] text-slate-500 dark:text-slate-400">
                               {t}
                             </span>
                           ))}
@@ -266,7 +266,7 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
 
                         <a
                           href="/case-studies"
-                          className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-700 dark:text-slate-200 hover:text-navy-700 dark:hover:text-white transition-colors"
+                          className="-my-2 inline-flex min-h-11 items-center gap-1.5 py-2 text-xs font-bold uppercase tracking-widest text-slate-700 dark:text-slate-200 hover:text-navy-700 dark:hover:text-white transition-colors"
                         >
                           <span>About these examples</span>
                           <ExternalLink className="h-3.5 w-3.5" />
@@ -281,15 +281,20 @@ export default function StageProjectsShowcase({}: StageProjectsShowcaseProps) {
         </div>
 
         {/* Carousel Indicators Bullet controls */}
-        <div className="py-3.5 bg-slate-50/50 dark:bg-ink-800/50 border-t border-slate-200 dark:border-white/10 flex items-center justify-center gap-2">
+        <div className="py-1 bg-slate-50/50 dark:bg-ink-800/50 border-t border-slate-200 dark:border-white/10 flex items-center justify-center gap-1">
           {projects.map((_, pIdx) => (
             <button
               key={pIdx}
               onClick={() => setActiveIdx(pIdx)}
               aria-label={`Show example ${pIdx + 1} of ${projects.length}`}
               aria-current={pIdx === activeIdx ? "true" : undefined}
-              className={`h-2 rounded-full transition-all duration-300 ${pIdx === activeIdx ? "w-6 bg-navy-700 dark:bg-navy-400" : "w-2 bg-slate-300 dark:bg-slate-600 hover:bg-slate-400 dark:hover:bg-slate-500"}`}
-            />
+              className="flex h-11 w-7 items-center justify-center"
+            >
+              <span
+                aria-hidden="true"
+                className={`block h-2 rounded-full transition-all duration-300 ${pIdx === activeIdx ? "w-6 bg-navy-700 dark:bg-navy-400" : "w-2 bg-slate-300 dark:bg-slate-600 hover:bg-slate-400 dark:hover:bg-slate-500"}`}
+              />
+            </button>
           ))}
         </div>
       </div>

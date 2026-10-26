@@ -13,7 +13,7 @@ export default function AuthorBox({ author }: { author: Author }) {
         H
       </div>
       <div>
-        <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Written by</span>
+        <span className="text-[11px] font-bold uppercase tracking-widest text-slate-400">Written by</span>
         <p className="mt-1 font-display text-base font-bold text-slate-900 dark:text-white">
           <a href={author.url} className="hover:underline">
             {author.name}

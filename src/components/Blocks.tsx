@@ -139,7 +139,7 @@ export default function Blocks({ blocks }: { blocks: Block[] }) {
                 {block.link && (
                   <a
                     href={block.link.href}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-navy-700 dark:text-navy-300 hover:underline"
+                    className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-navy-700 dark:text-navy-300 hover:underline"
                   >
                     {block.link.label}
                     <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />

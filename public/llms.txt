@@ -65,6 +65,7 @@ Practical guides with linked sources. Feed: https://heliumsol.com/blog/feed.xml
 - [Core Web Vitals explained for business owners](https://heliumsol.com/blog/core-web-vitals-for-business-owners): LCP, INP and CLS, Google's thresholds, and what to ask a developer.
 - [Native vs cross-platform mobile apps](https://heliumsol.com/blog/native-vs-cross-platform-mobile-apps): Swift and Kotlin versus React Native and Flutter, and how to choose.
 - [What can you automate with n8n?](https://heliumsol.com/blog/what-can-you-automate-with-n8n): twelve workflows worth building first, and what to leave manual.
+- [What should a small business website cost?](https://heliumsol.com/blog/small-business-website-cost): the one-off build cost and the running cost explained separately, what drives each, and what to check in a quote.
 
 ## Pages
 

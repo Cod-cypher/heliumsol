@@ -35,7 +35,7 @@ export default function ServicesIndexPage() {
               >
                 <h2 className="font-display text-xl font-bold tracking-tight text-slate-900 dark:text-white">{s.name}</h2>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{s.summary}</p>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-navy-700 dark:text-navy-300">
+                <span className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-navy-700 dark:text-navy-300">
                   Read about {s.name.toLowerCase()}
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
                 </span>

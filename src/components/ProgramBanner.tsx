@@ -42,7 +42,7 @@ export default function ProgramBanner({ source, text = DEFAULT_TEXT, className =
           <a
             id={`program-banner-${source}-apply`}
             href={SIGNUP_PATH}
-            className="group inline-flex items-center justify-center gap-2 rounded-lg bg-navy-800 dark:bg-navy-600 px-4 py-2.5 text-sm font-semibold text-white shadow-soft hover:bg-navy-900 dark:hover:bg-navy-500 transition-colors"
+            className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-navy-800 dark:bg-navy-600 px-4 py-2.5 text-sm font-semibold text-white shadow-soft hover:bg-navy-900 dark:hover:bg-navy-500 transition-colors"
           >
             Apply for a place
             <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
@@ -50,7 +50,7 @@ export default function ProgramBanner({ source, text = DEFAULT_TEXT, className =
           <a
             id={`program-banner-${source}-details`}
             href={PROGRAM_PATH}
-            className="inline-flex items-center justify-center rounded-lg border border-navy-200 dark:border-white/15 px-4 py-2.5 text-sm font-semibold text-navy-800 dark:text-navy-100 hover:bg-white dark:hover:bg-white/5 transition-colors"
+            className="inline-flex min-h-11 items-center justify-center rounded-lg border border-navy-200 dark:border-white/15 px-4 py-2.5 text-sm font-semibold text-navy-800 dark:text-navy-100 hover:bg-white dark:hover:bg-white/5 transition-colors"
           >
             How the program works
           </a>

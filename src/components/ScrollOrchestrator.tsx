@@ -92,7 +92,7 @@ export default function ScrollOrchestrator() {
           railVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4 pointer-events-none"
         }`}
       >
-        <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em] text-left block mb-1">
+        <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em] text-left block mb-1">
           Canvas Hub
         </span>
         <div className="flex flex-col gap-4 relative">
@@ -130,7 +130,7 @@ export default function ScrollOrchestrator() {
                 </div>
 
                 <div className="flex flex-col text-left">
-                  <span className={`text-[9px] font-mono font-bold tracking-wider leading-none uppercase ${isActive ? "text-navy-700 dark:text-navy-300" : "text-slate-400 dark:text-slate-500"}`}>
+                  <span className={`text-[11px] font-mono font-bold tracking-wider leading-none uppercase ${isActive ? "text-navy-700 dark:text-navy-300" : "text-slate-400 dark:text-slate-500"}`}>
                     {stage.title}
                   </span>
                   <span className={`text-[11px] font-bold font-sans mt-0.5 ${isActive ? "text-slate-850 dark:text-white font-semibold" : "text-slate-500 dark:text-slate-400 group-hover:text-slate-800 dark:group-hover:text-slate-200"}`}>

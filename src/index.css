@@ -104,6 +104,21 @@ h1, h2, h3 {
   letter-spacing: -0.02em;
 }
 
+/* A long word or URL must wrap rather than widen the page on a phone. */
+body {
+  overflow-wrap: break-word;
+}
+.prose-post a,
+.prose-post li,
+.prose-post p {
+  overflow-wrap: anywhere;
+}
+
+/* Taps should not wait on a double-tap-to-zoom check. */
+a, button, [role="button"], input, select, textarea, summary {
+  touch-action: manipulation;
+}
+
 .font-serif {
   font-family: var(--font-serif);
   font-style: normal;
@@ -378,7 +393,9 @@ h1, h2, h3 {
   display: block;
   overflow-x: auto;
 }
+/* Keeps columns readable; the table scrolls sideways rather than squashing. */
 .prose-post th, .prose-post td {
+  min-width: 8.5rem;
   border: 1px solid #e2e8f0;
   padding: 0.6rem 0.8rem;
   text-align: left;

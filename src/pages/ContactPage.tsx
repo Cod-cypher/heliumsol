@@ -58,13 +58,13 @@ export default function ContactPage() {
           </h2>
           <ul className="mt-4 space-y-3 text-sm text-slate-600 dark:text-slate-400">
             <li>
-              <a href={`mailto:${CONTACT.email}`} className="inline-flex items-center gap-2.5 hover:text-navy-700 dark:hover:text-white transition-colors">
+              <a href={`mailto:${CONTACT.email}`} className="inline-flex min-h-11 items-center gap-2.5 hover:text-navy-700 dark:hover:text-white transition-colors">
                 <Mail className="h-4 w-4" aria-hidden="true" />
                 {CONTACT.email}
               </a>
             </li>
             <li>
-              <a href={`tel:${CONTACT.phone.replace(/[^+\d]/g, "")}`} className="inline-flex items-center gap-2.5 hover:text-navy-700 dark:hover:text-white transition-colors">
+              <a href={`tel:${CONTACT.phone.replace(/[^+\d]/g, "")}`} className="inline-flex min-h-11 items-center gap-2.5 hover:text-navy-700 dark:hover:text-white transition-colors">
                 <Phone className="h-4 w-4" aria-hidden="true" />
                 {CONTACT.phone}
               </a>
@@ -73,7 +73,7 @@ export default function ContactPage() {
               <button
                 type="button"
                 onClick={() => openChatWidget()}
-                className="inline-flex items-center gap-2.5 hover:text-navy-700 dark:hover:text-white transition-colors cursor-pointer"
+                className="inline-flex min-h-11 items-center gap-2.5 hover:text-navy-700 dark:hover:text-white transition-colors cursor-pointer"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />
                 Chat with our AI assistant

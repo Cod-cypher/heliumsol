@@ -19,7 +19,10 @@ export default function Breadcrumbs({ items }: { items: Crumb[] }) {
                   {item.name}
                 </span>
               ) : (
-                <a href={item.href} className="hover:text-navy-700 dark:hover:text-white transition-colors">
+                <a
+                  href={item.href}
+                  className="-my-3 inline-flex min-h-11 items-center py-3 hover:text-navy-700 dark:hover:text-white transition-colors"
+                >
                   {item.name}
                 </a>
               )}

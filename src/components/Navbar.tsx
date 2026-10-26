@@ -31,7 +31,7 @@ export default function Navbar() {
           className="flex items-center justify-between rounded-xl border border-slate-200/80 dark:border-white/10 bg-white/85 dark:bg-ink-900/80 px-4 sm:px-6 py-3 sm:py-3.5 shadow-soft backdrop-blur-xl"
         >
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2.5 group">
+          <a href="/" className="group -my-1 flex min-h-11 items-center gap-2.5 py-1">
             <div className="relative flex h-8.5 w-8.5 items-center justify-center rounded-lg bg-navy-800 dark:bg-navy-600 shadow-inner group-hover:scale-105 transition-transform duration-300">
               <span aria-hidden="true" className="font-display text-base font-extrabold text-white leading-none">H</span>
             </div>
@@ -82,14 +82,16 @@ export default function Navbar() {
           </div>
 
           {/* Right-side controls */}
-          <div className="flex items-center gap-2">
-            <ThemeToggle />
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <span className="hidden lg:block">
+              <ThemeToggle />
+            </span>
 
             {/* The free offer button is the one CTA that is always in view, on every screen size. */}
             <a
               id="nav-free-offer"
               href={SIGNUP_PATH}
-              className="group flex items-center gap-2 rounded-lg bg-navy-800 dark:bg-navy-600 px-3.5 sm:px-5 py-2.5 text-[11px] font-semibold uppercase tracking-wide text-white shadow-soft hover:bg-navy-900 dark:hover:bg-navy-500 transition-all duration-300"
+              className="group flex min-h-11 items-center gap-2 whitespace-nowrap rounded-lg bg-navy-800 dark:bg-navy-600 px-3 sm:px-5 py-2.5 text-[12px] font-semibold uppercase tracking-wide text-white shadow-soft hover:bg-navy-900 dark:hover:bg-navy-500 transition-all duration-300"
             >
               <span className="sm:hidden">Free site + bot</span>
               <span className="hidden sm:inline">Free website + chatbot</span>
@@ -99,7 +101,7 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="rounded-lg p-1.5 text-slate-500 hover:bg-slate-50 hover:text-slate-800 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-white lg:hidden"
+              className="-mr-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-50 hover:text-slate-800 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-white lg:hidden"
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu"
@@ -117,27 +119,27 @@ export default function Navbar() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="mx-auto mt-2 max-w-7xl rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-ink-900 p-5 shadow-xl lg:hidden max-h-[80vh] overflow-y-auto"
+          className="mx-auto mt-2 max-w-7xl overflow-y-auto overscroll-contain rounded-2xl border border-slate-200 bg-white p-4 shadow-xl dark:border-white/10 dark:bg-ink-900 lg:hidden max-h-[calc(100dvh-7rem)]"
         >
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-medium text-slate-600 dark:text-slate-300 hover:text-navy-700 dark:hover:text-white py-1 transition-colors"
+                className="flex min-h-11 items-center text-base font-medium text-slate-600 dark:text-slate-300 hover:text-navy-700 dark:hover:text-white transition-colors"
               >
                 {link.label}
               </a>
             ))}
             {SERVICES.length > 0 && (
-              <ul className="ml-3 border-l border-slate-200 dark:border-white/10 pl-4 flex flex-col gap-2">
+              <ul className="ml-3 border-l border-slate-200 dark:border-white/10 pl-4 flex flex-col">
                 {SERVICES.map((s) => (
                   <li key={s.slug}>
                     <a
                       href={`/services/${s.slug}`}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="text-sm text-slate-500 dark:text-slate-400 hover:text-navy-700 dark:hover:text-white"
+                      className="flex min-h-11 items-center text-sm text-slate-500 dark:text-slate-400 hover:text-navy-700 dark:hover:text-white"
                     >
                       {s.name}
                     </a>
@@ -145,19 +147,23 @@ export default function Navbar() {
                 ))}
               </ul>
             )}
-            <div className="mt-2 h-px bg-slate-100 dark:bg-white/10" />
-            <div className="flex flex-col gap-2 pt-2">
+            <div className="mt-3 h-px bg-slate-100 dark:bg-white/10" />
+            <div className="flex min-h-11 items-center justify-between">
+              <span className="text-sm text-slate-500 dark:text-slate-400">Appearance</span>
+              <ThemeToggle />
+            </div>
+            <div className="flex flex-col gap-2 pt-3">
               <a
                 href={SIGNUP_PATH}
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-lg bg-navy-800 dark:bg-navy-600 text-center py-2.5 text-sm font-medium text-white shadow-sm hover:bg-navy-900 dark:hover:bg-navy-500"
+                className="flex min-h-12 items-center justify-center rounded-lg bg-navy-800 dark:bg-navy-600 text-center text-sm font-semibold text-white shadow-sm hover:bg-navy-900 dark:hover:bg-navy-500"
               >
                 Get a free website + chatbot
               </a>
               <a
                 href={BOOKING_URL}
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-lg border border-slate-200 dark:border-white/10 text-center py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-white/5"
+                className="flex min-h-12 items-center justify-center rounded-lg border border-slate-200 dark:border-white/10 text-center text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-white/5"
               >
                 Contact us
               </a>

@@ -23,7 +23,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-wider text-slate-600 dark:text-slate-300 shadow-soft backdrop-blur-xs mb-8 hover:border-navy-200 dark:hover:border-white/20 transition-all duration-300"
         >
           <Sparkles className="h-3 w-3 text-navy-600 dark:text-navy-300" />
-          <span className="uppercase tracking-[0.1em] text-[10px]">Full-Service Digital Agency</span>
+          <span className="uppercase tracking-[0.1em] text-[11px]">Full-Service Digital Agency</span>
         </motion.div>
 
         {/* Headline with subtle accent contrast */}
@@ -96,7 +96,7 @@ export default function Hero() {
               key={index}
               className="flex flex-col items-center p-5 rounded-xl border border-slate-200/70 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-xs text-center hover:bg-white dark:hover:bg-white/10 hover:border-navy-200 dark:hover:border-white/20 hover:shadow-soft transition-all duration-300"
             >
-              <span className="text-[10px] font-bold tracking-widest uppercase text-navy-600/70 dark:text-navy-300/80 block mb-1 font-display">{item.label}</span>
+              <span className="text-[11px] font-bold tracking-widest uppercase text-navy-600/70 dark:text-navy-300/80 block mb-1 font-display">{item.label}</span>
               <span className="text-xs font-semibold text-slate-800 dark:text-slate-200">{item.text}</span>
             </div>
           ))}
@@ -114,7 +114,7 @@ export default function Hero() {
             document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
           }}
         >
-          <span className="text-[9px] font-bold tracking-[0.2em] uppercase">See what we do</span>
+          <span className="text-[11px] font-bold tracking-[0.2em] uppercase">See what we do</span>
           <ArrowDownRight className="h-4 w-4 rotate-45" />
         </motion.div>
       </div>

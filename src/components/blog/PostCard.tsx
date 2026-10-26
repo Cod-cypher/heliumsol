@@ -37,7 +37,7 @@ export default function PostCard({ post, priority = false }: { post: Post; prior
         <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{post.description}</p>
         <a
           href={post.path}
-          className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-navy-700 dark:text-navy-300"
+          className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-navy-700 dark:text-navy-300"
         >
           Read the guide
           <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />

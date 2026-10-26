@@ -48,7 +48,7 @@ export default function LegalPage({ doc }: { doc: LegalDoc }) {
         <a
           href="/"
           onClick={goHome}
-          className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400 hover:text-navy-700 dark:hover:text-white transition-colors"
+          className="group -my-2 inline-flex min-h-11 items-center gap-2 py-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400 hover:text-navy-700 dark:hover:text-white transition-colors"
         >
           <ArrowLeft className="h-3.5 w-3.5 group-hover:-translate-x-0.5 transition-transform" />
           Back to homepage

@@ -61,7 +61,7 @@ export default function Process() {
               >
                 <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-xl bg-navy-800 dark:bg-navy-600 text-white shadow-soft">
                   <Icon className="h-5 w-5 stroke-[1.8]" />
-                  <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-white dark:bg-ink-800 border border-slate-200 dark:border-white/15 text-[10px] font-bold text-navy-700 dark:text-navy-200">
+                  <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-white dark:bg-ink-800 border border-slate-200 dark:border-white/15 text-[11px] font-bold text-navy-700 dark:text-navy-200">
                     {index + 1}
                   </span>
                 </div>

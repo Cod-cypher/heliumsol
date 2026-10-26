@@ -359,7 +359,7 @@ export default function SignupForm() {
             ['Timing', s3],
           ].map(([name, ok], i) => (
             <li key={String(name)}>
-              <a href={`#signup-section-${i + 1}`} className="block">
+              <a href={`#signup-section-${i + 1}`} className="flex min-h-11 flex-col justify-center">
                 <span className={`block h-1.5 rounded-full ${ok ? 'bg-emerald-500' : 'bg-slate-200 dark:bg-white/10'}`} />
                 <span className="mt-1 block text-[11px] font-medium text-slate-500 dark:text-slate-400">
                   {i + 1}. {String(name)}
@@ -542,7 +542,7 @@ export default function SignupForm() {
             id="signup-submit"
             type="submit"
             disabled={status === 'submitting'}
-            className="group inline-flex w-full sm:w-auto shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-navy-800 dark:bg-navy-600 px-8 py-4 text-base font-semibold text-white shadow-card hover:bg-navy-900 dark:hover:bg-navy-500 disabled:opacity-60 transition-all"
+            className="group inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-lg bg-navy-800 dark:bg-navy-600 px-5 py-4 text-center text-base font-semibold text-white shadow-card hover:bg-navy-900 dark:hover:bg-navy-500 disabled:opacity-60 transition-all sm:w-auto sm:whitespace-nowrap sm:px-8"
           >
             {status === 'submitting' ? (
               <>

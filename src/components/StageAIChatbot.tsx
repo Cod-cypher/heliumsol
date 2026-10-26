@@ -74,7 +74,7 @@ export default function StageAIChatbot() {
 
       {/* Header text introducing Stage */}
       <div className="text-center max-w-xl mx-auto mb-12 relative z-10 select-none">
-        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-navy-600 dark:text-navy-300 block mb-3 font-display">
+        <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-navy-600 dark:text-navy-300 block mb-3 font-display">
           Module 03 — AI Assistant
         </span>
         <h2 className="text-3xl sm:text-5xl font-display font-semibold text-slate-900 dark:text-white leading-tight">
@@ -101,7 +101,7 @@ export default function StageAIChatbot() {
             <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-slate-700 pointer-events-none" />
 
             <div className="w-full text-center">
-              <span className="text-[9px] font-mono font-bold tracking-[0.15em] text-navy-300 uppercase block mb-1">
+              <span className="text-[11px] font-mono font-bold tracking-[0.15em] text-navy-300 uppercase block mb-1">
                 Cognitive Host
               </span>
               <h3 className="text-xs font-bold text-white uppercase tracking-wider font-display">
@@ -189,7 +189,7 @@ export default function StageAIChatbot() {
             </motion.div>
 
             {/* Live telemetry list */}
-            <div className="w-full text-[9px] font-mono text-slate-400 space-y-2.5 pt-4 border-t border-slate-800">
+            <div className="w-full text-[11px] font-mono text-slate-400 space-y-2.5 pt-4 border-t border-slate-800">
               <div className="flex justify-between items-center">
                 <span>SYSTEM STATUS</span>
                 <span className="text-emerald-400 font-bold flex items-center gap-1">
@@ -264,7 +264,7 @@ export default function StageAIChatbot() {
               key={id}
               onClick={() => void sendText(item)}
               disabled={sending || awaitingReply}
-              className="text-[10px] sm:text-[11.5px] font-semibold text-slate-500 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white border border-slate-200 dark:border-white/10 bg-white dark:bg-ink-800 hover:bg-slate-50 dark:hover:bg-ink-700 px-3.5 py-1.5 rounded-full shadow-3xs cursor-pointer transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="text-[11px] sm:text-[12px] font-semibold text-slate-500 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white border border-slate-200 dark:border-white/10 bg-white dark:bg-ink-800 hover:bg-slate-50 dark:hover:bg-ink-700 inline-flex min-h-11 items-center rounded-full px-4 py-2.5 shadow-3xs cursor-pointer transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {item}
             </button>

@@ -120,12 +120,12 @@ function CodeEditorCard({
           <div className="h-2 w-2 rounded-full bg-emerald-450" />
         </div>
 
-        <div className="flex items-center gap-1.5 rounded-md border border-slate-200/80 dark:border-white/10 bg-white dark:bg-ink-900 px-2.5 py-0.5 font-mono text-[10px] text-slate-500 dark:text-slate-400 shadow-3xs font-semibold">
+        <div className="flex items-center gap-1.5 rounded-md border border-slate-200/80 dark:border-white/10 bg-white dark:bg-ink-900 px-2.5 py-0.5 font-mono text-[11px] text-slate-500 dark:text-slate-400 shadow-3xs font-semibold">
           {icon}
           <span>{name}</span>
         </div>
 
-        <div className="flex items-center gap-1.5 text-[9px] font-mono text-slate-455">
+        <div className="flex items-center gap-1.5 text-[11px] font-mono text-slate-455">
           {isCurrentlyTyping ? (
             <span className="text-navy-700 font-bold flex items-center gap-1">
               <span className="h-1.5 w-1.5 rounded-full bg-navy-600 animate-ping" />
@@ -145,15 +145,15 @@ function CodeEditorCard({
       {/* Editor Content Area */}
       <div 
         ref={editorRef}
-        className="flex-1 p-3.5 md:p-4.5 overflow-y-auto overflow-x-auto font-mono text-[10px] md:text-[11.5px] text-left text-slate-700 dark:text-slate-300 bg-white dark:bg-ink-900 leading-relaxed select-all scrollbar-thin"
+        className="flex-1 p-3.5 md:p-4.5 overflow-y-auto overflow-x-auto font-mono text-[11px] md:text-[12px] text-left text-slate-700 dark:text-slate-300 bg-white dark:bg-ink-900 leading-relaxed select-all scrollbar-thin"
       >
-        <span className={`block mb-1.5 font-semibold text-[9.5px] md:text-[10px] text-${highlightColor}-600`}>
+        <span className={`block mb-1.5 font-semibold text-[9.5px] md:text-[11px] text-${highlightColor}-600`}>
           {headerComment}
         </span>
         
         {lineRenderData.map((lineData, lIdx) => (
           <div key={lIdx} className="prefix-editor-line min-h-[1.1rem] flex items-start">
-            <span className="w-5 text-slate-500 dark:text-slate-500 pr-2 text-right select-none text-[8.5px] md:text-[9px] leading-5 font-semibold">
+            <span className="w-5 text-slate-500 dark:text-slate-500 pr-2 text-right select-none text-[8.5px] md:text-[11px] leading-5 font-semibold">
               {String(lIdx + 1).padStart(2, "0")}
             </span>
             <span className="pl-0.5 whitespace-pre leading-5 text-slate-700 dark:text-slate-300 flex-1 relative">
@@ -191,7 +191,7 @@ function CodeEditorCard({
       </div>
 
       {/* Footer bar */}
-      <div className="px-4 py-1.5 bg-slate-50 dark:bg-ink-800 border-t border-slate-150 dark:border-white/10 flex items-center justify-between text-[9px] text-slate-400 dark:text-slate-500 font-mono select-none rounded-b-xl">
+      <div className="px-4 py-1.5 bg-slate-50 dark:bg-ink-800 border-t border-slate-150 dark:border-white/10 flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500 font-mono select-none rounded-b-xl">
         <span className="flex items-center gap-1 font-semibold text-slate-500">
           {isFullyComplete ? (
             <span className="text-emerald-600 font-bold flex items-center gap-1">
@@ -359,20 +359,20 @@ export default function StageCodeIntro({}: StageCodeIntroProps) {
         <div className="absolute inset-0 grid-lines bg-[size:4rem] pointer-events-none" />
 
         {/* Floating status tag */}
-        <div className="absolute left-6 top-6 md:top-24 z-30 hidden sm:flex items-center gap-2 border border-slate-200 dark:border-white/10 bg-white dark:bg-ink-900 py-1 px-2.5 rounded-lg text-[9px] font-mono text-slate-400 dark:text-slate-500 font-bold shadow-soft uppercase select-none">
+        <div className="absolute left-6 top-6 md:top-24 z-30 hidden sm:flex items-center gap-2 border border-slate-200 dark:border-white/10 bg-white dark:bg-ink-900 py-1 px-2.5 rounded-lg text-[11px] font-mono text-slate-400 dark:text-slate-500 font-bold shadow-soft uppercase select-none">
           <span className="h-1.5 w-1.5 rounded-full bg-navy-600 animate-pulse" />
           <span>SYNTH_PIPELINE: {Math.round(scrollVal * 100)}%</span>
         </div>
 
         {/* Header - Configured with proper safe margins to avoid any overlaps with the code card stack */}
         <div className="absolute top-6 md:top-14 left-0 right-0 text-center max-w-xl mx-auto z-10 px-4 select-none">
-          <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-navy-600 dark:text-navy-300 block mb-2 font-display">
+          <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-navy-600 dark:text-navy-300 block mb-2 font-display">
             Module 01 — Synthesizer
           </span>
           <h2 className="text-2xl sm:text-4xl font-display font-semibold text-slate-900 dark:text-white leading-tight">
             Code Synthesis Loop
           </h2>
-          <p className="text-[11.5px] sm:text-xs text-slate-500 dark:text-slate-400 mt-2 font-sans leading-relaxed max-w-md mx-auto">
+          <p className="text-[12px] sm:text-xs text-slate-500 dark:text-slate-400 mt-2 font-sans leading-relaxed max-w-md mx-auto">
             Scroll down to watch code stack expand. First <b>server.py</b> types, then <b>AGENTS.md</b>, and finally <b>App.tsx</b> structures.
           </p>
         </div>

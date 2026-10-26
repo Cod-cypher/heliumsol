@@ -195,7 +195,7 @@ export default function StageAutomationEngine({ progress = 0.55 }: StageAutomati
       
       {/* Editorial Title */}
       <div className="text-center max-w-xl mx-auto mb-8 select-none">
-        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-navy-600 dark:text-navy-300 block mb-2 font-display">
+        <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-navy-600 dark:text-navy-300 block mb-2 font-display">
           04 — Intelligence Canvas
         </span>
         <h2 className="text-2xl sm:text-4xl font-display font-semibold text-slate-800 dark:text-white">
@@ -222,10 +222,10 @@ export default function StageAutomationEngine({ progress = 0.55 }: StageAutomati
           </div>
           
           <div className="flex items-center gap-3">
-            <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500">
+            <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500">
               Flow Rate: {(speedFactor * 10).toFixed(1)}x
             </span>
-            <span className="text-[10px] font-mono text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100">
+            <span className="text-[11px] font-mono text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100">
               Live Workspace Active
             </span>
           </div>
@@ -331,7 +331,7 @@ export default function StageAutomationEngine({ progress = 0.55 }: StageAutomati
                           {renderNodeIcon(node.icon)}
                         </div>
                         <div className="text-left leading-tight">
-                          <p className="text-[10px] font-bold text-slate-800 uppercase tracking-tight">
+                          <p className="text-[11px] font-bold text-slate-800 uppercase tracking-tight">
                             {node.label}
                           </p>
                         </div>
@@ -362,7 +362,7 @@ export default function StageAutomationEngine({ progress = 0.55 }: StageAutomati
         </div>
 
         {/* Live Logger Footer Panel */}
-        <div className="bg-slate-900 rounded-xl p-3 text-left font-mono text-[9px] sm:text-[10px] text-zinc-300 mt-4 flex items-center gap-4 overflow-x-auto min-h-[38px] select-none">
+        <div className="bg-slate-900 rounded-xl p-3 text-left font-mono text-[11px] sm:text-[11px] text-zinc-300 mt-4 flex items-center gap-4 overflow-x-auto min-h-[38px] select-none">
           <div className="flex items-center gap-1.5 text-emerald-400 border-r border-slate-800 pr-3 shrink-0">
             <CheckCircle2 className="h-3.5 w-3.5" />
             <span>LOGGER DRAG STATUS: ACTIVE</span>

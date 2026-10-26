@@ -95,7 +95,7 @@ function Bubble({ message }: { message: ChatMessageDTO }) {
     <div className={mine ? 'flex justify-end' : 'flex justify-start'}>
       <div className="max-w-[85%]">
         {!mine && message.authorLabel && (
-          <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1">
+          <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1">
             {message.authorLabel}
           </p>
         )}

@@ -121,7 +121,7 @@ export default function ChatConversation({
           type="submit"
           disabled={!draft.trim() || sending || closed}
           aria-label="Send message"
-          className="shrink-0 h-10 w-10 grid place-items-center rounded-lg bg-navy-800 dark:bg-navy-600 text-white shadow-soft hover:bg-navy-900 dark:hover:bg-navy-500 active:scale-95 transition-all cursor-pointer disabled:bg-slate-200 disabled:text-slate-400 dark:disabled:bg-white/10 dark:disabled:text-slate-500 disabled:cursor-not-allowed"
+          className="shrink-0 h-11 w-11 grid place-items-center rounded-lg bg-navy-800 dark:bg-navy-600 text-white shadow-soft hover:bg-navy-900 dark:hover:bg-navy-500 active:scale-95 transition-all cursor-pointer disabled:bg-slate-200 disabled:text-slate-400 dark:disabled:bg-white/10 dark:disabled:text-slate-500 disabled:cursor-not-allowed"
         >
           <ArrowUp className="h-4 w-4" aria-hidden="true" />
         </button>

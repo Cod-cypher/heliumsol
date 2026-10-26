@@ -104,7 +104,10 @@ export default function PostPage({ slug }: { slug: string }) {
                 .filter((h) => h.depth === 2)
                 .map((h) => (
                   <li key={h.id}>
-                    <a href={`#${h.id}`} className="text-slate-700 dark:text-slate-200 hover:text-navy-700 dark:hover:text-navy-300">
+                    <a
+                      href={`#${h.id}`}
+                      className="flex min-h-11 items-center text-slate-700 dark:text-slate-200 hover:text-navy-700 dark:hover:text-navy-300"
+                    >
                       {h.text}
                     </a>
                   </li>

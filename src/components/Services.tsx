@@ -72,7 +72,7 @@ export default function Services() {
                   <h3 className="text-lg font-semibold text-slate-900 dark:text-white tracking-tight">
                     {service.name}
                   </h3>
-                  <span className="text-[9px] font-bold uppercase tracking-wider text-navy-600/70 dark:text-navy-300 bg-navy-50 dark:bg-navy-900/50 border border-navy-100 dark:border-navy-800 px-1.5 py-0.5 rounded">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-navy-600/70 dark:text-navy-300 bg-navy-50 dark:bg-navy-900/50 border border-navy-100 dark:border-navy-800 px-1.5 py-0.5 rounded">
                     {service.tag}
                   </span>
                 </div>
